@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp',
   ['ngRoute', 'firebase'])
-  .constant('FIREBASE_URL', 'nsf-class-selector.firebaseio.com');
+  .constant('FIREBASE_URL', 'https://nsf-class-selector.firebaseio.com/');
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
