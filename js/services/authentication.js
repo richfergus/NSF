@@ -18,7 +18,7 @@ myApp.factory('Authentication',
   });
 
 
-  return {
+  var myObject = {
     login: function(user) {
       auth.$authWithPassword({
         email: user.email,
@@ -33,6 +33,10 @@ myApp.factory('Authentication',
     logout: function() {
       return auth.$unauth();
     }, //logout
+
+    requireAuth: function(){
+      return auth.$requireAuth();
+    },// require Authentication
 
     register: function(user) {
       auth.$createUser({
@@ -49,13 +53,14 @@ myApp.factory('Authentication',
           email:  user.email
         }); //user info
 
-        $location.path('/login');
-        // $rootScope.message = "Hi " + user.firstname +
-        // ", Thanks for registering";
+        myObject.login(user);
+
       }).catch(function(error) {
         $rootScope.message = error.message;
       }); // //createUser
     } // register
-  };  
+  };
+
+return myObject;
 
 }]); //factory
