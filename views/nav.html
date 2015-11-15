@@ -1,7 +1,8 @@
-  <div class="branding"><a ng-href="#/">angularJS</a></div>
-  <ul>
+  <div class="branding"><a ng-href="#/">NSF Class Selector</a></div>
+  <ul ng-controller="RegistrationController">
     <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
     <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
     <li><a ng-show="currentUser" ng-href="#/classes">Classes</a></li>
     <li><a ng-show="currentUser" ng-href="#/myclasses">My Classes</a></li>
+    <li><a ng-show="currentUser" ng-href="#/login" ng-click="logout()">{{ currentUser.firstname}} Logout</a></li>
   </ul>

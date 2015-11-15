@@ -25,6 +25,14 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/register.html',
       controller: 'RegistrationController'
     }).
+    when('/myclasses', {
+      templateUrl: 'views/myclasses.html',
+      controller: 'RegistrationController'
+    }).
+    when('/classes', {
+      templateUrl: 'views/classes.html',
+      controller: 'RegistrationController'
+    }).
     when('/success', {
       templateUrl: 'views/success.html',
       controller: 'SuccessController',
