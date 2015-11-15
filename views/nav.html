@@ -1,10 +1,35 @@
-  <div class="branding"><a ng-href="#/">NSF Class Selector</a></div>
-  <ul ng-controller="RegistrationController">
-    <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
-    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
-    <li><a ng-show="currentUser" ng-href="#/classes">Classes</a></li>
-    <li><a ng-show="currentUser" ng-href="#/myclasses">My Classes</a></li>
-    <li><a ng-show="currentUser" ng-href="#/login" ng-click="logout()">{{ currentUser.firstname}} Logout</a></li>
-  </ul>
-  
-
+  <div ng-controller="RegistrationController">
+    
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">National Secuirty Fellows Class Selection</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" collapse="navCollapsed">
+        <ul class="nav navbar-nav navbar-right">
+          	<li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
+		    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
+		    <li><a ng-show="currentUser" ng-href="#/classes">Classes</a></li>
+		    <li><a ng-show="currentUser" ng-href="#/myclasses">My Classes</a></li>
+          <li ng-show="currentUser" class="dropdown" dropdown="">
+            <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">{{ currentUser.firstname}}               <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a  ng-click="logout()" href="#">Logout</a>
+              </li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+</div>
