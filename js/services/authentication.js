@@ -28,7 +28,7 @@ myApp.factory('Authentication',
       }).catch(function(error) {
        $rootScope.message = error.message;
       });
-    }, //login
+    },//login
 
     logout: function() {
       return auth.$unauth();
@@ -49,12 +49,13 @@ myApp.factory('Authentication',
           email:  user.email
         }); //user info
 
-        $rootScope.message = "Hi " + user.firstname +
-        ", Thanks for registering";
+        $location.path('/login');
+        // $rootScope.message = "Hi " + user.firstname +
+        // ", Thanks for registering";
       }).catch(function(error) {
         $rootScope.message = error.message;
       }); // //createUser
     } // register
-  };
+  };  
 
 }]); //factory
