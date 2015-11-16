@@ -31,6 +31,7 @@ myApp.factory('Authentication',
     },//login
 
     logout: function() {
+     
       return auth.$unauth();
     }, //logout
 

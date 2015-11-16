@@ -54,7 +54,7 @@ function AngularWayChangeDataCtrl($resource, DTOptionsBuilder, DTColumnDefBuilde
     function _buildCourse2Add(Number) {
         return {
             Number: 'Number',
-            Days: 'Days',
+            Title: '[Course]Title',
             Semester: 'Semester'
         };
     }

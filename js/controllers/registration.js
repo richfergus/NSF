@@ -8,6 +8,7 @@ myApp.controller('RegistrationController',
 
   $scope.logout = function() {
     Authentication.logout();
+    
   }; //logout
 
   $scope.register = function() {
