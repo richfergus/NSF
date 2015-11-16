@@ -1,0 +1,1682 @@
+[
+  {
+    "Number":"DPI-802M-B",
+    "Course Title":"The Arts of Communication",
+    "Days":"T/Th 4:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Timothy McCarthy"
+  },
+  {
+    "Number":"DPI-802M-C",
+    "Course Title":"The Arts of Communication",
+    "Days":"M/W 4:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Holly Weeks"
+  },
+  {
+    "Number":"DPI-802M-D",
+    "Course Title":"The Arts of Communication",
+    "Days":"M/W 4:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Allison Shapira"
+  },
+  {
+    "Number":"DPI-802M-E",
+    "Course Title":"The Arts of Communication",
+    "Days":"T/Th 4:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Timothy McCarthy"
+  },
+  {
+    "Number":"DPI-810M-A",
+    "Course Title":"Introduction to Writing for Policy and Politics",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod1",
+    "Faculty":"Greg Harris"
+  },
+  {
+    "Number":"DPI-810M-B",
+    "Course Title":"Introduction to Writing for Policy and Politics",
+    "Days":"M/W 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Alexandria Marzano-Lesnevich"
+  },
+  {
+    "Number":"DPI-810M-C",
+    "Course Title":"Introduction to Writing for Policy and Politics",
+    "Days":"M/W 1:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Greg Harris"
+  },
+  {
+    "Number":"DPI-810M-D",
+    "Course Title":"Introduction to Writing for Policy and Politics",
+    "Days":"M/W 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Alexandria Marzano-Lesnevich"
+  },
+  {
+    "Number":"DPI-811M-A",
+    "Course Title":"Advanced Intensive Writing for Policy and Politics",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Greg Harris"
+  },
+  {
+    "Number":"DPI-811M-B",
+    "Course Title":"Advanced Intensive Writing for Policy and Politics",
+    "Days":"M/W 1:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Greg Harris"
+  },
+  {
+    "Number":"DPI-820M-A",
+    "Course Title":"Policy Writing for Decision Makers",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod1",
+    "Faculty":"Lauren Brodsky"
+  },
+  {
+    "Number":"DPI-820M-B",
+    "Course Title":"Policy Writing for Decision Makers",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Lauren Brodsky"
+  },
+  {
+    "Number":"DPI-820M-C",
+    "Course Title":"Policy Writing for Decision Makers",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Lauren Brodsky"
+  },
+  {
+    "Number":"DPI-821M",
+    "Course Title":"Advanced Policy Writing for Decision Makers",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Morgan McVicar"
+  },
+  {
+    "Number":"DPI-830-A",
+    "Course Title":"Advanced Intensive Writing: Column and Opinion Writing",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Jeffrey Seglin"
+  },
+  {
+    "Number":"DPI-830-B",
+    "Course Title":"Advanced Intensive Writing: Column and Opinion Writing",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Jeffrey Seglin"
+  },
+  {
+    "Number":"DPI-840M",
+    "Course Title":"Advanced Intensive Writing:  Analytical Writing for Policy Journals and Other Publications",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Lauren Brodsky"
+  },
+  {
+    "Number":"IGA-100",
+    "Course Title":"International and Global Affairs:Concepts and Applications",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Stephen Walt"
+  },
+  {
+    "Number":"IGA-103",
+    "Course Title":"Global Governance",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"John Ruggie"
+  },
+  {
+    "Number":"IGA-105",
+    "Course Title":"The Politics of International Law",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Kathryn Sikkink"
+  },
+  {
+    "Number":"IGA-106M",
+    "Course Title":"The Politics of International Law: The International Criminal Court and the UN Security Council",
+    "Days":"M/T/W/Th/F 9:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Kathryn Sikkink, Luis Moreno Ocampo"
+  },
+  {
+    "Number":"IGA-109",
+    "Course Title":"Great Negotiators, Effective Diplomacy, and Intractable Conflicts,,1.0",
+    "Days":"Not Offered",
+    "Credits":"R. Nicholas Burns, Robert Mnookin, James Sebenius",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-110",
+    "Course Title":"Modern Diplomacy: Peace and War in the 21st Century",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"R. Nicholas Burns"
+  },
+  {
+    "Number":"IGA-112",
+    "Course Title":"The Politics and Ethics of Statecraft",
+    "Days":"M/W 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"J. Bryan Hehir"
+  },
+  {
+    "Number":"IGA-116",
+    "Course Title":"Great Power Competition in the International System",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"R. Nicholas Burns"
+  },
+  {
+    "Number":"IGA-121",
+    "Course Title":"Religion and World Politics: Connections and Collisions",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"J. Bryan Hehir"
+  },
+  {
+    "Number":"IGA-130M",
+    "Course Title":"International Regimes for Cyber Space",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod1",
+    "Faculty":"Joseph Nye"
+  },
+  {
+    "Number":"IGA-135",
+    "Course Title":"Ethics and Global Governance",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Mathias Risse"
+  },
+  {
+    "Number":"IGA-145M",
+    "Course Title":"Human Security: People-Centered Global Policy",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Kathryn Sikkink"
+  },
+  {
+    "Number":"IGA-150Y",
+    "Course Title":"Seminar: International and Global Affairs",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"Matthew Bunn"
+  },
+  {
+    "Number":"IGA-211",
+    "Course Title":"Central Challenges of American National Security, Strategy, and the Press,M 4:15 PM,1.0",
+    "Days":"Fall",
+    "Credits":"Graham Allison, David Sanger",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-217",
+    "Course Title":"U.S. Foreign Policy in a Global Age",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Fredrik Logevall"
+  },
+  {
+    "Number":"IGA-218M",
+    "Course Title":"Inclusive Security",
+    "Days":"M/T/W/Th/F 9:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Swanee Hunt"
+  },
+  {
+    "Number":"IGA-220",
+    "Course Title":"The Politics and Ethics of the Use of Force",
+    "Days":"M/W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"J. Bryan Hehir"
+  },
+  {
+    "Number":"IGA-224",
+    "Course Title":"Decision Making in Recent Crises",
+    "Days":"M/W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Meghan O'Sullivan"
+  },
+  {
+    "Number":"IGA-227",
+    "Course Title":"Insurgents, Terrorists, and Violence: Causes and Consequences of Civil War,M/W 10:15 AM,1.0",
+    "Days":"Spring",
+    "Credits":"Dara Kay Cohen",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-229",
+    "Course Title":"Sex, Violence, and Global Politics,M/W 10:15 AM,1.0",
+    "Days":"Fall",
+    "Credits":"Dara Kay Cohen",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-232",
+    "Course Title":"Controlling the World's Most Dangerous Weapons",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Matthew Bunn, William Tobey"
+  },
+  {
+    "Number":"IGA-236",
+    "Course Title":"Technology, Security, and Conflict in the Cyber Age,M/W 10:15 AM,1.0",
+    "Days":"Fall",
+    "Credits":"James Waldo",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-305",
+    "Course Title":"Childhood, Adolescence, Youth, and International Human Rights,M/W 11:45 AM,1.0",
+    "Days":"Fall",
+    "Credits":"Jacqueline Bhabha",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-331M",
+    "Course Title":"Business and Human Rights",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"John Ruggie"
+  },
+  {
+    "Number":"IGA-342M",
+    "Course Title":"Human Rights Dilemmas in Child Protection",
+    "Days":"T/Th 10:30 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Jacqueline Bhabha"
+  },
+  {
+    "Number":"IGA-343M",
+    "Course Title":"Child Protection in Theory and Practice",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Jacqueline Bhabha"
+  },
+  {
+    "Number":"IGA-344M",
+    "Course Title":"International Perspectives on Justice for Children",
+    "Days":"M/T/W/Th 9:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Jacqueline Bhabha, Cecile Aptel"
+  },
+  {
+    "Number":"IGA-347",
+    "Course Title":"Torture and Public Policy",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Douglas Johnson, Alberto Mora"
+  },
+  {
+    "Number":"IGA-351M",
+    "Course Title":"Human Trafficking and Modern Slavery",
+    "Days":"T 4:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Siddharth Kara"
+  },
+  {
+    "Number":"IGA-353M",
+    "Course Title":"Middle East Field Study Course: Assessing the Humanitarian Impact of Migration in North Africa",
+    "Days":"M/T/W/Th/F 9:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Claude Bruderlein"
+  },
+  {
+    "Number":"IGA-360",
+    "Course Title":"Sovereignty and Intervention",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Michael Ignatieff"
+  },
+  {
+    "Number":"IGA-365",
+    "Course Title":"Human Rights and Foreign Policy",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Michael Ignatieff"
+  },
+  {
+    "Number":"IGA-372",
+    "Course Title":"Human Rights and the Politics of Inclusion",
+    "Days":"T 6:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Charles Clements, Michael Stein"
+  },
+  {
+    "Number":"IGA-380M",
+    "Course Title":"Human Rights Advocacy Using Video, Social Media, and Participatory Media,M/T/W/Th/F 1:30 PM,0.5",
+    "Days":"January",
+    "Credits":"Sam Gregory",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-384",
+    "Course Title":"Tools and Tactics for Human Rights Practice",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Douglas Johnson"
+  },
+  {
+    "Number":"IGA-385",
+    "Course Title":"Strategizing for Human Rights:  Moving from Ideals to Practice",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Douglas Johnson"
+  },
+  {
+    "Number":"IGA-406",
+    "Course Title":"Policy Analysis and Design for Sustainable Development",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"William Clark"
+  },
+  {
+    "Number":"IGA-410",
+    "Course Title":"Energy Policy: Technologies, Systems, and Markets,M/W 4:15 PM,1.0",
+    "Days":"Fall",
+    "Credits":"Henry Lee",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-412",
+    "Course Title":"The Geopolitics of Energy",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Meghan O'Sullivan"
+  },
+  {
+    "Number":"IGA-422",
+    "Course Title":"Global Food Politics and Policy",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Robert Paarlberg"
+  },
+  {
+    "Number":"IGA-436",
+    "Course Title":"Water Resources Development and Management: Technology, Economics, Institutions,T/Th 11:45 AM,1.0",
+    "Days":"Spring",
+    "Credits":"Kenneth Strzepek",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-451M",
+    "Course Title":"Controversies in Climate, Energy, and the Media: Improving Public Communication,T/Th 11:45 AM,0.5",
+    "Days":"Spr Mod3",
+    "Credits":"Cristine Russell",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-490M",
+    "Course Title":"The Global Health System: Governance Challenges and Institutional Innovations",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Suerie Moon"
+  },
+  {
+    "Number":"IGA-513",
+    "Course Title":"Science, Power, and Politics,W 2:10 PM,1.0",
+    "Days":"Fall",
+    "Credits":"Sheila Jasanoff",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-515",
+    "Course Title":"Bioethics, Law, and the Life Sciences,M/W 10:15 AM,1.0",
+    "Days":"Spring",
+    "Credits":"Sheila Jasanoff",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-516",
+    "Course Title":"Law, Science, and Society in America,,1.0",
+    "Days":"Not Offered",
+    "Credits":"Sheila Jasanoff",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-518",
+    "Course Title":"Expertise and Rulership in Law and Science",
+    "Days":"T 5:00 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Sheila Jasanoff, David Kennedy"
+  },
+  {
+    "Number":"IGA-523",
+    "Course Title":"Innovation for Global Development",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Calestous Juma"
+  },
+  {
+    "Number":"IGA-526",
+    "Course Title":"Governing Transformative Biotechnology",
+    "Days":"M 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Calestous Juma"
+  },
+  {
+    "Number":"IGA-528",
+    "Course Title":"Technology and Policy",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"David Keith"
+  },
+  {
+    "Number":"IGA-535",
+    "Course Title":"Security, Science and Technology,T/Th 2:45 PM,1.0",
+    "Days":"Spring",
+    "Credits":"Sam Weiss Evans",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"IGA-610M",
+    "Course Title":"Leadership and Ethics in American Foreign Policy",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Joseph Nye"
+  },
+  {
+    "Number":"IGA-615",
+    "Course Title":"The U.S. Homeland Security Enterprise",
+    "Days":"M/W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Juliette Kayyem"
+  },
+  {
+    "Number":"IGA-662",
+    "Course Title":"Political Economy of Europe Integration in Crisis",
+    "Days":"T/Th 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Loukas Tsoukalis"
+  },
+  {
+    "Number":"IGA-685",
+    "Course Title":"Negotiating U.S. Interests in an Evolving Asia Pacific",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"John Park, Stephen Bosworth"
+  },
+  {
+    "Number":"IGA-956Y",
+    "Course Title":"Science, Technology, and Society: Research Seminar,T 12:00 AM,1.0",
+    "Days":"Year",
+    "Credits":"Sheila Jasanoff",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"ITF-110",
+    "Course Title":"The Political Economy of Trade",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Robert Lawrence"
+  },
+  {
+    "Number":"ITF-150Y",
+    "Course Title":"Seminar: International Trade and Finance",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"John Haigh, Philip Hanser"
+  },
+  {
+    "Number":"ITF-220",
+    "Course Title":"The Economics of International Financial Policy",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Jeffrey Frankel"
+  },
+  {
+    "Number":"ITF-225",
+    "Course Title":"The Future of Globalization: Issues, Actors, and Decisions,T/Th 10:00 AM,1.0",
+    "Days":"Fall",
+    "Credits":"Robert Lawrence, Lawrence Summers",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"ITF-270",
+    "Course Title":"Financial Crises: Concepts and Evidence",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Carmen Reinhart"
+  },
+  {
+    "Number":"MLD-101Y-A",
+    "Course Title":"Management, Leadership, and Decision Making,T/Th 11:45 AM,1.0",
+    "Days":"Year",
+    "Credits":"Hannah Riley Bowles",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-101Y-B",
+    "Course Title":"Management, Leadership, and Decision Making.,T/Th 8:45 AM,1.0",
+    "Days":"Year",
+    "Credits":"Mark Fagan, Jorrit de Jong",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-101Y-C",
+    "Course Title":"Management, Leadership, and Decision Making,M/W 11:45 AM,1.0",
+    "Days":"Year",
+    "Credits":"Nathalie Laidler-Kylander, Robert Livingston",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-101Y-D",
+    "Course Title":"Management, Leadership, and Decision Making,M/W 8:45 AM,1.0",
+    "Days":"Year",
+    "Credits":"Dana Born",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-102",
+    "Course Title":"Getting Things Done: Management in a Development Context",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Matt Andrews"
+  },
+  {
+    "Number":"MLD-110",
+    "Course Title":"Strategic Management for Public Purposes",
+    "Days":"T/Th 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Peter Zimmerman"
+  },
+  {
+    "Number":"MLD-115",
+    "Course Title":"Management Matters: Leadership, Strategy and Getting Things Done,W 4:15 PM,1.0",
+    "Days":"Spring",
+    "Credits":"Joseph Bower",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-201-A",
+    "Course Title":"Exercising Leadership: The Politics of Change",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Ronald Heifetz"
+  },
+  {
+    "Number":"MLD-201-B",
+    "Course Title":"Exercising Leadership: The Politics of Change",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Hugh O'Doherty"
+  },
+  {
+    "Number":"MLD-201-C",
+    "Course Title":"Exercising Leadership: The Politics of Change",
+    "Days":"M/W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Timothy O'Brien"
+  },
+  {
+    "Number":"MLD-220M-A",
+    "Course Title":"Fundamentals of Negotiation Analysis",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.3",
+    "Semester":"Fall Mod1",
+    "Faculty":"Brian Mandell"
+  },
+  {
+    "Number":"MLD-220M-B",
+    "Course Title":"Fundamentals of Negotiation Analysis",
+    "Days":"T/Th 8:45 AM",
+    "Credits":"0.3",
+    "Semester":"Fall Mod1",
+    "Faculty":"Brian Mandell"
+  },
+  {
+    "Number":"MLD-220M-C",
+    "Course Title":"Fundamentals of Negotiation Analysis",
+    "Days":"M/W 11:45 AM",
+    "Credits":"0.3",
+    "Semester":"Fall Mod1",
+    "Faculty":"Brian Mandell"
+  },
+  {
+    "Number":"MLD-220M-D",
+    "Course Title":"Fundamentals of Negotiation Analysis",
+    "Days":"M/W 8:45 AM",
+    "Credits":"0.3",
+    "Semester":"Fall Mod1",
+    "Faculty":"Brian Mandell"
+  },
+  {
+    "Number":"MLD-222M-A",
+    "Course Title":"Negotiation Analysis",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod1",
+    "Faculty":"Kessely Hong"
+  },
+  {
+    "Number":"MLD-222M-B",
+    "Course Title":"Negotiation Analysis",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Kessely Hong"
+  },
+  {
+    "Number":"MLD-223M-A",
+    "Course Title":"Negotiating Across Differences",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Kessely Hong"
+  },
+  {
+    "Number":"MLD-223M-B",
+    "Course Title":"Negotiating Across Differences",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Kessely Hong"
+  },
+  {
+    "Number":"MLD-224",
+    "Course Title":"Behavioral Science of Negotiations",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Julia Minson"
+  },
+  {
+    "Number":"MLD-225",
+    "Course Title":"Introduction to the Theory and Practice of Negotiation",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Robert Wilkinson"
+  },
+  {
+    "Number":"MLD-275",
+    "Course Title":"Negotiation Practicum",
+    "Days":"M/W 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Joshua Flax"
+  },
+  {
+    "Number":"MLD-280",
+    "Course Title":"Advanced Workshop in Multiparty Negotiation and Conflict Resolution",
+    "Days":"M/T/W/Th/F 8:00 AM",
+    "Credits":"1.0",
+    "Semester":"January",
+    "Faculty":"Brian Mandell"
+  },
+  {
+    "Number":"MLD-301",
+    "Course Title":"Leadership Decision Making",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Jennifer Lerner"
+  },
+  {
+    "Number":"MLD-304-A",
+    "Course Title":"Science of Behavior Change",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Todd Rogers"
+  },
+  {
+    "Number":"MLD-304-B",
+    "Course Title":"Science of Behavior Change",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Todd Rogers"
+  },
+  {
+    "Number":"MLD-320M",
+    "Course Title":"The Art of Leading in a Diverse World:  Skills, Insights, and Best Practices,M/W 4:15 PM,0.5",
+    "Days":"Spr Mod3",
+    "Credits":"Patricia Bellinger",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-323",
+    "Course Title":"Authentic Leadership Development",
+    "Days":"W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Dana Born"
+  },
+  {
+    "Number":"MLD-324M",
+    "Course Title":"Women and Leadership",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Barbara Kellerman"
+  },
+  {
+    "Number":"MLD-325",
+    "Course Title":"Becoming a Leader",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"David Gergen"
+  },
+  {
+    "Number":"MLD-328M",
+    "Course Title":"Noticing: A Leadership Challenge",
+    "Days":"M/T/W/Th/F 0:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Max Bazerman"
+  },
+  {
+    "Number":"MLD-332",
+    "Course Title":"Leadership and Innovation for a Livable City",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"David Gergen"
+  },
+  {
+    "Number":"MLD-335Y",
+    "Course Title":"UK and the Netherlands Immersive Field Course: Behavioral Insights",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"Max Bazerman, Michael Luca"
+  },
+  {
+    "Number":"MLD-342",
+    "Course Title":"Persuasion: The Science and Art of Effective Influence",
+    "Days":"M/T/W/Th/F 8:00 AM",
+    "Credits":"1.0",
+    "Semester":"January",
+    "Faculty":"Gary Orren"
+  },
+  {
+    "Number":"MLD-351",
+    "Course Title":"Leadership Literacy",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Barbara Kellerman"
+  },
+  {
+    "Number":"MLD-352M",
+    "Course Title":"The Leadership System: Leaders, Followers, Context,,0.5",
+    "Days":"Not Offered",
+    "Credits":"Barbara Kellerman",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-355M",
+    "Course Title":"Public Narrative: Self, Us, Now,T/Th 2:45 PM,0.5",
+    "Days":"Fall Mod1",
+    "Credits":"Marshall Ganz",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-356M",
+    "Course Title":"Public Narrative: Conflict, Continuity, Change,T/Th 2:45 PM,0.5",
+    "Days":"Fall Mod2",
+    "Credits":"Marshall Ganz",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-364",
+    "Course Title":"Leadership on the Line",
+    "Days":"M/T/W/Th/F 9:00 AM",
+    "Credits":"1.0",
+    "Semester":"January",
+    "Faculty":"Ronald Heifetz"
+  },
+  {
+    "Number":"MLD-377",
+    "Course Title":"Organizing:  People, Power, Change,T/Th 2:45 PM,1.0",
+    "Days":"Spring",
+    "Credits":"Marshall Ganz",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-381",
+    "Course Title":"Mitigating and Managing a Crisis",
+    "Days":"M 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Juliette Kayyem"
+  },
+  {
+    "Number":"MLD-401M",
+    "Course Title":"Financial Management in Public and Nonprofit Organizations",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod1",
+    "Faculty":"Ann Thornburg"
+  },
+  {
+    "Number":"MLD-408M",
+    "Course Title":"Money Management and Policy Implementation in Developing Countries",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Matt Andrews"
+  },
+  {
+    "Number":"MLD-410",
+    "Course Title":"State and Local Financial Policy",
+    "Days":"F 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Shelby Chodos"
+  },
+  {
+    "Number":"MLD-411",
+    "Course Title":"Introduction to Budgeting and Financial Management",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Linda Bilmes"
+  },
+  {
+    "Number":"MLD-412M",
+    "Course Title":"Advanced Applied Management, Operations, and Budgeting,M/W 4:15 PM,0.5",
+    "Days":"Spr Mod4",
+    "Credits":"Linda Bilmes",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"MLD-417M",
+    "Course Title":"Complex Budgeting and Financial Management",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Linda Bilmes"
+  },
+  {
+    "Number":"MLD-420M",
+    "Course Title":"Federal Budget Policy",
+    "Days":"M/T/W/Th/F 9:30 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Howell Jackson"
+  },
+  {
+    "Number":"MLD-421M",
+    "Course Title":"Federal Budget Policy Ð Research Paper",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Spring",
+    "Faculty":"Howell Jackson"
+  },
+  {
+    "Number":"MLD-427-A",
+    "Course Title":"Managing Financial Resources in Non Profit Organizations",
+    "Days":"T/Th 8:30 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"James Honan"
+  },
+  {
+    "Number":"MLD-427-B",
+    "Course Title":"Managing Financial Resources in Non Profit Organizations",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"James Honan"
+  },
+  {
+    "Number":"MLD-500",
+    "Course Title":"Maximizing Human Capital and Organizational Performance",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Robert Livingston"
+  },
+  {
+    "Number":"MLD-600",
+    "Course Title":"Leadership and Management Skills: A Behavioral Science Perspective",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Jennifer Lerner"
+  },
+  {
+    "Number":"MLD-601",
+    "Course Title":"Operations Management",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Mark Fagan"
+  },
+  {
+    "Number":"MLD-602",
+    "Course Title":"Performance Leadership: Producing Results in Public and Nonprofit Agencies",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Robert Behn"
+  },
+  {
+    "Number":"MLD-603M",
+    "Course Title":"Operations Management for Improving Public Services",
+    "Days":"M/W 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Soroush Saghafian"
+  },
+  {
+    "Number":"MLD-610",
+    "Course Title":"Generating and Using Evidence to Improve the Management of Your Organization",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Julie Boatright Wilson"
+  },
+  {
+    "Number":"MLD-617M",
+    "Course Title":"Effective Implementation: Learning from Effective Implementers",
+    "Days":"M/W 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Francis Hartmann"
+  },
+  {
+    "Number":"MLD-620M",
+    "Course Title":"Urban Innovation:  Concepts and Practices",
+    "Days":"M/W 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Stephen Goldsmith"
+  },
+  {
+    "Number":"MLD-621",
+    "Course Title":"Innovation Field Lab: Public Problem Solving in Massachusetts Cities",
+    "Days":"M 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Jorrit de Jong"
+  },
+  {
+    "Number":"MLD-801",
+    "Course Title":"Strategic Management of Nonprofit and Nongovernmental Organizations",
+    "Days":"M/W 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Nathalie Laidler-Kylander"
+  },
+  {
+    "Number":"MLD-829M-A",
+    "Course Title":"Entrepreneurial Finance I",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Carl Byers"
+  },
+  {
+    "Number":"MLD-829M-B",
+    "Course Title":"Entrepreneurial Finance I",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Carl Byers"
+  },
+  {
+    "Number":"MLD-830",
+    "Course Title":"Entrepreneurship and Innovation in the Private and Social Sectors",
+    "Days":"M 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Dick Cavanagh"
+  },
+  {
+    "Number":"MLD-831",
+    "Course Title":"Entrepreneurship and Innovation in the Private and Social Sectors (Business Plan Workshop)",
+    "Days":"M 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Dick Cavanagh"
+  },
+  {
+    "Number":"MLD-836-M",
+    "Course Title":"Social Entrepreneurship/Social Enterprises 101:  How to Go from Start-Up to End Up",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"James Bildner"
+  },
+  {
+    "Number":"MLD-839-M",
+    "Course Title":"Entrepreneurial Finance II",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod4",
+    "Faculty":"Carl Byers"
+  },
+  {
+    "Number":"PED-100",
+    "Course Title":"Economic Development Policy",
+    "Days":"T/Th 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Rema Hanna"
+  },
+  {
+    "Number":"PED-101",
+    "Course Title":"Economic Development: Theory and Evidence",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Dani Rodrik, Asim Khwaja, Rohini Pande"
+  },
+  {
+    "Number":"PED-102",
+    "Course Title":"Economic Development: Using Analytical Frameworks for Smart Policy Design",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Lant Pritchett, Asim Khwaja, Rohini Pande"
+  },
+  {
+    "Number":"PED-115",
+    "Course Title":"Using Data to Understand Good Governance",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Filipe Campante, David Yanagizawa-Drott"
+  },
+  {
+    "Number":"PED-130",
+    "Course Title":"Why Are So Many Countries Poor, Volatile, and Unequal?,M/W 10:15 AM,1.0",
+    "Days":"Fall",
+    "Credits":"Ricardo Hausmann",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"PED-131M",
+    "Course Title":"Policies for Competitiveness",
+    "Days":"M/T/W/Th/F 9:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Fadi Farra"
+  },
+  {
+    "Number":"PED-150Y",
+    "Course Title":"Seminar: Political and Economic Development",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"Ryan Sheely"
+  },
+  {
+    "Number":"PED-209",
+    "Course Title":"Management, Finance, and Regulation of Public Infrastructure in Developing Countries,T/Th 2:45 PM,1.0",
+    "Days":"Spring",
+    "Credits":"Henry Lee",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"PED-210",
+    "Course Title":"Public Finance in Theory and Practice",
+    "Days":"T/Th 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Jay Rosengard"
+  },
+  {
+    "Number":"PED-250Y-A",
+    "Course Title":"Second-Year Policy Analysis Seminar",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.5",
+    "Semester":"Year",
+    "Faculty":"Eduardo Levy Yeyati"
+  },
+  {
+    "Number":"PED-250Y-B",
+    "Course Title":"Second-Year Policy Analysis Seminar",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.5",
+    "Semester":"Year",
+    "Faculty":"Lant Pritchett"
+  },
+  {
+    "Number":"PED-250Y-C",
+    "Course Title":"Second-Year Policy Analysis Seminar",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.5",
+    "Semester":"Year",
+    "Faculty":"Michael Walton"
+  },
+  {
+    "Number":"PED-307",
+    "Course Title":"Public Policy and Service Delivery in Weak States",
+    "Days":"M/W 1:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Michael Callen"
+  },
+  {
+    "Number":"PED-308",
+    "Course Title":"Social Institutions and Economic Development",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"TBA"
+  },
+  {
+    "Number":"PED-309",
+    "Course Title":"Development Policy Strategy",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Ricardo Hausmann"
+  },
+  {
+    "Number":"PED-315M",
+    "Course Title":"Gender Inequality and Development",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"0.5",
+    "Semester":"Fall Mod2",
+    "Faculty":"Jeni Klugman"
+  },
+  {
+    "Number":"PED-320",
+    "Course Title":"Scaling Up for Development Impact",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Isabel Guerrero Pulgar"
+  },
+  {
+    "Number":"PED-329",
+    "Course Title":"The Microeconomics of Competiveness: Firms, Clusters, and Economic Development,W/Th/F 10:05 AM,1.0",
+    "Days":"Spring",
+    "Credits":"Laura Alfaro",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"PED-338",
+    "Course Title":"Contemporary Developing Countries: Entrepreneurial Solutions to Intractable Problems",
+    "Days":"M/W 3:30 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Tarun Khanna"
+  },
+  {
+    "Number":"PED-375",
+    "Course Title":"The Informal Economy: Is Formalization the Answer?",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Martha Chen"
+  },
+  {
+    "Number":"PED-401Y",
+    "Course Title":"Applications and Cases in International Development",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"Lant Pritchett, Michael Walton"
+  },
+  {
+    "Number":"PED-501M",
+    "Course Title":"Native Americans in the 21st Century: Nation Building I",
+    "Days":"T/W/Th/F 10:00 AM",
+    "Credits":"0.5",
+    "Semester":"January",
+    "Faculty":"Joseph Kalt"
+  },
+  {
+    "Number":"PED-502",
+    "Course Title":"Native Americans in the 21st Century: Nation Building II",
+    "Days":"T 2:00 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Dennis Norman"
+  },
+  {
+    "Number":"RAR-546",
+    "Course Title":"Reading and Research: Matthew Bunn",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"TBA"
+  },
+  {
+    "Number":"RAR-999",
+    "Course Title":"Reading and Research: Sparking Social Change",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Fall",
+    "Faculty":"Mark Moore"
+  },
+  {
+    "Number":"SUP-125",
+    "Course Title":"Public Economics: Designing Government Policy",
+    "Days":"M/W/F 2:00 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Martin Feldstein, Casey Rothschild"
+  },
+  {
+    "Number":"SUP-150Y",
+    "Course Title":"Seminar:Social and Urban Policy",
+    "Days":"Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Year",
+    "Faculty":"Joshua Goodman"
+  },
+  {
+    "Number":"SUP-205",
+    "Course Title":"Inequality and Social Policy",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Devah Pager"
+  },
+  {
+    "Number":"SUP-207",
+    "Course Title":"Social Structure and Culture in the Study of Race and Urban Poverty",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"William Julius Wilson"
+  },
+  {
+    "Number":"SUP-211",
+    "Course Title":"Institutional & Community-Based Strategies to Support Children & Strengthen Families",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Julie Boatright Wilson"
+  },
+  {
+    "Number":"SUP-311",
+    "Course Title":"The Economic Impact of Immigration",
+    "Days":"M/W 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"George Borjas"
+  },
+  {
+    "Number":"SUP-321M",
+    "Course Title":"Designing Social Security Systems",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"0.5",
+    "Semester":"Spr Mod3",
+    "Faculty":"Jo Anne Barnhart"
+  },
+  {
+    "Number":"SUP-322",
+    "Course Title":"Economics of the Labor Market",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"George Borjas"
+  },
+  {
+    "Number":"SUP-415",
+    "Course Title":"Dilemmas of Excellence and Equity in K-12 American Schools",
+    "Days":"M 4:00 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Katherine Merseth"
+  },
+  {
+    "Number":"SUP-425M",
+    "Course Title":"Developing Effective School and Community Interventions for At-Risk Children",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Richard Weissbourd"
+  },
+  {
+    "Number":"SUP-427",
+    "Course Title":"Analyzing Education Policy",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Joshua Goodman"
+  },
+  {
+    "Number":"SUP-447",
+    "Course Title":"The Politics of American Education",
+    "Days":"T/Th 11:00 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Paul Peterson"
+  },
+  {
+    "Number":"SUP-448",
+    "Course Title":"The Political Economy of the School",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Paul Peterson"
+  },
+  {
+    "Number":"SUP-449",
+    "Course Title":"Politics and Education Policy in the U.S.",
+    "Days":"M/W 10:00 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Marty West"
+  },
+  {
+    "Number":"SUP-450",
+    "Course Title":"The Consequences of Educational Policy Interventions in Developing Countries",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Felipe Barrera-Osorio"
+  },
+  {
+    "Number":"SUP-470",
+    "Course Title":"Strategies and Policies for Narrowing Racial Achievement Gaps",
+    "Days":"T/Th 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Ronald Ferguson"
+  },
+  {
+    "Number":"SUP-490",
+    "Course Title":"Quantitative Methods for Improving Causal Inference in Education Research",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"David Deming"
+  },
+  {
+    "Number":"SUP-500",
+    "Course Title":"Introduction to U.S. Health Care Policy",
+    "Days":"T 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Sheila Burke, Benjamin Cook"
+  },
+  {
+    "Number":"SUP-501",
+    "Course Title":"U.S. Health Care Policy",
+    "Days":"M/W 1:00 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Amitabh Chandra"
+  },
+  {
+    "Number":"SUP-518",
+    "Course Title":"Economics of Global Health",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"TBA"
+  },
+  {
+    "Number":"SUP-572",
+    "Course Title":"The Economics of Health Care Policy",
+    "Days":"M/W 8:45 AM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Joseph Newhouse"
+  },
+  {
+    "Number":"SUP-575",
+    "Course Title":"Political Analysis and Strategy for U.S. Health Policy",
+    "Days":"M/W 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Robert Blendon"
+  },
+  {
+    "Number":"SUP-600",
+    "Course Title":"Policymaking in Urban Settings",
+    "Days":"M/W 11:45 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"James Carras"
+  },
+  {
+    "Number":"SUP-601",
+    "Course Title":"Urban Politics, Planning, and Development,,1.0",
+    "Days":"Not Offered",
+    "Credits":"Quinton Mayne",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"SUP-651",
+    "Course Title":"Transportation Policy and Planning",
+    "Days":"T/Th 10:15 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Jose Gomez-Ibanez"
+  },
+  {
+    "Number":"SUP-652",
+    "Course Title":"Transportation Planning and Development",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Onesimo Flores Dewey"
+  },
+  {
+    "Number":"SUP-661",
+    "Course Title":"Housing and Urbanization in the United States",
+    "Days":"W 2:30 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"James Stockard, Jennifer Molinsky"
+  },
+  {
+    "Number":"SUP-662",
+    "Course Title":"Housing and Urbanization in Global Cities",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Alexander von Hoffman"
+  },
+  {
+    "Number":"SUP-663",
+    "Course Title":"Land Use and Environmental Law",
+    "Days":"M 8:30 AM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"David Karnovsky"
+  },
+  {
+    "Number":"SUP-665",
+    "Course Title":"Real Estate Finance and Development Fundamentals for Public and Private Participants",
+    "Days":"M/W 4:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Edward Marchant"
+  },
+  {
+    "Number":"SUP-666",
+    "Course Title":"Affordable and Mixed-Income Housing Development, Finance, and Management,,1.0",
+    "Days":"Spring",
+    "Credits":"Edward Marchant",
+    "Semester":"",
+    "Faculty":""
+  },
+  {
+    "Number":"SUP-668",
+    "Course Title":"Public and Private Development",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Laura Wolf-Powers"
+  },
+  {
+    "Number":"SUP-705",
+    "Course Title":"Seminar in Crime and Justice",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Not Offered",
+    "Faculty":"Bruce Western"
+  },
+  {
+    "Number":"SUP-710",
+    "Course Title":"What Works & Why: Examining Effective Violence Reduction Strategies in the United States and Abroad",
+    "Days":"T/Th 2:45 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Thomas Abt"
+  },
+  {
+    "Number":"SUP-720",
+    "Course Title":"Research Seminar in Criminal Justice Policy and Management",
+    "Days":"",
+    "Credits":"0.5",
+    "Semester":"Not Offered",
+    "Faculty":"Mark Moore"
+  },
+  {
+    "Number":"SUP-921",
+    "Course Title":"Proseminar on Inequality and Social Policy I",
+    "Days":"W 2:00 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Christopher Jencks, Jennifer Hochschild"
+  },
+  {
+    "Number":"SUP-922",
+    "Course Title":"Proseminar on Inequality and Social Policy II",
+    "Days":"",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"David Deming, Lawrence Bobo"
+  },
+  {
+    "Number":"SUP-923",
+    "Course Title":"Proseminar on Inequality and Social Policy III",
+    "Days":"M 2:00 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Ryan Enos"
+  },
+  {
+    "Number":"SUP-951",
+    "Course Title":"Doctoral Seminar in the Economics of Health and Medical Care",
+    "Days":"W 4:00 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Joseph Newhouse"
+  },
+  {
+    "Number":"SUP-957",
+    "Course Title":"Core Course in Health Policy I",
+    "Days":"T/Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Fall",
+    "Faculty":"Joseph Newhouse, Richard Frank, Alan Zaslavsky"
+  },
+  {
+    "Number":"SUP-958",
+    "Course Title":"Core Course in Health Policy II",
+    "Days":"T/Th 4:15 PM",
+    "Credits":"1.0",
+    "Semester":"Spring",
+    "Faculty":"Joseph Newhouse, Richard Frank, Alan Zaslavsky"
+  }
+]
