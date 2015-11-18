@@ -1,67 +1,58 @@
- <div ng-controller="AngularWayChangeDataCtrl as showCase">
 	<h2 align="center">Classes Offered</h2>
     <div class="container-fluid">
 		  <div class="row">
 		    	<div class="col-md-6">
-		    		<form class="form-inline" ng-submit="showCase.addPerson()">
-		    		        <table datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="row-border hover">
-		    		            <thead>
-		    		            <tr>
-		    		                <th>
-		    		                    <div class="form-group">
-		    		                        <label>
-		    		                            <input class="form-control" type="number" name="id" ng-model="showCase.course2add.id" value="">
-		    		                        </label>
-		    		                    </div>
-		    		                </th>
-		    		                <th>
-		    		                    <div class="form-group">
-		    		                        <label>
-		    		                            <input type="text" class="form-control" name="firstName" ng-model="showCase.course2add.firstName" value="">
-		    		                        </label>
-		    		                    </div>
-		    		                </th>
-		    		                <th>
-		    		                    <div class="form-group">
-		    		                        <label>
-		    		                            <input type="text" class="form-control" name="lastName" ng-model="showCase.course2add.lastName" value="">
-		    		                        </label>
-		    		                    </div>
-		    		                </th>
-		    		                <th>
-		    		                    <div class="form-group">
-		    		                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
-		    		                    </div>
-		    		                </th>
-		    		            </tr>
-		    		            <tr>
-		    		                <th>Course Number</th>
-		    		                <th>Title</th>
-		    		                <th>Days / Times</th>
-		    		                <th>Semester</th>
-		    		                <th>Manage</th>
-
-		    		            </tr>
-		    		            </thead>
-		    		            <tbody>
-		    		            <tr ng-repeat="course in showCase.courses">
-		    		                <td>{{ course.Number }}</td>
-		    		       			 <td>{{ course['Course Title'] }}</td>
-		    		        		 <td>{{ course.Days }}</td>
-		    		       			 <td>{{ course.Semester }}</td>
-		    		                 <td>
-		    		                    <button type="button" ng-click="showCase.modifyCourse($index)" class="btn btn-warning"><i class="fa fa-edit"></i></button>
-		    		                    <button type="button" ng-click="showCase.removeCourse($index)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
-		    		                </td>
-		    		            </tr>
-		    		            </tbody>
-		    		        </table>
-		    		    </form>
+		    		<div ng-controller="ButtonsCtrl">
+						    <h4>Single toggle</h4>
+						    <pre>{{singleModel}}</pre>
+						    <button type="button" class="btn btn-primary" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+						        Single Toggle
+						    </button>
+						    <h4>Checkbox</h4>
+						    <pre>Model: {{checkModel}}</pre>
+						    <pre>Results: {{checkResults}}</pre>
+						    <div class="btn-group">
+						        <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
+						        <label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
+						        <label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
+						    </div>
+						    <h4>Radio &amp; Uncheckable Radio</h4>
+						    <pre>{{radioModel || 'null'}}</pre>
+						    <div class="btn-group">
+						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Left</label>
+						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Middle'">Middle</label>
+						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Right</label>
+						    </div>
+						    <div class="btn-group">
+						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
+						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle</label>
+						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uncheckable>Right</label>
+						    </div>
+						</div>
 
 		    	</div>
 		        
 		        <div class="col-md-6">
-		        	
+		        	<table st-table="rowCollection" class="table table-striped">
+		        		<thead>
+		        		<tr>
+		        			<th>first name</th>
+		        			<th>last name</th>
+		        			<th>birth date</th>
+		        			<th>balance</th>
+		        			<th>email</th>
+		        		</tr>
+		        		</thead>
+		        		<tbody>
+		        		<tr ng-repeat="row in rowCollection">
+		        			<td>{{row.firstName}}</td>
+		        			<td>{{row.lastName}}</td>
+		        			<td>{{row.birthDate}}</td>
+		        			<td>{{row.balance}}</td>
+		        			<td>{{row.email}}</td>
+		        		</tr>
+		        		</tbody>
+		        	</table>
 		        </div>
 		  </div>
 	</div>

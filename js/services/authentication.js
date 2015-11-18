@@ -17,7 +17,7 @@ myApp.factory('Authentication',
     }
   });
 
-
+ 
   var myObject = {
     login: function(user) {
       auth.$authWithPassword({
