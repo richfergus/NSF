@@ -28,13 +28,7 @@ angular.module('myApp').controller('ButtonsCtrl', function ($scope) {
   });
 });
 
-angular.module('myApp').controller('basicsCtrl', ['$scope', function ($scope) {
-    $scope.rowCollection = [
-        {firstName: 'Laurent', lastName: 'Renard', birthDate: new Date('1987-05-21'), balance: 102, email: 'whatever@gmail.com'},
-        {firstName: 'Blandine', lastName: 'Faivre', birthDate: new Date('1987-04-25'), balance: -2323.22, email: 'oufblandou@gmail.com'},
-        {firstName: 'Francoise', lastName: 'Frere', birthDate: new Date('1955-08-27'), balance: 42343, email: 'raymondef@gmail.com'}
-    ];
-}]);
+
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
@@ -67,40 +61,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/login'
     });
 }]);
-// function AngularWayChangeDataCtrl($resource, DTOptionsBuilder, DTColumnDefBuilder) {
-//     var vm = this;
-//     vm.courses = $resource('hks.json').query();
-//     vm.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers');
-//     vm.dtColumnDefs = [
-//         DTColumnDefBuilder.newColumnDef(0),
-//         DTColumnDefBuilder.newColumnDef(1),
-//         DTColumnDefBuilder.newColumnDef(2),
-//         DTColumnDefBuilder.newColumnDef(3).notSortable()
-//     ];
-//     vm.courses2add = _buildCourse2Add(1);
-//     vm.addCourse = addCourse;
-//     vm.modifyCourse = modifyCourse;
-//     vm.removeCourse = removeCourse;
 
-//     function _buildCourse2Add(Number) {
-//         return {
-//             Number: 'Number',
-//             Title: '[Course]Title',
-//             Semester: 'Semester'
-//         };
-//     }
-//     function addCourse() {
-//         vm.courses.push(angular.copy(vm.courses2add));
-//         vm.courses2add = _buildCourse2Add(vm.courses2add.Number + 1);
-//     }
-//     function modifyCourse(index) {
-//         vm.courses.splice(index, 1, angular.copy(vm.courses2add));
-//         vm.courses2add = _buildCourse2Add(vm.courses2add.Number + 1);
-//     }
-//     function removeCourse(index) {
-//         vm.courses.splice(index, 1);
-//     }
-// }
 
 
 
