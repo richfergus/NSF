@@ -5,6 +5,7 @@
 		  <div class="row">
 		    	<div class="col-md-6">
 		    		<div ng-controller="ButtonsCtrl">
+						    <h2>Courses Available</h2>
 						    <h4>Single toggle</h4>
 						    <pre>{{singleModel}}</pre>
 						    <button type="button" class="btn btn-primary" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
@@ -35,26 +36,29 @@
 		    	</div>
 		        
 		        <div class="col-md-6">
-		        	<table st-table="rowCollection" class="table table-striped">
-		        		<thead>
-		        		<tr>
-		        			<th>first name</th>
-		        			<th>last name</th>
-		        			<th>birth date</th>
-		        			<th>balance</th>
-		        			<th>email</th>
-		        		</tr>
-		        		</thead>
-		        		<tbody>
-		        		<tr ng-repeat="row in rowCollection">
-		        			<td>{{row.firstName}}</td>
-		        			<td>{{row.lastName}}</td>
-		        			<td>{{row.birthDate}}</td>
-		        			<td>{{row.balance}}</td>
-		        			<td>{{row.email}}</td>
-		        		</tr>
-		        		</tbody>
-		        	</table>
+			        	<div ng-controller="basicsCtrl">
+			        		<h2>My Courses</h2>
+					        	<table st-table="rowCollection" class="table table-striped">
+					        		<thead>
+					        		<tr>
+					        			<th>first name</th>
+					        			<th>last name</th>
+					        			<th>birth date</th>
+					        			<th>balance</th>
+					        			<th>test</th>
+					        		</tr>
+					        		</thead>
+					        		<tbody>
+					        		<tr ng-repeat="row in rowCollection">
+					        			<td>{{row.firstName}}</td>
+					        			<td>{{row.lastName}}</td>
+					        			<td>{{row.birthDate}}</td>
+					        			<td>{{row.balance}}</td>
+					        			<td>{{row.email}}</td>
+					        		</tr>
+					        		</tbody>
+					        	</table>
+			        	</div>	
 		        </div>
 		  </div>
 	</div>
