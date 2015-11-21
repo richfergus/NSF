@@ -4,61 +4,79 @@
     <div class="container-fluid">
 		  <div class="row">
 		    	<div class="col-md-6">
-		    		<div ng-controller="ButtonsCtrl">
 						    <h2>Courses Available</h2>
-						    <h4>Single toggle</h4>
-						    <pre>{{singleModel}}</pre>
-						    <button type="button" class="btn btn-primary" ng-model="singleModel" uib-btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
-						        Single Toggle
-						    </button>
-						    <h4>Checkbox</h4>
-						    <pre>Model: {{checkModel}}</pre>
-						    <pre>Results: {{checkResults}}</pre>
-						    <div class="btn-group">
-						        <label class="btn btn-primary" ng-model="checkModel.left" uib-btn-checkbox>Left</label>
-						        <label class="btn btn-primary" ng-model="checkModel.middle" uib-btn-checkbox>Middle</label>
-						        <label class="btn btn-primary" ng-model="checkModel.right" uib-btn-checkbox>Right</label>
-						    </div>
-						    <h4>Radio &amp; Uncheckable Radio</h4>
-						    <pre>{{radioModel || 'null'}}</pre>
-						    <div class="btn-group">
-						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Left'">Left</label>
-						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Middle'">Middle</label>
-						        <label class="btn btn-primary" ng-model="radioModel" uib-btn-radio="'Right'">Right</label>
-						    </div>
-						    <div class="btn-group">
-						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
-						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle</label>
-						        <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uncheckable>Right</label>
-						    </div>
+		    			<div ng-controller="CourseListCtrl">
+						  			<table st-select-row="row" st-select-mode="multiple" st-table="displayedCollection"  class="table table-striped">
+					        				<thead>
+					        				<tr>
+					        					<th st-sort="courseName">Course Name</th>
+					        					<th st-sort="courseNumber">Course Number</th>
+					        					<th st-sort="birthDate">Days</th>
+					        					<th st-sort="courseNumber">Credits</th>
+					        					<th st-sort="balance">Faculity</th>
+					        				</tr>
+					        				
+					        				</thead>
+					        				<tbody>
+					        				<tr ng-repeat="course in courses">
+						        					<td>{{course['Course Title']}}</td>
+						        					<td>{{course.Number}}</td>
+						        					<td>{{course.Days}}</td>
+						        					<td>{{course.Credits}}</td>
+
+						        					<td>{{course.Faculty}}</td>
+					        					<td>
+					        					<button type="button" ng-click="addItem(row)" class="btn btn-sm btn-success">
+					        						<i class="glyphicon glyphicon-remove-circle">
+					        						</i>
+					        					</button>
+					        					</td>
+					        				</tr>
+					        				</tbody>
+					        			</table>
+						    
 						</div>
 
 		    	</div>
 		        
 		        <div class="col-md-6">
-			        	<div ng-controller="basicsCtrl">
 			        		<h2>My Courses</h2>
-					        	<table st-table="rowCollection" class="table table-striped">
-					        		<thead>
-					        		<tr>
-					        			<th>first name</th>
-					        			<th>last name</th>
-					        			<th>birth date</th>
-					        			<th>balance</th>
-					        			<th>test</th>
-					        		</tr>
-					        		</thead>
-					        		<tbody>
-					        		<tr ng-repeat="row in rowCollection">
-					        			<td>{{row.firstName}}</td>
-					        			<td>{{row.lastName}}</td>
-					        			<td>{{row.birthDate}}</td>
-					        			<td>{{row.balance}}</td>
-					        			<td>{{row.email}}</td>
-					        		</tr>
-					        		</tbody>
-					        	</table>
-			        	</div>	
+					        	<div ng-controller="safeCtrl">
+					        			<button type="button" ng-click="addRandomItem(row)" class="btn btn-sm btn-success">
+					        				<i class="glyphicon glyphicon-plus">
+					        				</i> Add random item
+					        			</button>
+
+					        			<table st-select-row="row" st-select-mode="multiple" st-table="displayedCollection"  class="table table-striped">
+					        				<thead>
+					        				<tr>
+					        					<th st-sort="courseName">Course Name</th>
+					        					<th st-sort="courseNumber">Course Number</th>
+					        					<th st-sort="birthDate">Days</th>
+					        					<th st-sort="balance">Faculity</th>
+					        					<th st-sort="balance">Manage</th>
+
+					        				</tr>
+					        				
+					        				</thead>
+					        				<tbody>
+					        				<tr ng-repeat="row in displayedCollection">
+					        					<td>{{row.Number}}</td>
+					        					<td>{{row.Number}}</td>
+					        					<td>{{row.Number}}</td>
+					        					<td>{{row.Number}}</td>
+					        					<td>
+					        					<button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+					        						<i class="glyphicon glyphicon-remove-circle">
+					        						</i>
+					        					</button>
+
+					        					</td>
+					        				</tr>
+					        				</tbody>
+					        			</table>
+
+					        		</div>
 		        </div>
 		  </div>
 	</div>

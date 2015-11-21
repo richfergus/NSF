@@ -17,7 +17,7 @@ myApp.factory('Authentication',
     }
   });
 
- 
+
   var myObject = {
     login: function(user) {
       auth.$authWithPassword({
@@ -31,8 +31,8 @@ myApp.factory('Authentication',
     },//login
 
     logout: function() {
-     
       return auth.$unauth();
+      $location.path('/login');
     }, //logout
 
     requireAuth: function(){
