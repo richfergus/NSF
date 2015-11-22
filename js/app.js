@@ -39,7 +39,6 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                 $scope.courses = courses;
               });
                   // console.log(courses);
-
               $scope.addCourse  = function (course) {
                   $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
                   // console.log( $scope.currentUser.$id + course['Course Title'] );
@@ -53,38 +52,29 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                     "faculty": course.Faculty
                   });
               };
-             
-
     }]);
 
 
-
-
-
-angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', function ($scope, $rootScope) {
-      
+angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope',
+     function($scope, $rootScope) {
                   // Get a database reference to our posts
-            
-              
 
-              console.log(angular.element(document).scope());
-
-                          
+                var thisUser = $rootScope;
+                console.log(thisUser.currentUser);
+              // console.log(angular.element(document).scope());
                           var ref = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses/');
 
                                 // Attach an asynchronous callback to read the data at our posts reference
                                 ref.on("value", function(snapshot) {
 
                                   // console.log(user);
-                                  console.log(snapshot.val());
+                                  // console.log(snapshot.val());
                                 // console.log($rootScope.currentUser);
 
                                 }, function (errorObject) {
                                   console.log("The read failed: " + errorObject.code);
                                 });
-
-
-}]);
+    }]);
 
 
 
