@@ -3086,7 +3086,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
         return;
       }
 
-      element.addClass('uib-dropdown-toggle');
+      element.addClass('dropdown-toggle');
 
       dropdownCtrl.toggleElement = element;
 
@@ -3399,7 +3399,7 @@ angular.module('ui.bootstrap.dropdown')
         return;
       }
 
-      element.addClass('uib-dropdown-toggle');
+      element.addClass('dropdown-toggle');
 
       dropdownCtrl.toggleElement = element;
 

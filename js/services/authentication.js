@@ -16,6 +16,8 @@ myApp.factory('Authentication',
 
     } else {
       $rootScope.currentUser = '';
+      $rootScope.currentUser = '';
+      
     }
   });
 

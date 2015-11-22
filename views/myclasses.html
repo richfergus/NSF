@@ -9,7 +9,6 @@
 						  			<table st-select-row="row" st-select-mode="multiple" st-table="courses"  class="table table-striped">
 					        				<thead>
 					        				<tr>
-					        					<th st-sort="index">index</th>
 					        					<th st-sort="courseName">Course Name</th>
 					        					<th st-sort="courseNumber">Course Number</th>
 					        					<th st-sort="birthDate">Days</th>
@@ -20,8 +19,6 @@
 					        				</thead>
 					        				<tbody>
 					        				<tr ng-repeat="course in courses">
-						        					<td>{{$index}}</td>
-						        					
 						        					<td>{{course['Course Title']}}</td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>
@@ -29,7 +26,7 @@
 						        					<td>{{course.Faculty}}</td>
 					        					<td>
 					        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
-					        						<i class="glyphicon glyphicon-add-circle">Add</i>
+					        						<i>Add</i>
 					        					</button>
 					        					</td>
 					        				</tr>
@@ -57,25 +54,19 @@
 					        				
 					        				</thead>
 					        				<tbody>
-					        			    <tr>
+					        			    <tr ng-show="showClass == true">
 					        			    	<td colspan="5">
-					        			    		<div align="center">Add Classes</div>
-											
+					        			    		<div align="center"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Add Classes</div>
 					        					</td>
 					        			    </tr>
-					        			    <tr>
-					        			    	<td colspan="5">
-					        			    		<div align="center">{{ message }}</div>
-											
-					        					</td>
-					        			    </tr>
-					        				<tr ng-repeat="course in courses">
+
+					        				<tr ng-repeat="course in userCourses">
+					        					<td>{{course['Course Title']}}</td>
 					        					<td>{{course.coursenumber}}</td>
-					        					<td>{{course.coursenumber}}</td>
-					        					<td>{{course.coursenumber}}</td>
-					        					<td>{{course.coursenumber}}</td>
+					        					<td>{{course.days}}</td>
+					        					<td>{{course.faculty}}</td>
 					        					<td>
-					        					<button type="button" ng-click="removeItem(course.index)" class="btn btn-sm btn-danger">
+					        					<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
 					        						<i class="glyphicon glyphicon-remove-circle">
 					        						</i>
 					        					</button>

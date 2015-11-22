@@ -38,13 +38,11 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
               .then(function(){
                 $scope.courses = courses;
               });
-                  // console.log(courses);
+                  // add courses form list to login user
               $scope.addCourse  = function (course) {
                   $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
-                  // console.log( $scope.currentUser.$id + course['Course Title'] );
-
-                  var addCourse = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses').child($rootScope.currentUser.$id).push({
-
+                  var addCourse = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses')
+                  .child($rootScope.currentUser.$id).push({
                     "coursenumber": course.Number,
                     "Course Title": course['Course Title'],
                     "days": course.Days,
@@ -55,31 +53,34 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
     }]);
 
 
-angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope',
-     function($scope, $rootScope) {
-                  // Get a database reference to our posts
-
-                var thisUser = $rootScope;
-                console.log(thisUser.currentUser);
-              // console.log(angular.element(document).scope());
-                          var ref = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses/');
-
-                                // Attach an asynchronous callback to read the data at our posts reference
-                                ref.on("value", function(snapshot) {
-
-                                  // console.log(user);
-                                  // console.log(snapshot.val());
-                                // console.log($rootScope.currentUser);
-
-                                }, function (errorObject) {
-                                  console.log("The read failed: " + errorObject.code);
-                                });
-    }]);
-
-
-
-
-
+angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$firebaseArray',
+     function($scope, $rootScope, $firebaseArray) {
+              //get courses that the unser has selected in firebase
+              var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
+                  // not sure why, but I had to wait on the rootscope so I added this
+                    firstRef.on("value", function(snapshot) {
+                        var thisUserID =  $rootScope.currentUser.$id;
+                        var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' + thisUserID);
+                        var userCourses = $firebaseArray(userCoursesRef);
+                       
+                        userCourses.$loaded()
+                              .then(function(){
+                                $scope.userCourses = userCourses;
+                                 if ($scope.userCourses.length == 0) {
+                                    $scope.showClass  = true;
+                                } else {
+                                    $scope.showClass = false;
+                                }
+                              });
+                      }, function (errorObject) {
+                        console.log("The read failed: " + errorObject.code);
+                      });
+                  $scope.removeCourse  = function (course) {
+                      var thisUserID =  $rootScope.currentUser.$id;
+                      var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' +thisUserID +'/'+ course.$id);
+                      userCoursesRef.remove();
+              };
+          }]);
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/login', {
@@ -112,19 +113,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
     });
 }]);
 
-
-
-
-
-
-    // $resource('hks.json').query().$promise.then(function(courses) {
-    //     vm.courses = courses;
-    // });
-
-
-angular.module('myApp').controller('DropdownCtrl', function ($scope, $log) {
-
-});
 
 myApp.run(['$rootScope', '$location',
    function($rootScope, $location) {
