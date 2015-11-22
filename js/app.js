@@ -29,8 +29,8 @@ angular.module('myApp').controller('ButtonsCtrl', function ($scope) {
 });
 
 
-angular.module('myApp').controller('CourseListCtrl', ['$scope', '$firebaseArray',
-    function($scope, $firebaseArray) {
+angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray',
+    function($scope, $rootScope, $firebaseArray) {
             // List Courses
             var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/');
             var courses = $firebaseArray(coursesRef);
@@ -38,57 +38,52 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$firebaseArray'
               .then(function(){
                 $scope.courses = courses;
               });
+                  // console.log(courses);
+
+              $scope.addCourse  = function (course) {
+                  $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
+                  // console.log( $scope.currentUser.$id + course['Course Title'] );
+
+                  var addCourse = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses').child($rootScope.currentUser.$id).push({
+
+                    "coursenumber": course.Number,
+                    "Course Title": course['Course Title'],
+                    "days": course.Days,
+                    "credits": course.Credits,
+                    "faculty": course.Faculty
+                  });
+              };
+             
+
     }]);
 
 
 
 
 
-angular.module('myApp').controller('safeCtrl', ['$scope', function ($scope) {
+angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', function ($scope, $rootScope) {
+      
+                  // Get a database reference to our posts
+            
+              
 
-    var coursenames = ['Laurent', 'Blandine', 'Olivier', 'Max'];
-    var coursenumbers = ['Renard', 'Faivre', 'Frere', 'Eponge'];
-    var dates = ['1987-05-21', '1987-04-25', '1955-08-27', '1966-06-06'];
-    var id = 1;
+              console.log(angular.element(document).scope());
 
-    function generateRandomItem(id) {
+                          
+                          var ref = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses/');
 
-        var coursename = coursenames[Math.floor(Math.random() * 3)];
-        var coursenumber = coursenumbers[Math.floor(Math.random() * 3)];
-        var birthdate = dates[Math.floor(Math.random() * 3)];
-        var balance = Math.floor(Math.random() * 2000);
+                                // Attach an asynchronous callback to read the data at our posts reference
+                                ref.on("value", function(snapshot) {
 
-        return {
-            id: id,
-            courseName: coursename,
-            courseNumber: coursenumber,
-            birthDate: new Date(birthdate),
-            balance: balance
-        }
-    }
+                                  // console.log(user);
+                                  console.log(snapshot.val());
+                                // console.log($rootScope.currentUser);
 
-    $scope.rowCollection = [];
+                                }, function (errorObject) {
+                                  console.log("The read failed: " + errorObject.code);
+                                });
 
-    for (id; id < 5; id++) {
-        $scope.rowCollection.push(generateRandomItem(id));
-    }
 
-    //copy the references (you could clone ie angular.copy but then have to go through a dirty checking for the matches)
-    $scope.displayedCollection = [].concat($scope.rowCollection);
-
-    //add to the real data holder
-    $scope.addRandomItem = function addRandomItem() {
-        $scope.rowCollection.push(generateRandomItem(id));
-        id++;
-    };
-
-    //remove to the real data holder
-    $scope.removeItem = function removeItem(row) {
-        var index = $scope.rowCollection.indexOf(row);
-        if (index !== -1) {
-            $scope.rowCollection.splice(index, 1);
-        }
-    };
 }]);
 
 

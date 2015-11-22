@@ -3086,7 +3086,7 @@ angular.module('ui.bootstrap.dropdown', ['ui.bootstrap.position'])
         return;
       }
 
-      element.addClass('dropdown-toggle');
+      element.addClass('uib-dropdown-toggle');
 
       dropdownCtrl.toggleElement = element;
 
@@ -3129,7 +3129,7 @@ angular.module('ui.bootstrap.dropdown')
   angular.extend(this, uibDropdownService);
 }])
 
-.controller('DropdownController', ['$scope', '$element', '$attrs', '$parse', 'uibDropdownConfig', 'uibDropdownService', '$animate', '$uibPosition', '$document', '$compile', '$templateRequest', '$log', '$dropdownSuppressWarning', function($scope, $element, $attrs, $parse, dropdownConfig, uibDropdownService, $animate, $position, $document, $compile, $templateRequest, $log, $dropdownSuppressWarning) {
+.controller('UibDropdownController', ['$scope', '$element', '$attrs', '$parse', 'uibDropdownConfig', 'uibDropdownService', '$animate', '$uibPosition', '$document', '$compile', '$templateRequest', '$log', '$dropdownSuppressWarning', function($scope, $element, $attrs, $parse, dropdownConfig, uibDropdownService, $animate, $position, $document, $compile, $templateRequest, $log, $dropdownSuppressWarning) {
   if (!$dropdownSuppressWarning) {
     $log.warn('DropdownController is now deprecated. Use UibDropdownController instead.');
   }
@@ -3306,7 +3306,7 @@ angular.module('ui.bootstrap.dropdown')
 
 .directive('dropdown', ['$log', '$dropdownSuppressWarning', function($log, $dropdownSuppressWarning) {
   return {
-    controller: 'DropdownController',
+    controller: 'UibDropdownController',
     link: function(scope, element, attrs, dropdownCtrl) {
       if (!$dropdownSuppressWarning) {
         $log.warn('dropdown is now deprecated. Use uib-dropdown instead.');
@@ -3399,7 +3399,7 @@ angular.module('ui.bootstrap.dropdown')
         return;
       }
 
-      element.addClass('dropdown-toggle');
+      element.addClass('uib-dropdown-toggle');
 
       dropdownCtrl.toggleElement = element;
 

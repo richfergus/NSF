@@ -6,9 +6,10 @@
 		    	<div class="col-md-6">
 						    <h2>Courses Available</h2>
 		    			<div ng-controller="CourseListCtrl">
-						  			<table st-select-row="row" st-select-mode="multiple" st-table="displayedCollection"  class="table table-striped">
+						  			<table st-select-row="row" st-select-mode="multiple" st-table="courses"  class="table table-striped">
 					        				<thead>
 					        				<tr>
+					        					<th st-sort="index">index</th>
 					        					<th st-sort="courseName">Course Name</th>
 					        					<th st-sort="courseNumber">Course Number</th>
 					        					<th st-sort="birthDate">Days</th>
@@ -19,16 +20,16 @@
 					        				</thead>
 					        				<tbody>
 					        				<tr ng-repeat="course in courses">
+						        					<td>{{$index}}</td>
+						        					
 						        					<td>{{course['Course Title']}}</td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>
 						        					<td>{{course.Credits}}</td>
-
 						        					<td>{{course.Faculty}}</td>
 					        					<td>
-					        					<button type="button" ng-click="addItem(row)" class="btn btn-sm btn-success">
-					        						<i class="glyphicon glyphicon-remove-circle">
-					        						</i>
+					        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
+					        						<i class="glyphicon glyphicon-add-circle">Add</i>
 					        					</button>
 					        					</td>
 					        				</tr>
@@ -41,13 +42,10 @@
 		        
 		        <div class="col-md-6">
 			        		<h2>My Courses</h2>
-					        	<div ng-controller="safeCtrl">
-					        			<button type="button" ng-click="addRandomItem(row)" class="btn btn-sm btn-success">
-					        				<i class="glyphicon glyphicon-plus">
-					        				</i> Add random item
-					        			</button>
-
-					        			<table st-select-row="row" st-select-mode="multiple" st-table="displayedCollection"  class="table table-striped">
+					        	<div ng-controller="MyCourseList">
+					        			
+										
+					        			<table st-select-row="row" st-select-mode="multiple" st-table="mycourses"  class="table table-striped">
 					        				<thead>
 					        				<tr>
 					        					<th st-sort="courseName">Course Name</th>
@@ -55,18 +53,29 @@
 					        					<th st-sort="birthDate">Days</th>
 					        					<th st-sort="balance">Faculity</th>
 					        					<th st-sort="balance">Manage</th>
-
 					        				</tr>
 					        				
 					        				</thead>
 					        				<tbody>
-					        				<tr ng-repeat="row in displayedCollection">
-					        					<td>{{row.Number}}</td>
-					        					<td>{{row.Number}}</td>
-					        					<td>{{row.Number}}</td>
-					        					<td>{{row.Number}}</td>
+					        			    <tr>
+					        			    	<td colspan="5">
+					        			    		<div align="center">Add Classes</div>
+											
+					        					</td>
+					        			    </tr>
+					        			    <tr>
+					        			    	<td colspan="5">
+					        			    		<div align="center">{{ message }}</div>
+											
+					        					</td>
+					        			    </tr>
+					        				<tr ng-repeat="course in courses">
+					        					<td>{{course.coursenumber}}</td>
+					        					<td>{{course.coursenumber}}</td>
+					        					<td>{{course.coursenumber}}</td>
+					        					<td>{{course.coursenumber}}</td>
 					        					<td>
-					        					<button type="button" ng-click="removeItem(row)" class="btn btn-sm btn-danger">
+					        					<button type="button" ng-click="removeItem(course.index)" class="btn btn-sm btn-danger">
 					        						<i class="glyphicon glyphicon-remove-circle">
 					        						</i>
 					        					</button>
