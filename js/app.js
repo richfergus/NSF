@@ -64,7 +64,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var thisUserID =  $rootScope.currentUser.$id;
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
-                       
+                       console.log(thisUserID);
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
@@ -79,6 +79,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                       });
                   $scope.removeCourse  = function (course) {
                       var thisUserID =  $rootScope.currentUser.$id;
+                      
                       var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' +thisUserID +'/'+ course.$id);
                       userCoursesRef.remove();
                       inform.add('Course Removed', {
@@ -87,13 +88,17 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
 
               };
           }]);
-angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '$firebaseArray', 'inform',
-     function($scope, $rootScope, $firebaseArray, inform) {
+angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
+     function($scope, $rootScope, $firebaseArray, $routeParams) {
               //get courses that the unser has selected in firebase
-              var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
+              $scope.model= {
+                message: ": "+$routeParams.courseID + " and userID: "+$routeParams.userID
+              };
+              var courseDetailRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses' +$routeParams.userID +"/" +$routeParams.courseID);
+              var courseDetail = $firebaseArray(courseDetailRef);
                   // not sure why, but I had to wait on the rootscope so I added this
-                    firstRef.on("value", function(snapshot) {
- 
+                           console.log($rootScope);
+                    courseDetailRef.on("value", function(snapshot) {
                       }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
                       });
@@ -118,9 +123,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/classes.html',
       controller: 'RegistrationController'
     }).
-    when('/coursedetail', {
+    when('/coursedetail/:userID/:courseID', {
       templateUrl: 'views/coursedetail.html',
-      controller: 'RegistrationController'
+      $routeParams: 'test',
+      controller: 'CourseDetailCrtl'
     }).
     when('/success', {
       templateUrl: 'views/success.html',

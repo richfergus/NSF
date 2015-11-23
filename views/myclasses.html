@@ -69,7 +69,7 @@
 					        			    </tr>
 
 					        				<tr ng-repeat="course in userCourses">
-					        					<td> <a ng-href="#/coursedetail">{{course['Course Title']}}</a</td>
+					        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a</td>
 					        					<td>{{course.coursenumber}}</td>
 					        					<td>{{course.days}}</td>
 					        					<td>{{course.faculty}}</td>
