@@ -18,7 +18,7 @@
 									       <col span="1" style="width: 5%;">
 									       <col span="1" style="width: 15%;">
 									       <col span="1" style="width: 5%;">
-									    </colgroup>
+									  </colgroup>
 			        				<tr>
 			        					<th st-sort="courseName">Course Name</th>
 			        					<th st-sort="Number">Course Number</th>
@@ -31,7 +31,7 @@
 		        				</thead>
 				        				<tbody>
 					        				<tr ng-repeat="course in courses">
-						        					<td>{{course['Course Title']}}</td>
+						        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a</td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>
 						        					<td>{{course.Credits}}</td>
@@ -50,8 +50,8 @@
 		        <div class="col-md-6">
 			        		<h2 style="margin-bottom:60px">My Courses</h2>
 					        	<div ng-controller="MyCourseList">
-					        			<table st-select-row="row" st-select-mode="multiple" st-table="mycourses"  class="table table-striped">
-					        				<thead>
+					        			<table st-table="courses" class="table table-striped">
+					        				<thead style="background-color: #f9f9f9;">
 					        				<tr>
 					        					<th st-sort="courseName">Course Name</th>
 					        					<th st-sort="courseNumber">Course Number</th>
