@@ -1,6 +1,6 @@
 
 var myApp = angular.module('myApp',
-  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap'])
+  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap', 'inform'])
   .constant('FIREBASE_URL', 'https://nsf-class-selector.firebaseio.com/');
 
 
@@ -29,13 +29,12 @@ angular.module('myApp').controller('ButtonsCtrl', function ($scope) {
 });
 
 
-angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray',
-    function($scope, $rootScope, $firebaseArray) {
+angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray','inform',
+    function($scope, $rootScope, $firebaseArray, inform) {
             // List Courses
             var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/');
             var courses = $firebaseArray(coursesRef);
-            courses.$loaded()
-              .then(function(){
+            courses.$loaded().then(function(){
                 $scope.courses = courses;
               });
                   // add courses form list to login user
@@ -49,12 +48,15 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                     "credits": course.Credits,
                     "faculty": course.Faculty
                   });
+                  inform.add('Course Added', {
+                        ttl: 3200, type: 'success'
+                      });
               };
     }]);
 
 
-angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$firebaseArray',
-     function($scope, $rootScope, $firebaseArray) {
+angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$firebaseArray', 'inform',
+     function($scope, $rootScope, $firebaseArray, inform) {
               //get courses that the unser has selected in firebase
               var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
                   // not sure why, but I had to wait on the rootscope so I added this
@@ -66,7 +68,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
-                                 if ($scope.userCourses.length == 0) {
+                                 if ($scope.userCourses.length === 0) {
                                     $scope.showClass  = true;
                                 } else {
                                     $scope.showClass = false;
@@ -79,8 +81,25 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                       var thisUserID =  $rootScope.currentUser.$id;
                       var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' +thisUserID +'/'+ course.$id);
                       userCoursesRef.remove();
+                      inform.add('Course Removed', {
+                        ttl: 3200, type: 'warning'
+                      });
+
               };
           }]);
+angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '$firebaseArray', 'inform',
+     function($scope, $rootScope, $firebaseArray, inform) {
+              //get courses that the unser has selected in firebase
+              var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
+                  // not sure why, but I had to wait on the rootscope so I added this
+                    firstRef.on("value", function(snapshot) {
+ 
+                      }, function (errorObject) {
+                        console.log("The read failed: " + errorObject.code);
+                      });
+
+          }]);
+
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/login', {
@@ -97,6 +116,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
     }).
     when('/classes', {
       templateUrl: 'views/classes.html',
+      controller: 'RegistrationController'
+    }).
+    when('/coursedetail', {
+      templateUrl: 'views/coursedetail.html',
       controller: 'RegistrationController'
     }).
     when('/success', {

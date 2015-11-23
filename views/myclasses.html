@@ -4,44 +4,52 @@
     <div class="container-fluid">
 		  <div class="row">
 		    	<div class="col-md-6">
-						    <h2>Courses Available</h2>
-		    			<div ng-controller="CourseListCtrl">
-						  			<table st-select-row="row" st-select-mode="multiple" st-table="courses"  class="table table-striped">
-					        				<thead>
-					        				<tr>
-					        					<th st-sort="courseName">Course Name</th>
-					        					<th st-sort="courseNumber">Course Number</th>
-					        					<th st-sort="birthDate">Days</th>
-					        					<th st-sort="courseNumber">Credits</th>
-					        					<th st-sort="balance">Faculity</th>
-					        				</tr>
-					        				
-					        				</thead>
-					        				<tbody>
+			    <h2>Courses Available</h2>
+	    			<div ng-controller="CourseListCtrl">
+					  	<table st-table="courses" class="table table-striped">
+		        				<thead>
+	        						<th colspan="6">
+											<input st-search="mySearch" placeholder="search any field" />
+									</th>
+									<colgroup>
+									       <col span="1" style="width: 35%;">
+									       <col span="1" style="width: 15%;">
+									       <col span="1" style="width: 15%;">
+									       <col span="1" style="width: 5%;">
+									       <col span="1" style="width: 15%;">
+									       <col span="1" style="width: 5%;">
+									    </colgroup>
+			        				<tr>
+			        					<th st-sort="courseName">Course Name</th>
+			        					<th st-sort="Number">Course Number</th>
+			        					<th st-sort="Days">Days</th>
+			        					<th st-sort="Credits">Credits</th>
+			        					<th st-sort="Faculity">Faculity</th>
+			        					<th st-sort="">Manage</th>
+
+			        				</tr>
+		        				</thead>
+				        				<tbody>
 					        				<tr ng-repeat="course in courses">
 						        					<td>{{course['Course Title']}}</td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>
 						        					<td>{{course.Credits}}</td>
 						        					<td>{{course.Faculty}}</td>
-					        					<td>
-					        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
-					        						<i>Add</i>
-					        					</button>
-					        					</td>
+					        				<td>
+				        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
+				        						<i>Add</i>
+				        					</button>
+				        					</td>
 					        				</tr>
-					        				</tbody>
-					        			</table>
-						    
-						</div>
-
+				        				</tbody>
+				        </table>
+					</div>
 		    	</div>
 		        
 		        <div class="col-md-6">
-			        		<h2>My Courses</h2>
+			        		<h2 style="margin-bottom:60px">My Courses</h2>
 					        	<div ng-controller="MyCourseList">
-					        			
-										
 					        			<table st-select-row="row" st-select-mode="multiple" st-table="mycourses"  class="table table-striped">
 					        				<thead>
 					        				<tr>
@@ -61,7 +69,7 @@
 					        			    </tr>
 
 					        				<tr ng-repeat="course in userCourses">
-					        					<td>{{course['Course Title']}}</td>
+					        					<td> <a ng-href="#/coursedetail">{{course['Course Title']}}</a</td>
 					        					<td>{{course.coursenumber}}</td>
 					        					<td>{{course.days}}</td>
 					        					<td>{{course.faculty}}</td>
