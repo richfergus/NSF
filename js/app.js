@@ -76,7 +76,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                               });
                       }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
-                      });
+                      });   
                   $scope.removeCourse  = function (course) {
                       var thisUserID =  $rootScope.currentUser.$id;
                       
