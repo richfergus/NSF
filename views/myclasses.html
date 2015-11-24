@@ -9,7 +9,7 @@
 					  	<table st-table="courses" class="table table-striped">
 		        				<thead>
 	        						<th colspan="6">
-											<input st-search="mySearch" placeholder="search any field" />
+											<input ng-model="query" placeholder="search for anything below" />
 									</th>
 									<colgroup>
 									       <col span="1" style="width: 35%;">
@@ -30,7 +30,7 @@
 			        				</tr>
 		        				</thead>
 				        				<tbody>
-					        				<tr ng-repeat="course in courses">
+					        				<tr ng-repeat="course in courses | filter: query">
 						        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a</td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>

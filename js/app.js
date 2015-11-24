@@ -31,27 +31,33 @@ angular.module('myApp').controller('ButtonsCtrl', function ($scope) {
 
 angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray','inform',
     function($scope, $rootScope, $firebaseArray, inform) {
-            // List Courses
+          // List Courses
             var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/');
             var courses = $firebaseArray(coursesRef);
             courses.$loaded().then(function(){
                 $scope.courses = courses;
+                // console.log('the root', $rootScope.currentUser);
               });
                   // add courses form list to login user
               $scope.addCourse  = function (course) {
                   $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
-                  var addCourse = new Firebase('https://nsf-class-selector.firebaseio.com/' + 'usercourses')
-                  .child($rootScope.currentUser.$id).push({
+                  var addCourse = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
+                  .child(course.Number).child($rootScope.currentUser.$id).set({
+                    "firstname": $rootScope.currentUser.firstname,
+                    "lastname": $rootScope.currentUser.lastname,
                     "coursenumber": course.Number,
                     "Course Title": course['Course Title'],
                     "days": course.Days,
                     "credits": course.Credits,
                     "faculty": course.Faculty
                   });
-                  inform.add('Course Added', {
+                      inform.add('Course Added', {
                         ttl: 3200, type: 'success'
                       });
               };
+
+             
+
     }]);
 
 
@@ -64,7 +70,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var thisUserID =  $rootScope.currentUser.$id;
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
-                       console.log(thisUserID);
+                       // console.log(thisUserID);
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
@@ -85,19 +91,39 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                       inform.add('Course Removed', {
                         ttl: 3200, type: 'warning'
                       });
+                   
 
               };
           }]);
 angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
      function($scope, $rootScope, $firebaseArray, $routeParams) {
-              //get courses that the unser has selected in firebase
+           //get course detail
+              var refClass = new Firebase("https://nsf-class-selector.firebaseio.com/courses/" +$routeParams.courseID);
+              var refClassDetail = $firebaseArray(refClass);
+                
+                refClassDetail.$loaded().then(function(){
+                      $scope.classDetail = refClassDetail;
+                      console.log($scope.classDetail);
+                  });
+
               $scope.model= {
-                message: ": "+$routeParams.courseID + " and userID: "+$routeParams.userID
+                message: ": "+$routeParams.courseID + " and userID: "+$routeParams.userID,
+                classDetail: $scope.classDetail
               };
+              // $scope.courseDetail = refClass;
+              console.log($scope.model);
+
               var courseDetailRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses' +$routeParams.userID +"/" +$routeParams.courseID);
               var courseDetail = $firebaseArray(courseDetailRef);
+
+               
+                
+              var ref = new Firebase("https://nsf-class-selector.firebaseio.com/usercourses/DPI-802M-B");
+                  ref.orderByChild("coursenumber").equalTo('DPI-802M-B').on("child_added", function(snapshot) {
+                    // console.log(snapshot.key());
+                  });
+
                   // not sure why, but I had to wait on the rootscope so I added this
-                           console.log($rootScope);
                     courseDetailRef.on("value", function(snapshot) {
                       }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
