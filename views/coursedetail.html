@@ -1,29 +1,36 @@
-
+<div class="container-fluid">
 		  <div class="row">
 		    	<div class="col-md-6">
-			    <h2>Courses Available</h2>
+			    <h2>American Course on Cool Stuff <code>DPI-802M-B</code></h2>
 	    			<div ng-controller="CourseDetailCrtl">
-	    				<h2>Class Detail for {{ currentUser.firstname}}</h2>
-						<p>Course ID{{model.message}}</p>
+	    				<div class="bs-callout bs-callout-warning" id="callout-inputgroup-container-body">
+	    				<h4>Harvard Kennidy School</h4>
+	    				<p>Course Meetings: <code>T/Th 2:25</code></p>
+						<p>Credits <code>.5</code></p>
+						<p>Falcuity <code>King</code></p>
 
-						<p>credits: {{model.classDetail.Credits}}</p>
+	    				 <p>Today's leaders must have the ability not only to analyze thoughtfully but also to communicate clearly and persuasively. This course will seek to strengthen the capacity of each student to speak well in public settings while navigating a range of leadership scenarios. Approximately one-third of the course will be devoted to classes that introduce students to strategies of communication and to models of public presentation. The rest will consist of smaller workshops in which students will hone their skills in public speaking. The course is designed for potential leaders in politics and public policy as well as other professions. This module will focus entirely on global human rights issues and advocacy. Each course in the DPI communications series assumes a fluency with the English language. Cross registrants and auditors will not be eligible for enrollment in this class for 2015-16.</p> </div>
+	    				 <br>
+						<a href="http://www.hks.harvard.edu/degrees/teaching-courses/course-listing/dpi-802m-b">More Information</a>
+						<hr>
+	    				<code>Other NSF Fellows In this Course</code>
 					  	<table st-table="courses" class="table table-striped">
 		        				<thead>
 									<colgroup>
 									       <col span="1" style="width: 35%;">
-									       <col span="1" style="width: 35%;">
+									       <col span="1" style="width: 15%;">
+
 									       
 									  </colgroup>
 			        				<tr>
-			        					<th colspan="3" st-sort="courseName">NSF Fellows In this Course</th>
+			        					<th colspan="1" st-sort="courseName">Names</th>
+			        					<th colspan="1" st-sort="courseName">Position</th>
 			        				</tr>
 		        				</thead>
 				        				<tbody>
 					        				<tr ng-repeat="course in courses">
-						        					<td>{{course.firstname}}</td>
-						        					<td>{{course.lastname}}</td>
-						        					<td>{{course.coursenumber}}</td>
-
+						        					<td>{{course.firstname}} {{course.lastname}}</td>
+						        					<td align="center"><button type="button" class="btn btn-warning">1</button></td>
 					        				</tr>
 				        				</tbody>
 				        </table>
@@ -31,4 +38,6 @@
 		    	</div>
 		
 		
-  </div>
+ 		</div>
+</div>
+

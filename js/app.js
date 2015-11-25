@@ -111,10 +111,18 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '
      function($scope, $rootScope, $firebaseArray, $routeParams) {
            //get course detail
            var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/').child($routeParams.courseID);
-           var courses = $firebaseArray(coursesRef);
-           courses.$loaded().then(function(){
-               $scope.courses = courses;
-               console.log(courses);
+           var coursesDetail = $firebaseArray(coursesRef);
+           coursesDetail.$loaded().then(function(){
+               $scope.courses = coursesDetail;
+
+
+               $scope.courseDetails = {
+                       items: [{
+                           courseName: 'yep',
+                           description: 'item'
+                           }]
+                   };
+                console.log($scope.courseDetails.items);   
 
              });
 
