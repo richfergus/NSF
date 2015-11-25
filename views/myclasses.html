@@ -31,7 +31,7 @@
 		        				</thead>
 				        				<tbody>
 					        				<tr ng-repeat="course in courses | filter: query">
-						        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a</td>
+						        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course['Course Title']}}">{{course['Course Title']}}</a></td>
 						        					<td>{{course.Number}}</td>
 						        					<td>{{course.Days}}</td>
 						        					<td>{{course.Credits}}</td>
@@ -67,7 +67,7 @@
 					        			    </tr>
 
 					        				<tr ng-repeat="course in userCourses">
-					        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a</td>
+					        					<td> <a ng-href="#/coursedetail/{{currentUser.$id}}/{{course.$id}}">{{course['Course Title']}}</a></td>
 					        					<td>{{course.coursenumber}}</td>
 					        					<td>{{course.days}}</td>
 					        					<td>{{course.faculty}}</td>
