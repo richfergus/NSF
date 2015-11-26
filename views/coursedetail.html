@@ -30,7 +30,19 @@
 				        				<tbody>
 					        				<tr ng-repeat="course in courses">
 						        					<td>{{course.firstname}} {{course.lastname}}</td>
-						        					<td align="center"><button type="button" class="btn btn-warning">1</button></td>
+						        					
+						        					<ng-switch on="$index">
+						        					   	<span ng-switch-when="0">
+						        					        <td align="center">
+						        					      	 	<button type="button" class="btn btn-warning">{{$index}}</button>
+						        							</td>
+						        						</span>
+						        						<span ng-switch-when="1">	
+						        					        <td align="center">
+						        					      	 	<button type="button" class="btn btn-sucsess">{{$index}}</button>
+						        							</td>
+						        						</span>	
+						        					</ng-switch>
 					        				</tr>
 				        				</tbody>
 				        </table>
