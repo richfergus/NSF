@@ -117,12 +117,14 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '
 
 
                $scope.courseDetails = {
-                       items: [{
-                           courseName: 'yep',
-                           description: 'item'
-                           }]
-                   };
-                console.log($scope.courseDetails.items);   
+                           coureseID: $routeParams.courseID,
+                           days: $scope.courses[0].days,
+                           courseName: $scope.courses[0]['Course Title'],
+                           faculty: $scope.courses[0].faculty,
+                           credits: $scope.courses[0].credits,
+                           };
+                  
+                // console.log($scope.courseDetails);
 
              });
 
