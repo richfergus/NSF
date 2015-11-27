@@ -130,6 +130,29 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '
 
           }]);
 
+angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
+     function($scope, $rootScope, $firebaseArray, $routeParams) {
+           //get course detail
+           var coursesByUserRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/');
+           var coursesByUserDetail = $firebaseArray(coursesByUserRef);
+           coursesByUserDetail.$loaded().then(function(){
+              $scope.courses = [];
+
+                for (var i = 0; i < coursesByUserDetail.length; i++) {
+                    $scope.courses.push(coursesByUserDetail[i]);
+                }
+
+              console.log($scope.courses);
+
+
+
+              // $scope.courses = coursesByUserDetail;
+              //   console.log($scope.courses);
+
+             });
+
+          }]);
+
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/login', {

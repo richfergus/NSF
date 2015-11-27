@@ -1,7 +1,28 @@
-<h1>classes</h1>
-<div class="card meetings cf">
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-md-6">
+			<div ng-controller="coursesByUserCrtl">
+					  	<table st-table="courses" class="table table-striped">
+		        				<tbody ng-repeat="(item, course) in courses">
+		        					<tr ng-repeat="x in course">
+		        				      <td>{{item}}</td>
 
-  <div class="textintro">
+		        				      <td>{{course}}</td>
+		        				      <!-- <td>{{x}}</td> -->
+			        				    
+		        				      <td>{{x.coursenumber}}</td>
+		        				      <td>{{x.firstname}}</td>
+		        				      <td>{{x}}</td>
 
-  </div>
-</div><!-- meetings cf -->
+		        				    </tr>  
+		        				</tbody>
+				        </table>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
