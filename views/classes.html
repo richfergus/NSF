@@ -3,23 +3,24 @@
     	<div class="col-md-6">
 			<div ng-controller="coursesByUserCrtl">
 					  	<table st-table="courses" class="table table-striped">
-		        				<tbody ng-repeat="(item, course) in courses">
-		        					<tr ng-repeat="x in course">
-		        				      <td>{{item}}</td>
+	        				<tbody >
+	        					<tr ng-repeat="(index, course) in courses">
+	        				      <td>{{index}}</td>
 
-		        				      <td>{{course}}</td>
-		        				      <!-- <td>{{x}}</td> -->
-			        				    
-		        				      <td>{{x.coursenumber}}</td>
-		        				      <td>{{x.firstname}}</td>
-		        				      <td>{{x}}</td>
+	        				      <td>{{course['5fc0d645-e1c9-400e-8dc9-0988f686780e']}}</td>
+	        				      <!-- <td>{{x}}</td> -->
+		        				    
+	        				      <td>{{coursenumber}}</td>
+	        				      <td>
+	        				        <ul ng-repeat="item in course">
+	        				      		<li>{{item.firstname}}</li>
+	        				      	</ul>
+	        				      </td>
+	        				      <td>{{x}}</td>
 
-		        				    </tr>  
+	        				    </tr>  
 		        				</tbody>
 				        </table>
-
-
-
 			</div>
 		</div>
 	</div>

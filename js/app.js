@@ -36,13 +36,16 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
             var courses = $firebaseArray(coursesRef);
             courses.$loaded().then(function(){
                 $scope.courses = courses;
-                // console.log('the root', $rootScope.currentUser);
+                // console.log('the root', $scope.courses);
               });
                   // add courses form list to login user
               $scope.addCourse = function (course) {
+              console.log(course); 
+
+
                   $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
                   var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
-                  .child(course.Number).child($rootScope.currentUser.$id).set({
+                  .child(course.$id).child($rootScope.currentUser.$id).set({
                     "firstname": $rootScope.currentUser.firstname,
                     "lastname": $rootScope.currentUser.lastname,
                     "coursenumber": course.Number,
@@ -107,23 +110,32 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
 
               };
           }]);
-angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
-     function($scope, $rootScope, $firebaseArray, $routeParams) {
+angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$firebaseObject', '$routeParams',
+     function($scope, $rootScope, $firebaseObject, $routeParams) {
            //get course detail
-           var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/').child($routeParams.courseID);
-           var coursesDetail = $firebaseArray(coursesRef);
+           var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/').child($routeParams.courseID);
+           var coursesDetail =  $firebaseObject(coursesRef);
            coursesDetail.$loaded().then(function(){
-               $scope.courses = coursesDetail;
+               // $scope.courses = coursesDetail;
+               // console.log($scope.courses);
 
 
-               $scope.courseDetails = {
-                           coureseID: $routeParams.courseID,
-                           days: $scope.courses[0].days,
-                           courseName: $scope.courses[0]['Course Title'],
-                           faculty: $scope.courses[0].faculty,
-                           credits: $scope.courses[0].credits,
-                           };
+               // angular.forEach($scope.courses[0], function(value, key) {
+                 
+               // // if(value == "The Arts of Communication")
+               //   console.log(key + ': ' + value);
+               // });
+                    // $scope.courseDetails = {
+                    //        coureseID: $routeParams.courseID,
+                    //        days: $scope.courses.days,
+                    //        courseName: $scope.courses['Course Title'],
+                    //        faculty: $scope.courses.faculty,
+                    //        credits: $scope.courses.credits,
+                    //        };
                   
+               console.log(coursesDetail);
+               
+
                 // console.log($scope.courseDetails);
 
              });
@@ -202,3 +214,4 @@ myApp.run(['$rootScope', '$location',
           });
   
 }]);
+
