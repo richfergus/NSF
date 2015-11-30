@@ -40,10 +40,9 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
               });
                   // add courses form list to login user
               $scope.addCourse = function (course) {
-              console.log(course); 
+              // console.log(course);
 
 
-                  $rootScope.message = 'this user '+ $scope.currentUser.$id +'| this course ' + course.Number;
                   var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
                   .child(course.$id).child($rootScope.currentUser.$id).set({
                     "firstname": $rootScope.currentUser.firstname,
@@ -52,17 +51,18 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                     "Course Title": course['Course Title'],
                     "days": course.Days,
                     "credits": course.Credits,
-                    "faculty": course.Faculty
+                    "faculty": course.Faculty,
                   });
                      
                   var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser')
-                  .child($rootScope.currentUser.$id).child(course.Number).set({
+                  .child($rootScope.currentUser.$id).child(course.$id).set({
                     "firstname": $rootScope.currentUser.firstname,
                     "lastname": $rootScope.currentUser.lastname,
                     "coursenumber": course.Number,
                     "Course Title": course['Course Title'],
                     "days": course.Days,
                     "credits": course.Credits,
+                    "courseID": course.$id,
                     "faculty": course.Faculty
                   });
                       inform.add('Course Added', {
@@ -84,7 +84,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var thisUserID =  $rootScope.currentUser.$id;
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
-                       // console.log(thisUserID);
+                       // console.log(userCourses);
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
@@ -116,30 +116,18 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$
            var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/').child($routeParams.courseID);
            var coursesDetail =  $firebaseObject(coursesRef);
            coursesDetail.$loaded().then(function(){
-               // $scope.courses = coursesDetail;
-               // console.log($scope.courses);
+                    $scope.courseDetails = {
+                           coureseID: $routeParams.courseID,
+                           days: coursesDetail.Days,
+                           courseName: coursesDetail['Course Title'],
+                           faculty: coursesDetail.Faculty,
+                           credits: coursesDetail.Credits,
+                           number: coursesDetail.Number,
 
-
-               // angular.forEach($scope.courses[0], function(value, key) {
-                 
-               // // if(value == "The Arts of Communication")
-               //   console.log(key + ': ' + value);
-               // });
-                    // $scope.courseDetails = {
-                    //        coureseID: $routeParams.courseID,
-                    //        days: $scope.courses.days,
-                    //        courseName: $scope.courses['Course Title'],
-                    //        faculty: $scope.courses.faculty,
-                    //        credits: $scope.courses.credits,
-                    //        };
+                           };
                   
-               console.log(coursesDetail);
-               
-
-                // console.log($scope.courseDetails);
-
+               // console.log(coursesDetail);
              });
-
           }]);
 
 angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
@@ -183,7 +171,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/classes.html',
       controller: 'RegistrationController'
     }).
-    when('/coursedetail/:userID/:courseID', {
+    when('/coursedetail/:courseID', {
       templateUrl: 'views/coursedetail.html',
       $routeParams: 'test',
       controller: 'CourseDetailCrtl'
