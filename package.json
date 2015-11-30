@@ -1,0 +1,20 @@
+{
+  "name": "fellows",
+  "version": "1.0.0",
+  "description": "Project for Fellows HKS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richfergus/richfergus.github.io.git"
+  },
+  "author": "Rich Ferguson (richfergus@yahoo.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richfergus/richfergus.github.io/issues"
+  },
+  "homepage": "https://github.com/richfergus/richfergus.github.io#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1"
+  }
+}
