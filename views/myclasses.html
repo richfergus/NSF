@@ -31,11 +31,11 @@
 		        				</thead>
 				        				<tbody>
 					        				<tr ng-repeat="course in courses | filter: query">
-						        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course['Course Title']}}</a></td>
-						        					<td>{{course.Number}}</td>
-						        					<td>{{course.Days}}</td>
-						        					<td>{{course.Credits}}</td>
-						        					<td>{{course.Faculty}}</td>
+						        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
+						        					<td>{{course.number}}</td>
+						        					<td>{{course.schedule}}</td>
+						        					<td>{{course.credits}}</td>
+						        					<td>{{course.faculty}}</td>
 					        				<td>
 				        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
 				        						<i>Add</i>
@@ -67,9 +67,10 @@
 					        			    </tr>
 
 					        				<tr ng-repeat="course in userCourses">
-					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course['Course Title']}}</a></td>
-					        					<td>{{course.coursenumber}}</td>
-					        					<td>{{course.days}}</td>
+					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
+					        					<td>{{course.number}}</td>
+					        					<td>{{course.schedule}}</td>
+					        					<td>{{course.credits}}</td>
 					        					<td>{{course.faculty}}</td>
 					        					<td>
 					        					<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">

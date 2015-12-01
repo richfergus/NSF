@@ -60,23 +60,23 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                   .child(course.$id).child($rootScope.currentUser.$id).set({
                     "firstname": $rootScope.currentUser.firstname,
                     "lastname": $rootScope.currentUser.lastname,
-                    "coursenumber": course.Number,
-                    "Course Title": course['Course Title'],
-                    "days": course.Days,
-                    "credits": course.Credits,
-                    "faculty": course.Faculty,
+                    "coursenumber": course.coursenumber,
+                    "coursetitle": course.coursetitle,
+                    "schedule": course.schedule,
+                    "credits": course.credits,
+                    "faculty": course.faculty,
                   });
                      
                   var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser')
                   .child($rootScope.currentUser.$id).child(course.$id).set({
                     "firstname": $rootScope.currentUser.firstname,
                     "lastname": $rootScope.currentUser.lastname,
-                    "coursenumber": course.Number,
-                    "Course Title": course['Course Title'],
-                    "days": course.Days,
-                    "credits": course.Credits,
+                    "coursenumber": course.coursenumber,
+                    "coursetitle": course.coursetitle,
+                    "schedule": course.schedule,
+                    "credits": course.credits,
                     "courseID": course.$id,
-                    "faculty": course.Faculty
+                    "faculty": course.faculty 
                   });
                       inform.add('Course Added', {
                         ttl: 3200, type: 'success'
@@ -131,11 +131,11 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$
            coursesDetail.$loaded().then(function(){
                     $scope.courseDetails = {
                            coureseID: $routeParams.courseID,
-                           days: coursesDetail.Days,
-                           courseName: coursesDetail['Course Title'],
-                           faculty: coursesDetail.Faculty,
-                           credits: coursesDetail.Credits,
-                           number: coursesDetail.Number,
+                           schedule: coursesDetail.schedule,
+                           coursename: coursesDetail.coursename,
+                           faculty: coursesDetail.faculty,
+                           credits: coursesDetail.credits,
+                           coursenumber: coursesDetail.coursenumber
 
                            };
                   

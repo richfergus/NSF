@@ -2,16 +2,16 @@
 		  <div class="row">
 		    	<div class="col-md-6">
 	    			<div ng-controller="CourseDetailCrtl">
-			    <h2>{{courseDetails.courseName}} <code>{{courseDetails.number}}</code></h2>
+			    <h2>{{courseDetails.coursename}} <code>{{courseDetails.coursenumber}}</code></h2>
 	    				<div class="bs-callout bs-callout-warning" id="callout-inputgroup-container-body">
 	    				<h4>Harvard Kennidy School</h4>
-	    				<p>Course Meetings: <code>{{courseDetails.days}}</code></p>
+	    				<p>Course Meetings: <code>{{courseDetails.schedule}}</code></p>
 						<p>Credits <code>{{courseDetails.credits}}</code></p>
 						<p>Faculty <code>{{courseDetails.faculty}}</code></p>
 
 	    				 <p>Today's leaders must </p> </div>
 	    				 <br>
-						<a href="http://www.hks.harvard.edu/degrees/teaching-courses/course-listing/{{courseDetails.coureseID}}">More Information</a>
+						<a href="http://www.hks.harvard.edu/degrees/teaching-courses/course-listing/{{courseDetails.coursenumber}}">More Information</a>
 						<hr>
 	    				<code>Other NSF Fellows In this Course</code>
 					  	<table st-table="courses" class="table table-striped">

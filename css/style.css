@@ -367,9 +367,7 @@ input.ng-valid.ng-touched {
   border: 2px solid #509D12;
 }
 
-.ng-invalid .btn {
-  background: gray;
-}
+
 
 .error {
   color: red;
