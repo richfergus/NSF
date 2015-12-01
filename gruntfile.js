@@ -15,15 +15,16 @@ module.exports = function(grunt){
 
 		watch: {
 			options:{
-				spawn:false
+				spawn:false,
+				livereload:true
 			},
 			scripts:{
-			files:['views/**/*.html',
-			'js/contollers/*.js',
-			'css/*.css'
-			],
+				files:['views/**/*.html',
+				'js/contollers/*.js',
+				'css/**.css'
+				],
 			tasks:['concat']
-		}	
+		}
 
 		}
 	});
