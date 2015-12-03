@@ -85,7 +85,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
                        // console.log(userCourses);
-                        userCourses.$loaded()
+                        userCourses.$loaded()≠
                               .then(function(){
                                 $scope.userCourses = userCourses;
                                  if ($scope.userCourses.length === 0) {
@@ -155,7 +155,7 @@ angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', 
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/login', {
+    when('/login', { 
       templateUrl: 'views/login.html',
       controller: 'RegistrationController'
     }).
