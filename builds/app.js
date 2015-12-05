@@ -5,30 +5,6 @@ var myApp = angular.module('myApp',
 
 
 
-angular.module('myApp').controller('ButtonsCtrl', function ($scope) {
-  $scope.singleModel = 1;
-
-  $scope.radioModel = 'Middle';
-
-  $scope.checkModel = {
-    left: false,
-    middle: true,
-    right: false
-  };
-
-  $scope.checkResults = [];
-
-  $scope.$watchCollection('checkModel', function () {
-    $scope.checkResults = [];
-    angular.forEach($scope.checkModel, function (value, key) {
-      if (value) {
-        $scope.checkResults.push(key);
-      }
-    });
-  });
-});
-
-
 angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray','inform',
     function($scope, $rootScope, $firebaseArray, inform) {
           // List Courses
@@ -39,41 +15,33 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                 // console.log('the root', $scope.courses);
               });
                   // add courses form list to login user
-              $scope.addCourse = function (course) {
-              // console.log(course);
-
-
-                  var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
-                  .child(course.$id).child($rootScope.currentUser.$id).set({
-                    "firstname": $rootScope.currentUser.firstname,
-                    "lastname": $rootScope.currentUser.lastname,
-                    "coursenumber": course.coursenumber,
-                    "coursetitle": course.coursetitle,
-                    "schedule": course.schedule,
-                    "credits": course.credits,
-                    "faculty": course.faculty,
-                  });
-                     
-                  var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser')
-                  .child($rootScope.currentUser.$id).child(course.$id).set({
-                    "firstname": $rootScope.currentUser.firstname,
-                    "lastname": $rootScope.currentUser.lastname,
-                    "coursenumber": course.coursenumber,
-                    "coursetitle": course.coursetitle,
-                    "schedule": course.schedule,
-                    "credits": course.credits,
-                    "courseID": course.$id,
-                    "faculty": course.faculty 
-                  });
-                      inform.add('Course Added', {
-                        ttl: 3200, type: 'success'
+              $scope.addCourse = function (course)
+                    {
+                      var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id)
+                      .child(course.$id).set({
+                        "courseID" : course.$id,
+                        "coursenumber": course.coursenumber,
+                        "coursetitle": course.coursetitle,
+                        "schedule": course.schedule,
+                        "credits": course.credits,
+                        "faculty": course.faculty,
+                        "priority": 1
                       });
-              };
-
-             
+                        var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
+                        .child(course.$id).child($rootScope.currentUser.$id).update({
+                         "firstname": $rootScope.currentUser.firstname,
+                         "lastname": $rootScope.currentUser.lastname,
+                          "priority": 1
+                        });
+                        // console.log(addUserCourses);
+                        
+                        
+                            inform.add('Course Added', {
+                              ttl: 3200, type: 'success'
+                            });
+                    };
 
     }]);
-
 
 angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$firebaseArray', 'inform',
      function($scope, $rootScope, $firebaseArray, inform) {
@@ -84,8 +52,34 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var thisUserID =  $rootScope.currentUser.$id;
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
+                       
+                        var sortableEle;
+                                    $scope.sortableArray = userCourses;
+
+                                    $scope.dragStart = function(e, ui) {
+                                            ui.item.data('start', ui.item.index());
+                                        };
+                                        $scope.dragEnd = function(e, ui) {
+                                            var start = ui.item.data('start'),
+                                                end = ui.item.index();
+                                            
+                                            $scope.sortableArray.splice(end, 0,
+                                                $scope.sortableArray.splice(start, 1)[0]);
+                                            
+                                            $scope.$apply();
+                                        };
+                                            
+                                        sortableEle = $("#myclassesTBL").sortable({
+                                            start: $scope.dragStart,
+                                            update: $scope.dragEnd
+                                        });
+                                        
+                            console.log(userCourses);
+                            
+
+
                        // console.log(userCourses);
-                        userCourses.$loaded()≠
+                        userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
                                  if ($scope.userCourses.length === 0) {
@@ -94,15 +88,15 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                                     $scope.showClass = false;
                                 }
                               });
+                              
                       }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
                       });
                   $scope.removeCourse  = function (course) {
                       var thisUserID =  $rootScope.currentUser.$id;
                       var coursesUserRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' +course.$id +'/'+thisUserID);
-                      var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +thisUserID +'/'+ course.$id);
+                      var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +thisUserID +'/'+ course.$id).remove();
                       coursesUserRef.remove();
-                      userCoursesRef.remove();
                       inform.add('Course Removed', {
                         ttl: 3200, type: 'warning'
                       });
@@ -142,20 +136,22 @@ angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', 
                     $scope.courses.push(coursesByUserDetail[i]);
                 }
 
-              console.log($scope.courses);
-
-
-
-              // $scope.courses = coursesByUserDetail;
-              //   console.log($scope.courses);
-
              });
 
           }]);
+angular.module('myApp').controller('OthersInCourseCtrl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
+     function($scope, $rootScope, $firebaseArray, $routeParams) {
+      var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/').child($routeParams.courseID);
+      $scope.othersInCourse =  $firebaseArray(coursesRef);
+      
+      console.log($scope.othersInCourse);
+}]);
+     
+
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/login', { 
+    when('/login', {
       templateUrl: 'views/login.html',
       controller: 'RegistrationController'
     }).
@@ -189,6 +185,10 @@ myApp.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/login'
     });
 }]);
+
+
+
+
 
 
 myApp.run(['$rootScope', '$location',

@@ -20,8 +20,8 @@
 									       <col span="1" style="width: 5%;">
 									  </colgroup>
 			        				<tr>
-			        					<th st-sort="courseName">Course Name</th>
-			        					<th st-sort="Number">Course Number</th>
+			        					<th st-sort="courseName">Name</th>
+			        					<th st-sort="Number">Number</th>
 			        					<th st-sort="Days">Days</th>
 			        					<th st-sort="Credits">Credits</th>
 			        					<th st-sort="Faculity">Faculity</th>
@@ -32,7 +32,7 @@
 				        				<tbody>
 					        				<tr ng-repeat="course in courses | filter: query">
 						        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
-						        					<td>{{course.number}}</td>
+						        					<td>{{course.coursenumber}}</td>
 						        					<td>{{course.schedule}}</td>
 						        					<td>{{course.credits}}</td>
 						        					<td>{{course.faculty}}</td>
@@ -40,7 +40,7 @@
 				        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
 				        						<i>Add</i>
 				        					</button>
-				        					</td>
+				        					</td> 
 					        				</tr>
 				        				</tbody>
 				        </table>
@@ -52,32 +52,34 @@
 					        			<table st-table="courses" class="table table-striped">
 					        				<thead style="background-color: #f9f9f9;">
 					        				<tr>
-					        					<th st-sort="courseName">Course Name</th>
-					        					<th st-sort="courseNumber">Course Number</th>
+					        					<th st-sort="priority">Priority</th>
+					        					<th st-sort="coursename">Name</th>
+					        					<th st-sort="coursenumber">Number</th>
 					        					<th st-sort="birthDate">Days</th>
+					        					<th st-sort="balance">Credits</th>
 					        					<th st-sort="balance">Faculity</th>
 					        					<th st-sort="balance">Manage</th>
 					        				</tr>
 					        				</thead>
-					        				<tbody>
+					        				<tbody id="myclassesTBL">
 					        			    <tr ng-show="showClass == true">
-					        			    	<td colspan="5">
+					        			    	<td colspan="7">
 					        			    		<div align="center"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Add Classes</div>
 					        					</td>
 					        			    </tr>
 
-					        				<tr ng-repeat="course in userCourses">
+					        				<tr id="sortable" ng-repeat="course in userCourses">
+					        					<td><button ng-class="{'btn btn-success':course.priority <= 3, 'btn btn-warning':course.priority ==  4, 'btn btn-danger':course.priority >  4}">{{course.priority}}</button></td>
 					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
-					        					<td>{{course.number}}</td>
-					        					<td>{{course.schedule}}</td>
+					        					<td>{{course.coursenumber}}</td>
+					        					<td>{{course.days}}</td>
 					        					<td>{{course.credits}}</td>
 					        					<td>{{course.faculty}}</td>
 					        					<td>
-					        					<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
-					        						<i class="glyphicon glyphicon-remove-circle">
-					        						</i>
-					        					</button>
-
+					        						<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
+					        							<i class="glyphicon glyphicon-remove-circle">
+					        							</i>
+					        						</button>
 					        					</td>
 					        				</tr>
 					        				</tbody>

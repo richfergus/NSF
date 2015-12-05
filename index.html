@@ -1,7 +1,8 @@
-<script src="//localhost:35729/livereload.js"></script>
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<script src="//localhost:35729/livereload.js"></script>
 
+<html lang="en" ng-app="myApp">
+ 
 <head>
   <meta charset="UTF-8">
   <title>Fellows Class Selection</title>
@@ -11,9 +12,7 @@
   <link rel="stylesheet" href="css/angular-inform/angular-inform.css">
   <link rel="stylesheet" href="css/style.css">
 
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
-
-   
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>   
     <!-- bootstrao cdn -->
 
     <!-- angular cdn -->
@@ -22,6 +21,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
     
     <!-- firebase cdn -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
@@ -29,7 +30,7 @@
 
     <script src="js/script.js"></script>
 
-
+          
     <!-- angular js stuff -->
     <script src="js/controllers/authentication.js"></script>
     <script src="js/controllers/registration.js"></script>
@@ -39,7 +40,7 @@
 </head>
 <body>
   <nav class="cf" ng-include="'views/nav.html'"></nav>
-    
+
   <main class="cf" ng-view>
 
   </main>

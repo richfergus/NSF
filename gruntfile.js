@@ -20,14 +20,14 @@ module.exports = function(grunt){
 			},
 			scripts:{
 				files:['views/**/*.html',
-				'js/contollers/*.js',
+				'builds/*.js',
 				'css/**.css'
 				],
 			tasks:['concat']
 		}
 
 		}
-	});
+	}); 
 grunt.loadNpmTasks('grunt-contrib-concat');
 grunt.loadNpmTasks('grunt-contrib-watch');
 

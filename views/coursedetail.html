@@ -14,7 +14,10 @@
 						<a href="http://www.hks.harvard.edu/degrees/teaching-courses/course-listing/{{courseDetails.coursenumber}}">More Information</a>
 						<hr>
 	    				<code>Other NSF Fellows In this Course</code>
-					  	<table st-table="courses" class="table table-striped">
+					  	
+					</div>
+					<div ng-controller="OthersInCourseCtrl">
+						<table st-table="courses" class="table table-striped">
 		        				<thead>
 									<colgroup>
 									       <col span="1" style="width: 35%;">
@@ -28,17 +31,15 @@
 			        				</tr>
 		        				</thead>
 				        				<tbody>
-					        				<tr ng-repeat="course in courses">
+					        				<tr ng-repeat="course in othersInCourse">
 						        					<td>{{course.firstname}} {{course.lastname}}</td>
-						        					
 						        							<td>		
-						        					      	 	<button type="button" class="btn btn-warning">{{$index +1}}</button>
+						        					      	 	<button type="button" class="btn btn-warning">{{course.priority}}</button>
 						        							</td>
-						        						
 					        				</tr>
 				        				</tbody>
 				        </table>
-					</div>
+				       </div> 
 		    	</div>
 		
 		
