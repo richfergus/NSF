@@ -61,14 +61,14 @@
 					        					<th st-sort="balance">Remove</th>
 					        				</tr>
 					        				</thead>
-					        				<tbody id="myclassesTBL">
+					        				<tbody ui-sortable="sortableOptions">
 					        			    <tr ng-show="showClass == true">
 					        			    	<td colspan="7">
 					        			    		<div align="center"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Add Classes</div>
 					        					</td>
 					        			    </tr>
 
-					        				<tr id="sortable" ng-repeat="course in userCourses track by $index" >
+					        				<tr ng-repeat="course in userCourses track by $index" style="cursor: move;" >
 					        					<td><button ng-class="{'btn btn-success':$index+1 <= 3, 'btn btn-warning':$index+1 == 4, 'btn btn-danger':$index+1 >  4}">{{$index+1}}</button></td>
 					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 					        					<td>{{course.coursenumber}}</td>
@@ -84,9 +84,11 @@
 					        						</button>
 					        					</td>
 					        				</tr>
-					        				</tbody>
-					        			</table>
 
+					        				</tbody>
+					        				
+					        			</table>
+        			        				
 					        		</div>
 		        </div>
 		  </div>

@@ -13,7 +13,7 @@
  //------------------------>
 
 var myApp = angular.module('myApp',
-  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap', 'inform'])
+  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap','ui.sortable', 'inform'])
   .constant('FIREBASE_URL', 'https://nsf-class-selector.firebaseio.com/');
 
 
@@ -67,38 +67,8 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
                        
-                        var sortableEle;
-                                    $scope.sortableArray = userCourses;
+                       
 
-                                        $scope.dragStart = function(e, ui) {
-                                            ui.item.data('start', ui.item.index());
-                                           };
-                                        $scope.dragEnd = function(e, ui) {
-                                            var start = ui.item.data('start'),
-                                                end = ui.item.index();
-                                            $scope.sortableArray.splice(end, 0,
-                                            $scope.sortableArray.splice(start, 1)[0]);
-                                            $scope.$apply();
-                                        };
-                                         $scope.changePri = function (i) {
-                                            // $scope.sortableArray = i;
-                                            console.log(changePri);
-                                          };
-                                            
-                                        sortableEle = $("#myclassesTBL").sortable({
-                                            start: $scope.dragStart,
-                                            update: $scope.dragEnd,
-                                            containment: "parent",//Dont let the user drag outside the parent
-                                            cursor: "move",//Change the cursor icon on drag
-                                            tolerance: "pointer"//Read http://api.jqueryui.com/sortable/#option-tolerance
-                                        });
-
-
-                                        
-                            
-
-
-                       // console.log(userCourses);
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
