@@ -46,13 +46,14 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                          "lastname": $rootScope.currentUser.lastname,
                           "priority": 1
                         });
-                        // console.log(addUserCourses);
+                        console.log(addUserCourses);
                         
                         
                             inform.add('Course Added', {
                               ttl: 3200, type: 'success'
                             });
                     };
+                    // if success then update priority with $index
 
     }]);
 
@@ -69,25 +70,31 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var sortableEle;
                                     $scope.sortableArray = userCourses;
 
-                                    $scope.dragStart = function(e, ui) {
+                                        $scope.dragStart = function(e, ui) {
                                             ui.item.data('start', ui.item.index());
-                                        };
+                                           };
                                         $scope.dragEnd = function(e, ui) {
                                             var start = ui.item.data('start'),
                                                 end = ui.item.index();
-                                            
                                             $scope.sortableArray.splice(end, 0,
-                                                $scope.sortableArray.splice(start, 1)[0]);
-                                            
+                                            $scope.sortableArray.splice(start, 1)[0]);
                                             $scope.$apply();
                                         };
+                                         $scope.changePri = function (i) {
+                                            // $scope.sortableArray = i;
+                                            console.log(changePri);
+                                          };
                                             
                                         sortableEle = $("#myclassesTBL").sortable({
                                             start: $scope.dragStart,
-                                            update: $scope.dragEnd
+                                            update: $scope.dragEnd,
+                                            containment: "parent",//Dont let the user drag outside the parent
+                                            cursor: "move",//Change the cursor icon on drag
+                                            tolerance: "pointer"//Read http://api.jqueryui.com/sortable/#option-tolerance
                                         });
+
+
                                         
-                            console.log(userCourses);
                             
 
 
@@ -225,6 +232,359 @@ myApp.run(['$rootScope', '$location',
 */
 !function(t,e){"use strict";t.module("smart-table",[]).run(["$templateCache",function(t){t.put("template/smart-table/pagination.html",'<nav ng-if="numPages && pages.length >= 2"><ul class="pagination"><li ng-repeat="page in pages" ng-class="{active: page==currentPage}"><a ng-click="selectPage(page)">{{page}}</a></li></ul></nav>')}]),t.module("smart-table").constant("stConfig",{pagination:{template:"template/smart-table/pagination.html",itemsByPage:10,displayedPages:5},search:{delay:400,inputEvent:"input"},select:{mode:"single",selectedClass:"st-selected"},sort:{ascentClass:"st-sort-ascent",descentClass:"st-sort-descent",skipNatural:!1,delay:300},pipe:{delay:100}}),t.module("smart-table").controller("stTableController",["$scope","$parse","$filter","$attrs",function(a,n,s,i){function r(t){return t?[].concat(t):[]}function l(){b=r(o(a)),S===!0&&v.pipe()}function c(t,e){if(-1!=e.indexOf(".")){var a=e.split("."),s=a.pop(),i=a.join("."),r=n(i)(t);delete r[s],0==Object.keys(r).length&&c(t,i)}else delete t[e]}var o,u,p,g=i.stTable,f=n(g),d=f.assign,m=s("orderBy"),h=s("filter"),b=r(f(a)),P={sort:{},search:{},pagination:{start:0,totalItemCount:0}},S=!0,v=this;i.stSafeSrc&&(o=n(i.stSafeSrc),a.$watch(function(){var t=o(a);return t&&t.length?t[0]:e},function(t,e){t!==e&&l()}),a.$watch(function(){var t=o(a);return t?t.length:0},function(t){t!==b.length&&l()}),a.$watch(function(){return o(a)},function(t,e){t!==e&&(P.pagination.start=0,l())})),this.sortBy=function(e,a){return P.sort.predicate=e,P.sort.reverse=a===!0,t.isFunction(e)?P.sort.functionName=e.name:delete P.sort.functionName,P.pagination.start=0,this.pipe()},this.search=function(e,a){var s=P.search.predicateObject||{},i=a?a:"$";return e=t.isString(e)?e.trim():e,n(i).assign(s,e),e||c(s,i),P.search.predicateObject=s,P.pagination.start=0,this.pipe()},this.pipe=function(){var t,n=P.pagination;u=P.search.predicateObject?h(b,P.search.predicateObject):b,P.sort.predicate&&(u=m(u,P.sort.predicate,P.sort.reverse)),n.totalItemCount=u.length,n.number!==e&&(n.numberOfPages=u.length>0?Math.ceil(u.length/n.number):1,n.start=n.start>=u.length?(n.numberOfPages-1)*n.number:n.start,t=u.slice(n.start,n.start+parseInt(n.number))),d(a,t||u)},this.select=function(t,n){var s=r(f(a)),i=s.indexOf(t);-1!==i&&("single"===n?(t.isSelected=t.isSelected!==!0,p&&(p.isSelected=!1),p=t.isSelected===!0?t:e):s[i].isSelected=!s[i].isSelected)},this.slice=function(t,e){return P.pagination.start=t,P.pagination.number=e,this.pipe()},this.tableState=function(){return P},this.getFilteredCollection=function(){return u||b},this.setFilterFunction=function(t){h=s(t)},this.setSortFunction=function(t){m=s(t)},this.preventPipeOnWatch=function(){S=!1}}]).directive("stTable",function(){return{restrict:"A",controller:"stTableController",link:function(t,e,a,n){a.stSetFilter&&n.setFilterFunction(a.stSetFilter),a.stSetSort&&n.setSortFunction(a.stSetSort)}}}),t.module("smart-table").directive("stSearch",["stConfig","$timeout","$parse",function(t,e,a){return{require:"^stTable",link:function(n,s,i,r){var l=r,c=null,o=i.stDelay||t.search.delay,u=i.stInputEvent||t.search.inputEvent;i.$observe("stSearch",function(t,e){var a=s[0].value;t!==e&&a&&(r.tableState().search={},l.search(a,t))}),n.$watch(function(){return r.tableState().search},function(t){var e=i.stSearch||"$";t.predicateObject&&a(e)(t.predicateObject)!==s[0].value&&(s[0].value=a(e)(t.predicateObject)||"")},!0),s.bind(u,function(t){t=t.originalEvent||t,null!==c&&e.cancel(c),c=e(function(){l.search(t.target.value,i.stSearch||""),c=null},o)})}}}]),t.module("smart-table").directive("stSelectRow",["stConfig",function(t){return{restrict:"A",require:"^stTable",scope:{row:"=stSelectRow"},link:function(e,a,n,s){var i=n.stSelectMode||t.select.mode;a.bind("click",function(){e.$apply(function(){s.select(e.row,i)})}),e.$watch("row.isSelected",function(e){e===!0?a.addClass(t.select.selectedClass):a.removeClass(t.select.selectedClass)})}}}]),t.module("smart-table").directive("stSort",["stConfig","$parse","$timeout",function(a,n,s){return{restrict:"A",require:"^stTable",link:function(i,r,l,c){function o(){f++;var e;p=t.isFunction(g(i))||t.isArray(g(i))?g(i):l.stSort,f%3===0&&!!b!=!0?(f=0,c.tableState().sort={},c.tableState().pagination.start=0,e=c.pipe.bind(c)):e=c.sortBy.bind(c,p,f%2===0),null!==P&&s.cancel(P),0>S?i.$apply(e):P=s(e,S)}var u,p=l.stSort,g=n(p),f=0,d=l.stClassAscent||a.sort.ascentClass,m=l.stClassDescent||a.sort.descentClass,h=[d,m],b=l.stSkipNatural!==e?l.stSkipNatural:a.sort.skipNatural,P=null,S=l.stDelay||a.sort.delay;l.stSortDefault&&(u=i.$eval(l.stSortDefault)!==e?i.$eval(l.stSortDefault):l.stSortDefault),r.bind("click",function(){p&&o()}),u&&(f="reverse"===u?1:0,o()),i.$watch(function(){return c.tableState().sort},function(t){t.predicate!==p?(f=0,r.removeClass(d).removeClass(m)):(f=t.reverse===!0?2:1,r.removeClass(h[f%2]).addClass(h[f-1]))},!0)}}}]),t.module("smart-table").directive("stPagination",["stConfig",function(t){return{restrict:"EA",require:"^stTable",scope:{stItemsByPage:"=?",stDisplayedPages:"=?",stPageChange:"&"},templateUrl:function(e,a){return a.stTemplate?a.stTemplate:t.pagination.template},link:function(e,a,n,s){function i(){var t,a,n=s.tableState().pagination,i=1,r=e.currentPage;for(e.totalItemCount=n.totalItemCount,e.currentPage=Math.floor(n.start/n.number)+1,i=Math.max(i,e.currentPage-Math.abs(Math.floor(e.stDisplayedPages/2))),t=i+e.stDisplayedPages,t>n.numberOfPages&&(t=n.numberOfPages+1,i=Math.max(1,t-e.stDisplayedPages)),e.pages=[],e.numPages=n.numberOfPages,a=i;t>a;a++)e.pages.push(a);r!==e.currentPage&&e.stPageChange({newPage:e.currentPage})}e.stItemsByPage=e.stItemsByPage?+e.stItemsByPage:t.pagination.itemsByPage,e.stDisplayedPages=e.stDisplayedPages?+e.stDisplayedPages:t.pagination.displayedPages,e.currentPage=1,e.pages=[],e.$watch(function(){return s.tableState().pagination},i,!0),e.$watch("stItemsByPage",function(t,a){t!==a&&e.selectPage(1)}),e.$watch("stDisplayedPages",i),e.selectPage=function(t){t>0&&t<=e.numPages&&s.slice((t-1)*e.stItemsByPage,e.stItemsByPage)},s.tableState().pagination.number||s.slice(0,e.stItemsByPage)}}}]),t.module("smart-table").directive("stPipe",["stConfig","$timeout",function(e,a){return{require:"stTable",scope:{stPipe:"="},link:{pre:function(n,s,i,r){var l=null;t.isFunction(n.stPipe)&&(r.preventPipeOnWatch(),r.pipe=function(){return null!==l&&a.cancel(l),l=a(function(){n.stPipe(r.tableState(),r)},e.pipe.delay)})},post:function(t,e,a,n){n.pipe()}}}}])}(angular);
 //# sourceMappingURL=smart-table.min.js.map
+
+ //------------------------>
+/*
+ jQuery UI Sortable plugin wrapper
+
+ @param [ui-sortable] {object} Options to pass to $.fn.sortable() merged onto ui.config
+ */
+angular.module('ui.sortable', [])
+  .value('uiSortableConfig',{})
+  .directive('uiSortable', [
+    'uiSortableConfig', '$timeout', '$log',
+    function(uiSortableConfig, $timeout, $log) {
+      return {
+        require: '?ngModel',
+        scope: {
+          ngModel: '=',
+          uiSortable: '='
+        },
+        link: function(scope, element, attrs, ngModel) {
+          var savedNodes;
+
+          function combineCallbacks(first,second){
+            if(second && (typeof second === 'function')) {
+              return function() {
+                first.apply(this, arguments);
+                second.apply(this, arguments);
+              };
+            }
+            return first;
+          }
+
+          function getSortableWidgetInstance(element) {
+            // this is a fix to support jquery-ui prior to v1.11.x
+            // otherwise we should be using `element.sortable('instance')`
+            var data = element.data('ui-sortable');
+            if (data && typeof data === 'object' && data.widgetFullName === 'ui-sortable') {
+              return data;
+            }
+            return null;
+          }
+
+          function hasSortingHelper (element, ui) {
+            var helperOption = element.sortable('option','helper');
+            return helperOption === 'clone' || (typeof helperOption === 'function' && ui.item.sortable.isCustomHelperUsed());
+          }
+
+          // thanks jquery-ui
+          function isFloating (item) {
+            return (/left|right/).test(item.css('float')) || (/inline|table-cell/).test(item.css('display'));
+          }
+
+          function getElementScope(elementScopes, element) {
+            var result = null;
+            for (var i = 0; i < elementScopes.length; i++) {
+              var x = elementScopes[i];
+              if (x.element[0] === element[0]) {
+                result = x.scope;
+                break;
+              }
+            }
+            return result;
+          }
+
+          function afterStop(e, ui) {
+            ui.item.sortable._destroy();
+          }
+
+          var opts = {};
+
+          // directive specific options
+          var directiveOpts = {
+            'ui-floating': undefined
+          };
+
+          var callbacks = {
+            receive: null,
+            remove:null,
+            start:null,
+            stop:null,
+            update:null
+          };
+
+          var wrappers = {
+            helper: null
+          };
+
+          angular.extend(opts, directiveOpts, uiSortableConfig, scope.uiSortable);
+
+          if (!angular.element.fn || !angular.element.fn.jquery) {
+            $log.error('ui.sortable: jQuery should be included before AngularJS!');
+            return;
+          }
+
+          if (ngModel) {
+
+            // When we add or remove elements, we need the sortable to 'refresh'
+            // so it can find the new/removed elements.
+            scope.$watch('ngModel.length', function() {
+              // Timeout to let ng-repeat modify the DOM
+              $timeout(function() {
+                // ensure that the jquery-ui-sortable widget instance
+                // is still bound to the directive's element
+                if (!!getSortableWidgetInstance(element)) {
+                  element.sortable('refresh');
+                }
+              }, 0, false);
+            });
+
+            callbacks.start = function(e, ui) {
+              if (opts['ui-floating'] === 'auto') {
+                // since the drag has started, the element will be
+                // absolutely positioned, so we check its siblings
+                var siblings = ui.item.siblings();
+                var sortableWidgetInstance = getSortableWidgetInstance(angular.element(e.target));
+                sortableWidgetInstance.floating = isFloating(siblings);
+              }
+
+              // Save the starting position of dragged item
+              ui.item.sortable = {
+                model: ngModel.$modelValue[ui.item.index()],
+                index: ui.item.index(),
+                source: ui.item.parent(),
+                sourceModel: ngModel.$modelValue,
+                cancel: function () {
+                  ui.item.sortable._isCanceled = true;
+                },
+                isCanceled: function () {
+                  return ui.item.sortable._isCanceled;
+                },
+                isCustomHelperUsed: function () {
+                  return !!ui.item.sortable._isCustomHelperUsed;
+                },
+                _isCanceled: false,
+                _isCustomHelperUsed: ui.item.sortable._isCustomHelperUsed,
+                _destroy: function () {
+                  angular.forEach(ui.item.sortable, function(value, key) {
+                    ui.item.sortable[key] = undefined;
+                  });
+                }
+              };
+            };
+
+            callbacks.activate = function(e, ui) {
+              // We need to make a copy of the current element's contents so
+              // we can restore it after sortable has messed it up.
+              // This is inside activate (instead of start) in order to save
+              // both lists when dragging between connected lists.
+              savedNodes = element.contents();
+
+              // If this list has a placeholder (the connected lists won't),
+              // don't inlcude it in saved nodes.
+              var placeholder = element.sortable('option','placeholder');
+
+              // placeholder.element will be a function if the placeholder, has
+              // been created (placeholder will be an object).  If it hasn't
+              // been created, either placeholder will be false if no
+              // placeholder class was given or placeholder.element will be
+              // undefined if a class was given (placeholder will be a string)
+              if (placeholder && placeholder.element && typeof placeholder.element === 'function') {
+                var phElement = placeholder.element();
+                // workaround for jquery ui 1.9.x,
+                // not returning jquery collection
+                phElement = angular.element(phElement);
+
+                // exact match with the placeholder's class attribute to handle
+                // the case that multiple connected sortables exist and
+                // the placehoilder option equals the class of sortable items
+                var excludes = element.find('[class="' + phElement.attr('class') + '"]:not([ng-repeat], [data-ng-repeat])');
+
+                savedNodes = savedNodes.not(excludes);
+              }
+
+              // save the directive's scope so that it is accessible from ui.item.sortable
+              var connectedSortables = ui.item.sortable._connectedSortables || [];
+
+              connectedSortables.push({
+                element: element,
+                scope: scope
+              });
+
+              ui.item.sortable._connectedSortables = connectedSortables;
+            };
+
+            callbacks.update = function(e, ui) {
+              // Save current drop position but only if this is not a second
+              // update that happens when moving between lists because then
+              // the value will be overwritten with the old value
+              if(!ui.item.sortable.received) {
+                ui.item.sortable.dropindex = ui.item.index();
+                var droptarget = ui.item.parent();
+                ui.item.sortable.droptarget = droptarget;
+
+                var droptargetScope = getElementScope(ui.item.sortable._connectedSortables, droptarget);
+                ui.item.sortable.droptargetModel = droptargetScope.ngModel;
+
+                // Cancel the sort (let ng-repeat do the sort for us)
+                // Don't cancel if this is the received list because it has
+                // already been canceled in the other list, and trying to cancel
+                // here will mess up the DOM.
+                element.sortable('cancel');
+              }
+
+              // Put the nodes back exactly the way they started (this is very
+              // important because ng-repeat uses comment elements to delineate
+              // the start and stop of repeat sections and sortable doesn't
+              // respect their order (even if we cancel, the order of the
+              // comments are still messed up).
+              if (hasSortingHelper(element, ui) && !ui.item.sortable.received &&
+                  element.sortable( 'option', 'appendTo' ) === 'parent') {
+                // restore all the savedNodes except .ui-sortable-helper element
+                // (which is placed last). That way it will be garbage collected.
+                savedNodes = savedNodes.not(savedNodes.last());
+              }
+              savedNodes.appendTo(element);
+
+              // If this is the target connected list then
+              // it's safe to clear the restored nodes since:
+              // update is currently running and
+              // stop is not called for the target list.
+              if(ui.item.sortable.received) {
+                savedNodes = null;
+              }
+
+              // If received is true (an item was dropped in from another list)
+              // then we add the new item to this list otherwise wait until the
+              // stop event where we will know if it was a sort or item was
+              // moved here from another list
+              if(ui.item.sortable.received && !ui.item.sortable.isCanceled()) {
+                scope.$apply(function () {
+                  ngModel.$modelValue.splice(ui.item.sortable.dropindex, 0,
+                                             ui.item.sortable.moved);
+                });
+              }
+            };
+
+            callbacks.stop = function(e, ui) {
+              // If the received flag hasn't be set on the item, this is a
+              // normal sort, if dropindex is set, the item was moved, so move
+              // the items in the list.
+              if(!ui.item.sortable.received &&
+                 ('dropindex' in ui.item.sortable) &&
+                 !ui.item.sortable.isCanceled()) {
+
+                scope.$apply(function () {
+                  ngModel.$modelValue.splice(
+                    ui.item.sortable.dropindex, 0,
+                    ngModel.$modelValue.splice(ui.item.sortable.index, 1)[0]);
+                });
+              } else {
+                // if the item was not moved, then restore the elements
+                // so that the ngRepeat's comment are correct.
+                if ((!('dropindex' in ui.item.sortable) || ui.item.sortable.isCanceled()) &&
+                    !hasSortingHelper(element, ui)) {
+                  savedNodes.appendTo(element);
+                }
+              }
+
+              // It's now safe to clear the savedNodes
+              // since stop is the last callback.
+              savedNodes = null;
+            };
+
+            callbacks.receive = function(e, ui) {
+              // An item was dropped here from another list, set a flag on the
+              // item.
+              ui.item.sortable.received = true;
+            };
+
+            callbacks.remove = function(e, ui) {
+              // Workaround for a problem observed in nested connected lists.
+              // There should be an 'update' event before 'remove' when moving
+              // elements. If the event did not fire, cancel sorting.
+              if (!('dropindex' in ui.item.sortable)) {
+                element.sortable('cancel');
+                ui.item.sortable.cancel();
+              }
+
+              // Remove the item from this list's model and copy data into item,
+              // so the next list can retrive it
+              if (!ui.item.sortable.isCanceled()) {
+                scope.$apply(function () {
+                  ui.item.sortable.moved = ngModel.$modelValue.splice(
+                    ui.item.sortable.index, 1)[0];
+                });
+              }
+            };
+
+            wrappers.helper = function (inner) {
+              if (inner && typeof inner === 'function') {
+                return function (e, item) {
+                  var innerResult = inner.apply(this, arguments);
+                  item.sortable._isCustomHelperUsed = item !== innerResult;
+                  return innerResult;
+                };
+              }
+              return inner;
+            };
+
+            scope.$watch('uiSortable', function(newVal /*, oldVal*/) {
+              // ensure that the jquery-ui-sortable widget instance
+              // is still bound to the directive's element
+              var sortableWidgetInstance = getSortableWidgetInstance(element);
+              if (!!sortableWidgetInstance) {
+                angular.forEach(newVal, function(value, key) {
+                  // if it's a custom option of the directive,
+                  // handle it approprietly
+                  if (key in directiveOpts) {
+                    if (key === 'ui-floating' && (value === false || value === true)) {
+                      sortableWidgetInstance.floating = value;
+                    }
+
+                    opts[key] = value;
+                    return;
+                  }
+
+                  if (callbacks[key]) {
+                    if( key === 'stop' ){
+                      // call apply after stop
+                      value = combineCallbacks(
+                        value, function() { scope.$apply(); });
+
+                      value = combineCallbacks(value, afterStop);
+                    }
+                    // wrap the callback
+                    value = combineCallbacks(callbacks[key], value);
+                  } else if (wrappers[key]) {
+                    value = wrappers[key](value);
+                  }
+
+                  opts[key] = value;
+                  element.sortable('option', key, value);
+                });
+              }
+            }, true);
+
+            angular.forEach(callbacks, function(value, key) {
+              opts[key] = combineCallbacks(value, opts[key]);
+              if( key === 'stop' ){
+                opts[key] = combineCallbacks(opts[key], afterStop);
+              }
+            });
+
+          } else {
+            $log.info('ui.sortable: ngModel not provided!', element);
+          }
+
+          // Create sortable
+          element.sortable(opts);
+        }
+      };
+    }
+  ]);
+
 
  //------------------------>
 /*

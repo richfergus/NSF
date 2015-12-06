@@ -25,7 +25,7 @@
 			        					<th st-sort="Days">Days</th>
 			        					<th st-sort="Credits">Credits</th>
 			        					<th st-sort="Faculity">Faculity</th>
-			        					<th st-sort="">Manage</th>   
+			        					<th st-sort="">Add</th>   
 
 			        				</tr>
 		        				</thead>
@@ -38,7 +38,7 @@
 						        					<td>{{course.faculty}}</td>
 					        				<td>
 				        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
-				        						<i>Add</i>
+				        						<i><span class="glyphicon glyphicon-plus"></span>  <span class="glyphicon glyphicon-arrow-right"></span></i>
 				        					</button>
 				        					</td> 
 					        				</tr>
@@ -58,7 +58,7 @@
 					        					<th st-sort="birthDate">Days</th>
 					        					<th st-sort="balance">Credits</th>
 					        					<th st-sort="balance">Faculity</th>
-					        					<th st-sort="balance">Manage</th>
+					        					<th st-sort="balance">Remove</th>
 					        				</tr>
 					        				</thead>
 					        				<tbody id="myclassesTBL">
@@ -68,16 +68,18 @@
 					        					</td>
 					        			    </tr>
 
-					        				<tr id="sortable" ng-repeat="course in userCourses">
-					        					<td><button ng-class="{'btn btn-success':course.priority <= 3, 'btn btn-warning':course.priority ==  4, 'btn btn-danger':course.priority >  4}">{{course.priority}}</button></td>
+					        				<tr id="sortable" ng-repeat="course in userCourses track by $index" >
+					        					<td><button ng-class="{'btn btn-success':$index+1 <= 3, 'btn btn-warning':$index+1 == 4, 'btn btn-danger':$index+1 >  4}">{{$index+1}}</button></td>
 					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 					        					<td>{{course.coursenumber}}</td>
 					        					<td>{{course.days}}</td>
 					        					<td>{{course.credits}}</td>
-					        					<td>{{course.faculty}}</td>
+					        					<td >{{course.faculty}}</td>
+					        					<td>{{course.$id}}</td>
+
 					        					<td>
 					        						<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
-					        							<i class="glyphicon glyphicon-remove-circle">
+					        							<i class="glyphicon glyphicon-remove">
 					        							</i>
 					        						</button>
 					        					</td>

@@ -33,13 +33,14 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                          "lastname": $rootScope.currentUser.lastname,
                           "priority": 1
                         });
-                        // console.log(addUserCourses);
+                        console.log(addUserCourses);
                         
                         
                             inform.add('Course Added', {
                               ttl: 3200, type: 'success'
                             });
                     };
+                    // if success then update priority with $index
 
     }]);
 
@@ -56,25 +57,31 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var sortableEle;
                                     $scope.sortableArray = userCourses;
 
-                                    $scope.dragStart = function(e, ui) {
+                                        $scope.dragStart = function(e, ui) {
                                             ui.item.data('start', ui.item.index());
-                                        };
+                                           };
                                         $scope.dragEnd = function(e, ui) {
                                             var start = ui.item.data('start'),
                                                 end = ui.item.index();
-                                            
                                             $scope.sortableArray.splice(end, 0,
-                                                $scope.sortableArray.splice(start, 1)[0]);
-                                            
+                                            $scope.sortableArray.splice(start, 1)[0]);
                                             $scope.$apply();
                                         };
+                                         $scope.changePri = function (i) {
+                                            // $scope.sortableArray = i;
+                                            console.log(changePri);
+                                          };
                                             
                                         sortableEle = $("#myclassesTBL").sortable({
                                             start: $scope.dragStart,
-                                            update: $scope.dragEnd
+                                            update: $scope.dragEnd,
+                                            containment: "parent",//Dont let the user drag outside the parent
+                                            cursor: "move",//Change the cursor icon on drag
+                                            tolerance: "pointer"//Read http://api.jqueryui.com/sortable/#option-tolerance
                                         });
+
+
                                         
-                            console.log(userCourses);
                             
 
 
