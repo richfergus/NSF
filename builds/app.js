@@ -53,9 +53,14 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var thisUserID =  $rootScope.currentUser.$id;
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
-                       
-                       
+                   
+                   $(".updownArrow").click(function () {
+                      console.log('yep');
+                   });
 
+
+
+                       // console.log(userCourses);
                         userCourses.$loaded()
                               .then(function(){
                                 $scope.userCourses = userCourses;
