@@ -25,9 +25,8 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
             var courses = $firebaseArray(coursesRef);
             courses.$loaded().then(function(){
                 $scope.courses = courses;
-                // console.log('the root', $scope.courses);
               });
-                  // add courses form list to login user
+          // add courses from list to login user
               $scope.addCourse = function (course)
                     {
                       var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id)
@@ -46,7 +45,7 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                          "lastname": $rootScope.currentUser.lastname,
                           "priority": 1
                         });
-                        console.log(addUserCourses);
+                        console.log(addUserCourses.length);
                         
                         
                             inform.add('Course Added', {
@@ -67,9 +66,19 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' + thisUserID);
                         var userCourses = $firebaseArray(userCoursesRef);
                    
-                   $(".updownArrow").click(function () {
-                      console.log('yep');
-                   });
+                        $scope.upPriority = function (course){
+                           var oldPri = course.priority;
+                         
+                              if (oldPri > 1) {
+                                var newPri = course.priority -1;
+                              }
+                              else {
+                                var newPri = 1;
+                              } 
+                           // var newPri = course.priority -1;
+                           console.log("old is:" + oldPri + " and new is:" + newPri);
+                         };
+                  
 
 
 

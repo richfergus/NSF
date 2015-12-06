@@ -72,7 +72,7 @@
 
 		        				<tr ng-repeat="course in userCourses" style="cursor: move;">
 		        					<td style="text-align: center;"><button ng-class="{'btn btn-success':$index+1 <= 3, 'btn btn-warning':$index+1 == 4, 'btn btn-danger':$index+1 >  4}">{{$index+1}}</button></td>
-		        					<td><div class="updownArrow"><span class="glyphicon glyphicon-resize-vertical" style="font-size: 2em;"></span></div></td>
+		        					<td><button type="button" ng-click="upPriority(course)">Up</button></td>
 		        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 		        					<td>{{course.coursenumber}}</td>
 		        					<td>{{course.priority}}</td>
