@@ -49,10 +49,11 @@
 		        <div class="col-md-6">
 			        		<h2 style="margin-bottom:60px">My Courses</h2>
 					        	<div ng-controller="MyCourseList">
-					        			<table st-table="courses" class="table table-striped">
+					        			<table st-table="courses" class="table table-hover" id="mytable">
 					        				<thead style="background-color: #f9f9f9;">
 					        				<tr>
 					        					<th st-sort="priority">Priority</th>
+					        					<th st-sort="move"></th>
 					        					<th st-sort="coursename">Name</th>
 					        					<th st-sort="coursenumber">Number</th>
 					        					<th st-sort="birthDate">Days</th>
@@ -63,21 +64,20 @@
 					        				</thead>
 					        				<tbody ui-sortable="sortableOptions">
 					        			    <tr ng-show="showClass == true">
-					        			    	<td colspan="7">
+					        			    	<td colspan="">
 					        			    		<div align="center"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Add Classes</div>
 					        					</td>
 					        			    </tr>
 
 					        				<tr ng-repeat="course in userCourses track by $index" style="cursor: move;" >
-					        					<td><button ng-class="{'btn btn-success':$index+1 <= 3, 'btn btn-warning':$index+1 == 4, 'btn btn-danger':$index+1 >  4}">{{$index+1}}</button></td>
+					        					<td style="text-align: center;"><button ng-class="{'btn btn-success':$index+1 <= 3, 'btn btn-warning':$index+1 == 4, 'btn btn-danger':$index+1 >  4}">{{$index+1}}</button></td>
+					        					<td><div class="updownArrow"><span class="glyphicon glyphicon-resize-vertical" style="font-size: 2em;"></span></div></td>
 					        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 					        					<td>{{course.coursenumber}}</td>
 					        					<td>{{course.days}}</td>
 					        					<td>{{course.credits}}</td>
 					        					<td >{{course.faculty}}</td>
-					        					<td>{{course.$id}}</td>
-
-					        					<td>
+					        					<td style="text-align: center;">
 					        						<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
 					        							<i class="glyphicon glyphicon-remove">
 					        							</i>
