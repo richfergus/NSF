@@ -376,14 +376,6 @@ input.ng-valid.ng-touched {
 .table th {
    text-align: center;   
 }
-#mytable tr:hover
-{
-background-color: lightyellow;
--webkit-box-shadow: 1px 1px 4px 0px rgba(50, 37, 50, 0.75);
--moz-box-shadow:    1px 1px 4px 0px rgba(50, 37, 50, 0.75);
-box-shadow:         1px 1px 4px 0px rgba(50, 37, 50, 0.75);
-}
-
 #mytable tr:hover td
 {
 background-color: lightyellow;
@@ -391,6 +383,14 @@ background-color: lightyellow;
 -moz-box-shadow:    1px 1px 4px 0px rgba(50, 37, 50, 0.75);
 box-shadow:         1px 1px 4px 0px rgba(50, 37, 50, 0.75);
 }
+
+/*#mytable tr:hover td
+{
+background-color: lightyellow;
+-webkit-box-shadow: 1px 1px 4px 0px rgba(50, 37, 50, 0.75);
+-moz-box-shadow:    1px 1px 4px 0px rgba(50, 37, 50, 0.75);
+box-shadow:         1px 1px 4px 0px rgba(50, 37, 50, 0.75);
+}*/
 
 .updownArrow  {
    visibility: hidden;

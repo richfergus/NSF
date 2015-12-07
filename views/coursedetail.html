@@ -1,6 +1,6 @@
 <div class="container-fluid">
 		  <div class="row">
-		    	<div class="col-md-6">
+		    	<div class="col-md-4">
 	    			<div ng-controller="CourseDetailCrtl">
 			    <h2>{{courseDetails.coursename}} <code>{{courseDetails.coursenumber}}</code></h2>
 	    				<div class="bs-callout bs-callout-warning" id="callout-inputgroup-container-body">
@@ -9,7 +9,7 @@
 						<p>Credits <code>{{courseDetails.credits}}</code></p>
 						<p>Faculty <code>{{courseDetails.faculty}}</code></p>
 
-	    				 <p>Today's leaders must </p> </div>
+	    				 <p> </p> </div>
 	    				 <br>
 						<a href="http://www.hks.harvard.edu/degrees/teaching-courses/course-listing/{{courseDetails.coursenumber}}">More Information</a>
 						<hr>
@@ -31,11 +31,13 @@
 			        				</tr>
 		        				</thead>
 				        				<tbody>
-					        				<tr ng-repeat="course in othersInCourse">
+					        				<tr ng-repeat="course in othersInCourse | orderBy:'priority'">
 						        					<td>{{course.firstname}} {{course.lastname}}</td>
-						        							<td>		
-						        					      	 	<button type="button" class="btn btn-success">{{course.priority}}</button>
-						        							</td>
+				        							<td style="text-align: center;">		
+				        					      	 	<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
+	      	 			        							{{course.priority}}
+	      	 			        						</button>
+				        							</td>
 					        				</tr>
 				        				</tbody>
 				        </table>

@@ -30,9 +30,23 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
               
               var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id);
               var userCourses = $firebaseArray(userCoursesRef);
+              
               userCourses.$loaded().then(function(data){
+                
+                
+
+                // console.log(largest);
                     $scope.addCourse = function (course)
                           {
+                              userCoursesRef.orderByChild("priority").limitToLast(1).on("child_added", function(snapshot) {
+                                console.log(snapshot.key());
+                                $scope.pri = snapshot.key();
+                              });
+
+                             var array = [$scope.pri, userCourses.length];
+                             var largest = Math.max.apply(Math, array); // 306
+                              console.log("pri is:" +$scope.pri+ " length is:" +userCourses.length + " the largest is:"+ largest);
+
                             var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id)
                             .child(course.$id).set({
                               "courseID" : course.$id,
@@ -48,8 +62,9 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                               .child(course.$id).child($rootScope.currentUser.$id).update({
                                "firstname": $rootScope.currentUser.firstname,
                                "lastname": $rootScope.currentUser.lastname,
-                                "priority": userCourses.length +1
+                                "priority": userCourses.length+1
                               });
+
                                   inform.add('Course Added', {
                                     ttl: 3200, type: 'success'
                                   });
@@ -72,32 +87,30 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                         userCourses.$loaded().then(function(data){
                             var couresesLength = userCourses.length;
                             
-
+                           
 
                             $scope.upPriority = function (course){
                                var ref = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id);
                                var oldPri = course.priority;
                                   if (oldPri > 1) {
+                                    
                                     var newPri = course.priority -1;
                                   }
                                   else {
                                     var newPri = 1;
                                   }
                                 
-                                // ref.orderByChild("priority").equalTo(oldPri).on("value", function(snapshot) {
-                                //   snapshot.forEach(function(data){
-                                //     var refNew = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+data.key());
-                                //     refNew.update({ priority: newPri });
-                                //   });
-                                // });
+
                                 var onComplete = function(error) {
                                   if (error) {
                                     console.log('Synchronization failed');
                                   } else {
-                                    ref.orderByChild("priority").equalTo(oldPri).on("value", function(snapshot) {
+                                    ref.orderByChild("priority").equalTo(newPri).once("value", function(snapshot) {
                                       snapshot.forEach(function(data){
                                         var refNew = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+data.key());
-                                        refNew.update({ priority: newPri });
+                                        refNew.update({ priority: oldPri });
+                                        console.log("old is:" + refNew + " and new is:" + newPri);
+
                                       });
                                     });
 
@@ -105,21 +118,17 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                                     console.log('Synchronization succeeded');
                                   }
                                 };
-                                ref.orderByChild("priority").equalTo(newPri).on("value", function(snapshot) {
+
+                                ref.orderByChild("priority").equalTo(oldPri).once("value", function(snapshot) {
                                   snapshot.forEach(function(data){
                                     var refOld = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+data.key());
-                                    refOld.update({ priority: oldPri },onComplete);
+                                    refOld.update({ priority: course.priority-1 },onComplete);
+                                 console.log("old is22:" + oldPri + " and new is:" + newPri);
 
                                   });
                                 });
 
-                                 // console.log("old is:" + oldPri + " and new is:" + newPri);
-
-
-
-
-                               // var newPri = course.priority -1;
-                               // console.log("old is:" + oldPri + " and new is:" + newPri);
+                               
                              };
 
                           // console.log(userCourses.length);
@@ -136,14 +145,26 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                                     $scope.showClass = false;
                                 }
                               });
+                       $scope.change = function(o) {
+                                var arr = [];
+                                angular.forEach($scope.userCourses, function(item) {
+                                  arr.push(item[o]);
+                                });
+                                $scope.result = arr.sort()[0];
+                              };
                               
                       }, function (errorObject) {
                         console.log("The read failed: " + errorObject.code);
                       });
                   $scope.removeCourse  = function (course) {
+                      // userCourses.$remove(course);
+                      // $scope.userCourses.splice( $scope.userCourses.indexOf(course), 1 );
                       var coursesUserRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/' +course.$id +'/'+$rootScope.currentUser.$id);
                       var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+ course.$id).remove();
                       coursesUserRef.remove();
+                      console.log(course.courseID);
+                      $scope.userCourses.$remove(course.courseID);
+
                       inform.add('Course Removed', {
                         ttl: 3200, type: 'warning'
                       });

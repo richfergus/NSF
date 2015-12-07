@@ -1,15 +1,15 @@
 	 <div ng-controller="RegistrationController">
-	<h2 align="center">Classes Offered For {{ currentUser.firstname}} {{ currentUser.lastname}} </h2>
+	<h2 align="center">Classes Selections For {{currentUser.firstname}} {{currentUser.lastname}} </h2>
 </div>
     <div class="container-fluid">
 		  <div class="row">
 		    	<div class="col-md-6">
-			    <h2>Courses Available</h2>
+			    <h2 align="center">Courses Available</h2>
 	    			<div ng-controller="CourseListCtrl">
 					  	<table st-table="courses" class="table table-striped">
 	        				<thead>
         						<th colspan="6">
-										<input ng-model="query" placeholder="search for anything below" />
+										<input style="font-weight:bolder" placeholder="type/search for anything below...." onfocus="this.placeholder = ''" onblur="this.placeholder = 'type/search for anything below....'" ng-model="query" />
 								</th>
 								<colgroup>
 								       <col span="1" style="width: 35%;">
@@ -20,18 +20,18 @@
 								       <col span="1" style="width: 5%;">
 								  </colgroup>
 		        				<tr>
-		        					<th st-sort="courseName">Name</th>
-		        					<th st-sort="Number">Number</th>
-		        					<th st-sort="Days">Days</th>
-		        					<th st-sort="Credits">Credits</th>
-		        					<th st-sort="Faculity">Faculity</th>
-		        					<th st-sort="">Add</th>   
+		        					<th ="courseName">Name</th>
+		        					<th ="Number">Number</th>
+		        					<th ="Days">Days</th>
+		        					<th ="Credits">Credits</th>
+		        					<th ="Faculity">Faculity</th>
+		        					<th ="">Add</th>   
 
 		        				</tr>
 	        				</thead>
 		        				<tbody>
 			        				<tr ng-repeat="course in courses | filter: query">
-				        					<td> <a ng-href="#/coursedetail/{{course.priority}}">{{course.coursetitle}}</a></td>
+				        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 				        					<td>{{course.coursenumber}}</td>
 				        					<td>{{course.schedule}}</td>
 				        					<td>{{course.credits}}</td>
@@ -48,19 +48,18 @@
 		    	</div>
 		        <div class="col-md-6">
 		       <!-- Column for selecting classes 	 -->
-			    <h2 style="margin-bottom:60px">My Courses</h2>
+			    <h2 align="center" style="margin-bottom:60px">My Courses</h2>
 	        	<div ng-controller="MyCourseList">
 	        			<table st-table="courses" class="table table-hover" id="mytable">
 	        				<thead style="background-color: #f9f9f9;">
 	        				<tr>
-	        					<th st-sort="priority">Priority</th>
-	        					<th st-sort="move"></th>
-	        					<th st-sort="coursename">Name</th>
-	        					<th st-sort="coursenumber">Number</th>
-	        					<th st-sort="birthDate">Days</th>
-	        					<th st-sort="balance">Credits</th>
-	        					<th st-sort="balance">Faculity</th>
-	        					<th st-sort="balance">Remove</th>
+	        					<th colspan="2">Priority</th>
+	        					<th>Name</th>
+	        					<th>Number</th>
+	        					<th>Days</th>
+	        					<th>Credits</th>
+	        					<th>Faculity</th>
+	        					<th>Remove</th>
 	        				</tr>
 	        				</thead>
 	        				<tbody>
@@ -70,12 +69,23 @@
 		        					</td>
 		        			    </tr>
 
-		        				<tr ng-repeat="course in userCourses">
-		        					<td style="text-align: center;"><button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} >  4}">{{course.priority}}</button></td>
-		        					<td><button type="button" ng-click="upPriority(course)">Up</button></td>
-		        					<td> <a ng-href="#/coursedetail/{{course.priority}}">{{course.coursetitle}}</a></td>
+		        				<tr ng-repeat="course in userCourses | orderBy:'priority'">
+		        					<td style="vertical-align:middle;">
+		        						<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
+		        							{{course.priority}}
+		        						</button>
+		        					</td>
+		        					<td align="left" style="width:12px; vertical-align:middle;">
+		        						<!-- <button type="button" ng-click="upPriority(course)">
+		        							<span style="font-size:0.6em" class="glyphicon glyphicon-triangle-top"></span>
+		        						</button>
+		        						<button type="button" ng-click="downPriority(course)">
+		        							<span style="font-size:0.6em" class="glyphicon glyphicon-triangle-bottom"></span>
+		        						</button> -->
+		        					</td>
+		        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
 		        					<td>{{course.coursenumber}}</td>
-		        					<td>{{course.priority}}</td>
+		        					<td>{{course.schedule}}</td>
 		        					<td>{{course.credits}}</td>
 		        					<td >{{course.faculty}}</td>
 		        					<td style="text-align: center;">
