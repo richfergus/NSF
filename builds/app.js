@@ -1,6 +1,11 @@
 
+     $(function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+      });
+
 var myApp = angular.module('myApp',
-  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap','ui.sortable', 'inform'])
+  ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap', 'inform'])
   .constant('FIREBASE_URL', 'https://nsf-class-selector.firebaseio.com/');
 
 
@@ -63,6 +68,22 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
           });
     }]);
 
+myApp.directive('sortable', function ($timeout) {
+        return function (scope, element, attributes) {
+          element.sortable({
+              stop : function(event, ui){
+                  scope.$apply(function () {
+                    scope.syncOrder(element.sortable('toArray'));
+                    // console.log("old location ID:" + scope.userCourses.$id + " old pri:" +scope.userCourses.priority);
+
+                    // console.log(scope.syncOrder);
+
+                  });
+              }
+          });
+        };
+      });
+
 angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$firebaseArray', 'inform',
      function($scope, $rootScope, $firebaseArray, inform) {
               //get courses that the unser has selected in firebase
@@ -77,50 +98,23 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                                   .then(function(){
                                     $scope.userCourses = userCourses;
                                     
-                                  console.log($scope.userCourses);
+                             
+                                 $scope.syncOrder = function (elemPositions) {
+                                       $scope.userCourses.forEach(function (course, index) {
+                                           var id = (parseInt(course.$id) + 1);
+                                           if (course.priority === id) {
+                                             course.sortOrder = index;
+                                              console.log($scope.userCourses);
+
+                                            console.log("my course pri is:" +course.priority + "|" + id + " my sort order is:" +course.sortOrder );
+
+                                           }
+                                       });
+                                     };  
+                                  // console.log($scope.userCourses);
                                   });
 
-                            $scope.upPriority = function (course){
-                               var ref = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id);
-                               var oldPri = course.priority;
-                                  if (oldPri > 1) {
-                                    
-                                    var newPri = course.priority -1;
-                                  }
-                                  else {
-                                    var newPri = 1;
-                                  }
-                               
 
-                                var onComplete = function(error) {
-                                  if (error) {
-                                    console.log('Synchronization failed');
-                                  } else {
-                                    ref.orderByChild("priority").equalTo(newPri).once("value", function(snapshot) {
-                                      snapshot.forEach(function(data){
-                                        var refNew = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+data.key());
-                                        refNew.update({ priority: oldPri });
-                                        // console.log("old is:" + refNew + " and new is:" + newPri);
-
-                                      });
-                                    });
-
-
-                                    console.log('Synchronization succeeded');
-                                  }
-                                };
-
-                                ref.orderByChild("priority").equalTo(oldPri).once("value", function(snapshot) {
-                                  snapshot.forEach(function(data){
-                                    var refOld = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id +'/'+data.key());
-                                    refOld.update({ priority: course.priority-1 },onComplete);
-                                 console.log("old is22:" + oldPri + " and new is:" + newPri);
-
-                                  });
-                                });
-
-                               
-                             };
 
                           // console.log(userCourses.length);
                         });
@@ -166,30 +160,40 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$
                            schedule: coursesDetail.schedule,
                            coursename: coursesDetail.coursename,
                            faculty: coursesDetail.faculty,
+                           term: coursesDetail.term,
                            credits: coursesDetail.credits,
                            coursenumber: coursesDetail.coursenumber
-
                            };
                   
                // console.log(coursesDetail);
              });
           }]);
 
-angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
-     function($scope, $rootScope, $firebaseArray, $routeParams) {
+angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseObject',
+     
+     function($scope, $rootScope, $firebaseObject) {
            //get course detail
            var coursesByUserRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/');
-           var coursesByUserDetail = $firebaseArray(coursesByUserRef);
-           coursesByUserDetail.$loaded().then(function(){
-              $scope.courses = [];
+           var coursesByUserDetail = $firebaseObject(coursesByUserRef);
+                    console.log(coursesByUserDetail.$id);
+          
+           for (var i = 0; i < coursesByUserDetail.length; i++) {
+               var refIndvCourse = new Firebase('https://nsf-class-selector.firebaseio.com/courses/'+i);
+               var indvCourse = $firebaseObject(refIndvCourse);
+               // $scope.courses.push(indvCourse);
+              courses.push(indvCourse[i]);
+ 
+                     $scope.courses = indvCourse;
+                     
+                       }
+            }]);
 
-                for (var i = 0; i < coursesByUserDetail.length; i++) {
-                    $scope.courses.push(coursesByUserDetail[i]);
-                }
 
-             });
+        
 
-          }]);
+
+
+
 angular.module('myApp').controller('OthersInCourseCtrl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
      function($scope, $rootScope, $firebaseArray, $routeParams) {
       var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/').child($routeParams.courseID);
@@ -214,8 +218,8 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/myclasses.html',
       controller: 'RegistrationController'
     }).
-    when('/classes', {
-      templateUrl: 'views/classes.html',
+    when('/allclasses', {
+      templateUrl: 'views/allclasses.html',
       controller: 'RegistrationController'
     }).
     when('/coursedetail/:courseID', {

@@ -21,6 +21,7 @@ module.exports = function(grunt){
 			scripts:{
 				files:['views/**/*.html',
 				'builds/*.js',
+				'js/controllers/*.js',
 				'css/**.css'
 				],
 			tasks:['concat']

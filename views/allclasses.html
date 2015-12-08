@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+    	<div class="col-md-12">
+			<div ng-controller="coursesByUserCrtl">
+					  	<table st-table="courses" class="table table-striped">
+	        				<tbody>
+	        					<thead style="background-color: #f9f9f9;">
+	        					<tr>
+	        						<th>Course Number</th>
+	        						<th>Course Name</th>
+	        						<th>Credits</th>
+	        						<th>Faculity</th>
+	        						<th>Days</th>
+	        						<th>Term</th>
+
+	        					</tr>
+	        					</thead>
+									<tr ng-repeat="course in courses">
+											<td>{{course.$id}}</td>
+											<td>{{course.$value}}</td>
+											<tr ng-repeat="item in course">
+											<td>{{item}}</td>
+													
+											</tr>	
+
+	        						</tr>
+	        						
+
+	        				     
+		        				</tbody>
+				        </table>
+			</div>
+		</div>
+	</div>
+</div>
+
+

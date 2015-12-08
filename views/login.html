@@ -22,7 +22,7 @@
                                   ng-show="message"> {{ message }}</p>
                               </div>  
                               <fieldset>
-                                <input type="email" name="email" placeholder="Email"
+                                <input type="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
                                  ng-model="user.email" ng-required="true">
                                 <p class="error validationerror"
                                 ng-show="myform.email.$invalid && myform.email.$touched">

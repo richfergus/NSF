@@ -16,14 +16,14 @@
         <ul class="nav navbar-nav navbar-right">
         <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
 		    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
-		    <li><a ng-show="currentUser" ng-href="#/classes">Classes</a></li>
+		    <li><a ng-show="currentUser" ng-href="#/allclasses">All Classes</a></li>
 		    <li><a ng-show="currentUser" ng-href="#/myclasses">My Classes</a></li>
           <li ng-show="currentUser" class="dropdown" dropdown="">
             <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">{{ currentUser.firstname}}<b class="caret"></b>
             </a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <a ng-click="logout()" href="#">Logout</a>
+                <a ng-click="logout()" href="#/logout">Logout</a>
               </li>
               
             </ul>
