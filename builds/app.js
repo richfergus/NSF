@@ -8,8 +8,6 @@ var myApp = angular.module('myApp',
   ['ngRoute', 'firebase', 'ngAnimate', 'smart-table', 'ui.bootstrap', 'inform'])
   .constant('FIREBASE_URL', 'https://nsf-class-selector.firebaseio.com/');
 
-
-
 angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$firebaseArray','inform',
     function($scope, $rootScope, $firebaseArray, inform) {
           // List Courses
@@ -25,9 +23,6 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
               
               userCourses.$loaded().then(function(data){
                 
-                
-
-                // console.log(largest);
                     $scope.addCourse = function (course)
                           {
                               userCoursesRef.orderByChild("priority").limitToLast(1).on("child_added", function(snapshot) {
@@ -56,6 +51,7 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                                "lastname": $rootScope.currentUser.lastname,
                                 "priority": userCourses.length+1
                               });
+                           
 
                                   inform.add('Course Added', {
                                     ttl: 3200, type: 'success'
@@ -75,8 +71,6 @@ myApp.directive('sortable', function ($timeout) {
                   scope.$apply(function () {
                     scope.syncOrder(element.sortable('toArray'));
                     // console.log("old location ID:" + scope.userCourses.$id + " old pri:" +scope.userCourses.priority);
-
-                    // console.log(scope.syncOrder);
 
                   });
               }
@@ -110,18 +104,9 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
 
                                            }
                                        });
-                                     };  
-                                  // console.log($scope.userCourses);
+                                     };
                                   });
-
-
-
-                          // console.log(userCourses.length);
                         });
-                  
-
-                       // console.log(userCourses);
-
                        $scope.change = function(o) {
                                 var arr = [];
                                 angular.forEach($scope.userCourses, function(item) {
@@ -164,8 +149,6 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$
                            credits: coursesDetail.credits,
                            coursenumber: coursesDetail.coursenumber
                            };
-                  
-               // console.log(coursesDetail);
              });
           }]);
 
@@ -173,26 +156,7 @@ angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', 
      
      function($scope, $rootScope, $firebaseObject) {
            //get course detail
-           var coursesByUserRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/');
-           var coursesByUserDetail = $firebaseObject(coursesByUserRef);
-                    console.log(coursesByUserDetail.$id);
-          
-           for (var i = 0; i < coursesByUserDetail.length; i++) {
-               var refIndvCourse = new Firebase('https://nsf-class-selector.firebaseio.com/courses/'+i);
-               var indvCourse = $firebaseObject(refIndvCourse);
-               // $scope.courses.push(indvCourse);
-              courses.push(indvCourse[i]);
- 
-                     $scope.courses = indvCourse;
-                     
-                       }
             }]);
-
-
-        
-
-
-
 
 angular.module('myApp').controller('OthersInCourseCtrl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
      function($scope, $rootScope, $firebaseArray, $routeParams) {
@@ -201,7 +165,34 @@ angular.module('myApp').controller('OthersInCourseCtrl', ['$scope','$rootScope',
       
       console.log($scope.othersInCourse);
 }]);
-     
+angular.module('myApp').controller('userCoursesCtrl', ['$scope','$rootScope', '$firebaseObject', '$routeParams',
+     function($scope, $rootScope, $firebaseObject, $routeParams) {
+      var personsRef = new Firebase('https://nsf-class-selector.firebaseio.com/users/');
+      $scope.fellows =  $firebaseObject(personsRef);
+
+      console.log($scope.fellows);
+}]);
+angular.module('myApp').controller('UsersCourseList', ['$scope','$rootScope','$firebaseArray', '$firebaseObject', 'inform','$routeParams',
+     function($scope, $rootScope, $firebaseObject, $firebaseArray, inform, $routeParams) {
+              //get courses that the unser has selected in firebase
+              var personRef = new Firebase('https://nsf-class-selector.firebaseio.com/users/').child($routeParams.regUser);
+              var person = $firebaseObject(personRef);
+              $scope.person = person;
+              // console.log($scope.person);
+              // $scope.userCourses = '';
+              var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
+                  // not sure why, but I had to wait on the rootscope so I added this
+                    firstRef.on("value", function(snapshot) {
+                        var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/').child($routeParams.regUser);
+                        $scope.othersUserCourses = $firebaseArray(userCoursesRef);
+
+                        console.log($scope);
+                              
+                      });
+
+          }]);
+
+
 
 
 myApp.config(['$routeProvider', function($routeProvider) {
@@ -218,8 +209,24 @@ myApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/myclasses.html',
       controller: 'RegistrationController'
     }).
+    when('/selectclasses', {
+      templateUrl: 'views/selectclasses.html',
+      controller: 'RegistrationController'
+    }).
     when('/allclasses', {
       templateUrl: 'views/allclasses.html',
+      controller: 'RegistrationController'
+    }).
+    when('/courseusers', {
+      templateUrl: 'views/courseusers.html',
+      controller: 'RegistrationController'
+    }).
+    when('/users', {
+      templateUrl: 'views/users.html',
+      controller: 'RegistrationController'
+    }).
+      when('/courses/:regUser', {
+      templateUrl: 'views/courses.html',
       controller: 'RegistrationController'
     }).
     when('/coursedetail/:courseID', {
@@ -240,11 +247,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/login'
     });
 }]);
-
-
-
-
-
 
 myApp.run(['$rootScope', '$location',
    function($rootScope, $location) {

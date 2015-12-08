@@ -1,67 +1,21 @@
-	 <div ng-controller="RegistrationController">
-	<h2 align="center">Classes Selections For {{currentUser.firstname}} {{currentUser.lastname}} </h2>
+ <div ng-controller="RegistrationController">
+ <h2 align="center">Course Selections for {{currentUser.firstname}} {{currentUser.lastname}} </h2>
 </div>
     <div class="container-fluid">
 		  <div class="row">
-		    	<div class="col-md-6">
-			    <h2 align="center">Courses Available</h2>
-	    			<div ng-controller="CourseListCtrl">
-					  	<table st-table="courses" class="table table-striped">
-	        				<thead>
-        						<th colspan="6">
-										<input style="font-weight:bolder" placeholder="type/search for anything below...." onfocus="this.placeholder = ''" onblur="this.placeholder = 'type/search for anything below....'" ng-model="query" />
-								</th>
-								<colgroup>
-								       <col span="1" style="width: 35%;">
-								       <col span="1" style="width: 15%;">
-								       <col span="1" style="width: 15%;">
-								       <col span="1" style="width: 5%;">
-								       <col span="1" style="width: 15%;">
-								       <col span="1" style="width: 5%;">
-								  </colgroup>
-		        				<tr>
-		        					<th ="courseName">Name</th>
-		        					<th ="Number">Number</th>
-		        					<th ="Days">Days</th>
-		        					<th ="Days">Term</th>
-		        					<th ="Credits">Credits</th>
-		        					<th ="Faculity">Faculity</th>
-		        					<th ="">Add</th>   
-
-		        				</tr>
-	        				</thead>
-		        				<tbody>
-			        				<tr ng-repeat="course in courses | filter: query">
-				        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
-				        					<td>{{course.coursenumber}}</td>
-				        					<td>{{course.schedule}}</td>
-				        					<td>{{course.term}}</td>
-				        					<td>{{course.credits}}</td>
-				        					<td>{{course.faculty}}</td>
-			        				<td>
-		        					<button type="button" ng-click="addCourse(course)" class="btn btn-sm btn-success">
-		        						<i><span class="glyphicon glyphicon-plus"></span>  <span class="glyphicon glyphicon-arrow-right"></span></i>
-		        					</button>
-		        					</td> 
-			        				</tr>
-		        				</tbody>
-				        </table>
-					</div>
-		    	</div>
-		        <div class="col-md-6">
+		        <div class="col-md-12">
 		       <!-- Column for selecting classes 	 -->
-			    <h2 align="center" style="margin-bottom:60px">My Courses</h2>
+			    <h2 align="center" style="margin-bottom:59px">My Courses</h2>
 	        	<div ng-controller="MyCourseList">
 	        			<table st-table="courses" class="table table-hover" id="mytable">
 	        				<thead style="background-color: #f9f9f9;">
 	        				<tr>
 	        					<th colspan="2">Priority</th>
-	        					<th>Name</th>
-	        					<th>Number</th>
-	        					<th>Days</th>
-	        					<th>Credits</th>
+	        					<th>Course Name</th>
+	        					<th> Course Number</th>
+	        					<th>Days / Times</th>
+	        					<th width="5%">Credits</th>
 	        					<th>Faculity</th>
-	        					<th>Remove</th>
 	        				</tr>
 	        				</thead>
 	        				<tbody>
@@ -92,12 +46,7 @@
 		        					<td>{{course.schedule}}</td>
 		        					<td>{{course.credits}}</td>
 		        					<td >{{course.faculty}}</td>
-		        					<td style="text-align: center;">
-		        						<button type="button" ng-click="removeCourse(course)" class="btn btn-sm btn-danger">
-		        							<i class="glyphicon glyphicon-remove">
-		        							</i>
-		        						</button>
-		        					</td>
+		        					
 		        				</tr>
 
 	        				</tbody>

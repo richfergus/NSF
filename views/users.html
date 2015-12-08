@@ -1,0 +1,37 @@
+	<h2 align="center">National Security Fellows</h2>
+    <div class="container-fluid">
+		  <div class="row">
+		        <div class="col-md-6">
+		       <!-- Column for selecting classes 	 -->
+			    <h2 align="center" style="margin-bottom:59px">NSF Fellows</h2>
+	        	<div ng-controller="userCoursesCtrl">
+	        			<table st-table="courses" class="table table-hover" id="mytable">
+	        				<thead style="background-color: #f9f9f9;">
+	        				<tr>
+	        					<th>Name</th>
+	        				</tr>
+	        				</thead>
+	        				<tbody>
+	        				<!-- <tbody sortable> -->
+		        				<tr id="{{person.id}}" ng-repeat="person in fellows | orderBy:'lastname'">
+		        					<td> <a ng-href="#/courses/{{person.regUser}}">{{person.firstname}} {{person.lastname}}</a></td>
+<!-- 		        					<td align="center" style="vertical-align:middle; text-align: center;">
+		        					</td> -->
+		        				</tr>
+
+	        				</tbody>
+	        				
+	        			</table>
+	        				
+	        		</div>
+		        </div>
+		  </div>
+	</div>
+
+     
+</div>
+
+
+
+
+						

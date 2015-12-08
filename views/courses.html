@@ -1,0 +1,51 @@
+ <div ng-controller="UsersCourseList">
+ <h2 align="center">Course Selections for {{person.firstname}} {{person.lastname}} </h2>
+    <div class="container-fluid">
+		  <div class="row">
+		        <div class="col-md-12">
+		       <!-- Column for selecting classes 	 -->
+			    <h2 align="center" style="margin-bottom:59px"></h2>
+    			<table st-table="courses" class="table table-hover" id="mytable">
+    				<thead style="background-color: #f9f9f9;">
+    				<tr>
+    					<th>Priority</th>
+    					<th>Course Name</th>
+    					<th> Course Number</th>
+    					<th>Days / Times</th>
+    					<th width="5%">Credits</th>
+    					<th>Faculity</th>
+    				</tr>
+    				</thead>
+    				<tbody> 
+    				<!-- <tbody sortable> -->
+
+        				<tr ng-repeat="course in othersUserCourses | orderBy:priority">
+        					<td style="vertical-align:middle;">
+    						<button ng-class="{'btn btn-success':{{course.priority}} <= 3,	'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
+    							{{course.priority}}
+    						</button>
+        					</td>
+     
+        					<td> <a ng-href="#/coursedetail/{{course.courseID}}">{{course.coursetitle}}</a></td>
+        					<td>{{course.coursenumber}}</td>
+        					<td>{{course.schedule}}</td>
+        					<td>{{course.credits}}</td>
+        					<td >{{course.faculty}}</td>
+        					
+        				</tr>
+
+    				</tbody>
+    				
+    			</table>
+	        				
+		  </div>
+	</div>
+</div>
+
+     
+</div>
+
+
+
+
+						

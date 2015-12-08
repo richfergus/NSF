@@ -14,19 +14,34 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" collapse="navCollapsed">
         <ul class="nav navbar-nav navbar-right">
-        <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
-		    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
-		    <li><a ng-show="currentUser" ng-href="#/allclasses">All Classes</a></li>
-		    <li><a ng-show="currentUser" ng-href="#/myclasses">My Classes</a></li>
+          <li><a ng-hide="currentUser" ng-href="#/login">Login</a></li>
+  		    <li><a ng-hide="currentUser" ng-href="#/register">Register</a></li>
+  		    <li><a ng-show="currentUser" ng-href="#/selectclasses">Select Classes</a></li>
           <li ng-show="currentUser" class="dropdown" dropdown="">
-            <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">{{ currentUser.firstname}}<b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a ng-click="logout()" href="#/logout">Logout</a>
-              </li>
-              
-            </ul>
+              <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">View<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a ng-href="#/myclasses">My Classes</a>
+                </li>
+                <li>
+                  <a ng-href="#/users">Fellows Courses</a>
+                </li>
+                <li>
+                  <a ng-href="#/courseusers">Courses With Fellows</a>
+                </li>
+                
+              </ul>
+          </li>
+          <li ng-show="currentUser" class="dropdown" dropdown="">
+              <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">{{ currentUser.firstname}}<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a ng-click="logout()" href="#/logout">Logout</a>
+                </li>
+                
+              </ul>
           </li>
         </ul>
       </div>

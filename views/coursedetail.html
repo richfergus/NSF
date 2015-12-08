@@ -31,16 +31,16 @@
 			        					<th colspan="1" st-sort="courseName">Priority</th>
 			        				</tr>
 		        				</thead>
-				        				<tbody>
-					        				<tr ng-repeat="course in othersInCourse | orderBy:'priority'">
-						        					<td>{{course.firstname}} {{course.lastname}}</td>
-				        							<td style="text-align: center;">		
-				        					      	 	<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
-	      	 			        							{{course.priority}}
-	      	 			        						</button>
-				        							</td>
-					        				</tr>
-				        				</tbody>
+		        				<tbody>
+			        				<tr ng-repeat="course in othersInCourse | orderBy:'priority'">
+		        					<td> <a ng-href="#/courses/{{course.$id}}">{{course.firstname}} {{course.lastname}}</a></td>
+        							<td style="text-align: center;">		
+        					      	 	<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
+ 			        							{{course.priority}}
+ 			        						</button>
+        							</td>
+			        				</tr>
+		        				</tbody>
 				        </table>
 				       </div> 
 		    	</div>
