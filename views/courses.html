@@ -19,7 +19,7 @@
     				<tbody> 
     				<!-- <tbody sortable> -->
 
-        				<tr ng-repeat="course in othersUserCourses | orderBy:priority">
+        				<tr ng-repeat="course in othersUserCourses | orderBy:'priority'">
         					<td style="vertical-align:middle;">
     						<button ng-class="{'btn btn-success':{{course.priority}} <= 3,	'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
     							{{course.priority}}

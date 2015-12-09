@@ -189,20 +189,15 @@ angular.module('myApp').controller('UsersCourseList', ['$scope','$rootScope','$f
      function($scope, $rootScope, $firebaseObject, $firebaseArray, inform, $routeParams) {
               //get courses that the unser has selected in firebase
               var personRef = new Firebase('https://nsf-class-selector.firebaseio.com/users/').child($routeParams.regUser);
-              var person = $firebaseObject(personRef);
+              var person = $firebaseArray(personRef);
               $scope.person = person;
               // console.log($scope.person);
               // $scope.userCourses = '';
-              var firstRef = new Firebase('https://nsf-class-selector.firebaseio.com/');
-                  // not sure why, but I had to wait on the rootscope so I added this
-                    firstRef.on("value", function(snapshot) {
-                        var userCoursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/').child($routeParams.regUser);
-                        $scope.othersUserCourses = $firebaseArray(userCoursesRef);
-
-                        console.log($scope);
-                              
-                      });
-
+              var ref = new Firebase("https://nsf-class-selector.firebaseio.com/coursesuser/").child($routeParams.regUser);
+              ref.orderByChild("priority").on("child_added", function(snapshot) {
+                // console.log(snapshot.key() + " was " + snapshot.val().priority + " meters tall");
+              });
+              $scope.othersUserCourses = $firebaseObject(ref);
           }]);
 
 
@@ -272,6 +267,10 @@ myApp.run(['$rootScope', '$location',
           });
   
 }]);
+
+
+ 
+ 
 
 
 
