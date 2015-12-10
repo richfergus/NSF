@@ -39,7 +39,7 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                     $scope.addCourse = function (course)
                           {
                             var firebaseRef = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/');
-                            var priRef = firebaseRef.child(+$rootScope.currentUser.$id); 
+                            var priRef = firebaseRef.child(+$rootScope.currentUser.$id);
                                 
                                   console.log(priRef);
                             // console.log(userCourses.length +1);
@@ -65,7 +65,7 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                               .child(course.$id).child($rootScope.currentUser.$id).update({
                                "firstname": $rootScope.currentUser.firstname,
                                "lastname": $rootScope.currentUser.lastname,
-                                "priority": userCourses.length+1
+                                "priority": userCourses.length
                               });
                                   inform.add('Course Added', {
                                     ttl: 3200, type: 'success'
@@ -101,18 +101,17 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                          // console.log(snapshot.key() + " was " + snapshot.val().priority + " meters tall");
 
                        });
+                                    // $scope.userCourses = userCoursesRef;
                        $scope.userCourses = $firebaseObject(userCoursesRef);
-                       $scope.couresesLength = userCourses.length;
-                       // console.log(couresesLength);
-                               $scope.userCourses = userCoursesRef; 
+                       // $scope.couresesLength = userCoursesRef.length;
+                       console.log($scope.userCourses);
+                               // $scope.userCourses = userCoursesRef;
 
 
+  
 
-
-                        userCoursesRef.$loaded().then(function(data){
-                            $scope.couresesLength = userCourses.length;
+                        // userCoursesRef.$loaded().then(function(data){
                             // console.log(couresesLength);
-                                    $scope.userCourses = userCoursesRef;
                                     
                              
                                  $scope.syncOrder = function (elemPositions) {
@@ -128,7 +127,7 @@ angular.module('myApp').controller('MyCourseList', ['$scope','$rootScope', '$fir
                                        });
                                      };
                                 
-                        });
+                        // });
                             var move = function (origin, destination) {
                                 var temp = $scope.userCourses[destination];
                                 $scope.userCourses[destination] = $scope.userCourses[origin];

@@ -27,21 +27,21 @@
 		        					</td>
 		        			    </tr>
 
-		        				<tr id="{{course.id}}" ng-repeat="course in userCourses | orderBy:'priority'">
+		        				<tr ng-repeat="course in userCourses | orderBy:'priority'">
 		        					<td style="vertical-align:middle;">
-		        						<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
-		        							{{course.priority}}
+		        					{{course.courseID}}	<button ng-class="{'btn btn-success':{{course.priority+1}} <= 3, 'btn btn-warning':{{course.priority+1}} == 4, 'btn btn-danger':{{course.priority+1}} > 4}">
+		        							{{course.priority+1}}
 		        						</button>
 		        					</td>
-		        					<!-- <td align="left" style="width:12px; vertical-align:middle;">
-		        						<button type="button" ng-click="moveDownChoice(index)">
+		        					<td align="left" style="width:12px; vertical-align:middle;">
+		        						<!-- <button type="button" ng-click="upPriority(course)">
 		        							<span style="font-size:0.6em" class="glyphicon glyphicon-triangle-top"></span>
 		        						</button>
 		        						<button type="button" ng-click="downPriority(course)">
 		        							<span style="font-size:0.6em" class="glyphicon glyphicon-triangle-bottom"></span>
-		        						</button>
-		        					</td> -->
-		        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
+		        						</button> -->
+		        					</td>
+		        					<td> <a ng-href="#/coursedetail/{{course.courseID}}">{{course.coursetitle}}</a></td>
 		        					<td>{{course.coursenumber}}</td>
 		        					<td>{{course.schedule}}</td>
 		        					<td>{{course.credits}}</td>
