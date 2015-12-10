@@ -4,7 +4,7 @@
 	    			<div ng-controller="CourseDetailCrtl">
 			    <h2>{{courseDetails.coursename}} <code>{{courseDetails.coursenumber}}</code></h2>
 	    				<div class="bs-callout bs-callout-warning" id="callout-inputgroup-container-body">
-	    				<h4>Harvard Kennidy School</h4>
+	    				<h3>School: <span style="color: black; font-weight: 700;">{{courseDetails.school}}</span></h3>
 	    				<p>Course Meetings: <code>{{courseDetails.schedule}}</code></p>
 						<p>Credits <code>{{courseDetails.credits}}</code></p>
 						<p>Term <code>{{courseDetails.term}}</code></p>
@@ -35,8 +35,8 @@
 			        				<tr ng-repeat="course in othersInCourse | orderBy:'priority'">
 		        					<td> <a ng-href="#/courses/{{course.$id}}">{{course.firstname}} {{course.lastname}}</a></td>
         							<td style="text-align: center;">		
-        					      	 	<button ng-class="{'btn btn-success':{{course.priority}} <= 3, 'btn btn-warning':{{course.priority}} == 4, 'btn btn-danger':{{course.priority}} > 4}">
- 			        							{{course.priority}}
+        					      	 	<button ng-class="{'btn btn-success':{{course.priority+1}} <= 3, 'btn btn-warning':{{course.priority+1}} == 4, 'btn btn-danger':{{course.priority+1}} > 4}">
+ 			        							{{course.priority+1}}
  			        						</button>
         							</td>
 			        				</tr>
