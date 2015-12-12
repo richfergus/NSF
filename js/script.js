@@ -50,13 +50,13 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                                }
                                if(!b){//add course if it dosent alreay exist
                                   
-                                  newPri =0;
+                                  newPri = 1;
                                     var ref = new Firebase("https://nsf-class-selector.firebaseio.com/coursesuser/" +$rootScope.currentUser.$id);
                                     ref.orderByChild("priority").limitToLast(1).once("child_added", function(snapshot) {
                                     myObj=snapshot.val();
+                                      // newPri = leng;
                                       var pri = myObj.priority+1;
                                       var leng = userCourses.length;
-                                       newPri = leng;
                                         if (pri == leng) {
                                          newPri = pri;
                                        }
@@ -65,8 +65,14 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                                        }
 
                                     });
-                                    var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/' +$rootScope.currentUser.$id)
-                                    .child(course.$id).set({
+                                    var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
+                                    .child(course.$id).child($rootScope.currentUser.$id).set({
+                                     "firstname": $rootScope.currentUser.firstname,
+                                     "lastname": $rootScope.currentUser.lastname,
+                                      "priority": newPri
+                                    });
+                                    var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/')
+                                    .child($rootScope.currentUser.$id).child(course.$id).set({
                                       "courseID" : course.$id,
                                       "coursenumber": course.coursenumber,
                                       "coursetitle": course.coursetitle,
@@ -74,12 +80,6 @@ angular.module('myApp').controller('CourseListCtrl', ['$scope', '$rootScope', '$
                                       "credits": course.credits,
                                       "faculty": course.faculty,
                                       "school": course.school,
-                                      "priority": newPri
-                                    });
-                                    var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
-                                    .child(course.$id).child($rootScope.currentUser.$id).update({
-                                     "firstname": $rootScope.currentUser.firstname,
-                                     "lastname": $rootScope.currentUser.lastname,
                                       "priority": newPri
                                     });
                                           inform.add('Course Added', {

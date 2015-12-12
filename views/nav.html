@@ -9,7 +9,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">National Secuirty Fellows Class Selection</a>
+        <a ng-hide="currentUser" class="navbar-brand" href="#/login">National Secuirty Fellows Class Selection</a>
+        <a ng-show="currentUser" class="navbar-brand" href="#/myclasses">National Secuirty Fellows Class Selection</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" collapse="navCollapsed">
