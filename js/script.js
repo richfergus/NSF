@@ -166,22 +166,72 @@ angular.module('myApp').controller('CourseDetailCrtl', ['$scope','$rootScope','$
              });
           }]);
 
-angular.module('myApp').controller('addCoursetoFB', ['$scope','$firebaseObject',
-     function($scope, $firebaseObject) {
+angular.module('myApp').controller('addCoursetoFB', ['$scope','$rootScope','$firebaseObject', 'inform',
+     function($scope,$rootScope, $firebaseObject, inform) {
       $scope.addClass=false;
-                
-      var url = "https://nsf-class-selector.firebaseio.com/courses/";
-      var firebaseRef = new Firebase(url);
+       // console.log($scope.myForm); 
+      // var url = "https://nsf-class-selector.firebaseio.com/courses/";
+      // var firebaseRef = new Firebase(url);
 
-                $scope.myForm = {};
-                $scope.myForm.school = $('input[name=school]:checked').val();
-                $scope.myForm.coursenumber  = $('#coursenumber').text();
-                $scope.myForm.coursetitle  = $('#coursetitle').text();
-                $scope.myForm.schedule  = $('#schedule').text();
-                $scope.myForm.credits  = $('#credits').text();
-                $scope.myForm.faculty  = $('#faculty').text();
+      $scope.addClassManually = function() {
 
-// console.log($scope.myForm);
+            var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/courses/');
+            var courses = $firebaseObject(coursesRef);
+
+            var coursenumber = $scope.myform.coursenumber.$modelValue;
+            var coursename = $scope.myform.coursename.$modelValue;
+            var credits = $scope.myform.credits.$modelValue;
+            var faculty = $scope.myform.faculty.$modelValue;
+            var schedule = $scope.myform.schedule.$modelValue;
+            var school = $scope.myform.school.$modelValue;
+
+
+
+
+            var courseAdd = coursesRef.push();
+                coursesRef.push({
+                                    'coursenumber': coursenumber,
+                                    'coursetitle': coursename,
+                                    'credits': credits,
+                                    'faculty': faculty,
+                                    'schedule': schedule,
+                                    'school': school,
+                                    'term': 'Spring'
+                                  });
+                inform.add('Course added', {
+                        ttl: 3200, type: 'success'
+                      });
+
+
+
+
+            // coursesRef.once("value", function(snapshot) {
+            //   var a = snapshot.numChildren();
+            //   // a === 1 ("name")
+            //   console.log(a);
+              
+            
+
+            // coursesRef.orderByChild("priority").limitToLast(1).once("child_added", function(snapshot) {
+            // myObj=snapshot.val();
+            //   // newPri = leng;
+            //   var pri = myObj.priority+1;
+            //   var leng = userCourses.length;
+            //     if (pri == leng) {
+            //      newPri = pri;
+            //    }
+            //     if (pri > leng){
+            //       newPri = pri;
+            //    }
+
+            // });
+      // var x = form.coursename;
+      // console.log($scope.myform.coursename.$modelValue);
+        };
+
+              
+
+// console.log(myForm);
               }
       
             ]);
