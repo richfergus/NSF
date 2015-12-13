@@ -120,7 +120,7 @@
 		        <div ng-show="addClass">				
 		        			<div class="col-md-8 col-sm-8 col-xs-12 formBox">
 		        			<h3 align="center" style="margin-bottom:59px">Enter the details of an indivdual class not listed to the left.</h3>
-		        			 <form method="post" ng-submit="submit()" ng-controller="addCoursetoFB">
+		        			 <form name="myform" ng-submit="addClassManually()" novalidate>
 		        			  <div class="form-group">
 		        			   <label class="control-label requiredField">
 		        			    School
@@ -131,31 +131,31 @@
 		        			   <div class="">
 		        			    <div class="radio">
 		        			     <label class="radio">
-		        			      <input name="school" type="radio" value="HKS"/>
+		        			      <input name="school" type="radio" ng-model="form.HKS" value="HKS"/>
 		        			      HKS
 		        			     </label>
 		        			    </div>
 		        			    <div class="radio">
 		        			     <label class="radio">
-		        			      <input name="school" type="radio" value="HBS"/>
+		        			      <input name="school" type="radio" ng-model="form.HBS" value="HBS"/>
 		        			      HBS
 		        			     </label>
 		        			    </div>
 		        			    <div class="radio">
 		        			     <label class="radio">
-		        			      <input name="school" type="radio" value="MIT"/>
+		        			      <input name="school" type="radio" ng-model="form.MIT" value="MIT"/>
 		        			      MIT
 		        			     </label>
 		        			    </div>
 		        			    <div class="radio">
 		        			     <label class="radio">
-		        			      <input name="school" type="radio" value="Tufts"/>
+		        			      <input name="school" type="radio" ng-model="form.Tufts" value="Tufts"/>
 		        			      Tufts
 		        			     </label>
 		        			    </div>
 		        			    <div class="radio">
 		        			     <label class="radio">
-		        			      <input name="school" type="radio" value="Other"/>
+		        			      <input name="school" type="radio" ng-model="form.Other" value="Other"/>
 		        			      Other
 		        			     </label>
 		        			    </div>
@@ -168,7 +168,10 @@
 		        			     *
 		        			    </span>
 		        			   </label>
-		        			   <input class="formBoxInput" id="coursenumber" name="coursenumber"  placeholder="i.e. AP101" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. AP101'" type="text"/>
+		        			   <input class="formBoxInput" ng-model="form.coursenumber" id="coursenumber" name="coursenumber"  placeholder="i.e. AP101" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. AP101'" type="text"/>
+		        			   <p class="error validationerror"
+		        			   ng-show="myform.coursenumber.$invalid && myform.coursenumber.$touched">This field is required</p>
+		        			   
 		        			  </div>
 		        			  <div class="form-group ">
 		        			   <label class="control-label requiredField" for="coursename">
@@ -177,7 +180,9 @@
 		        			     *
 		        			    </span>
 		        			   </label>
-		        			   <input class="formBoxInput" id="coursename" name="coursename" placeholder="i.e. Underwater Basket Weaving" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Underwater Basket Weaving'"type="text"/>
+		        			   <input class="formBoxInput" ng-model="form.coursename" id="coursename" name="coursename" placeholder="i.e. Underwater Basket Weaving" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Underwater Basket Weaving'"type="text"/>
+		        			   <p class="error validationerror"
+		        			   ng-show="myform.coursename.$invalid && myform.coursename.$touched">This field is required</p>
 		        			  </div>
 		        			  <div class="form-group ">
 		        			   <label class="control-label requiredField" for="schedule">
@@ -186,7 +191,9 @@
 		        			     *
 		        			    </span>
 		        			   </label>
-		        			   <input class="formBoxInput" id="schedule" name="schedule" placeholder="i.e. T/Th 1:15 PM" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. T/Th 1:15 PM'"/>
+		        			   <input class="formBoxInput" ng-model="form.schedule" id="schedule" name="schedule" placeholder="i.e. T/Th 1:15 PM" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. T/Th 1:15 PM'"/>
+		        			   <p class="error validationerror"
+		        			   ng-show="myform.schedule.$invalid && myform.schedule.$touched">This field is required</p>
 		        			  </div>
 		        			  <div class="form-group ">
 		        			   <label class="control-label requiredField" for="credits">
@@ -195,7 +202,9 @@
 		        			     *
 		        			    </span>
 		        			   </label>
-		        			   <input class="formBoxInput" id="credits" name="credits" placeholder="i.e. 1.0" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. 1.0'" type="text"/>
+		        			   <input class="formBoxInput" ng-model="form.credits" id="credits" name="credits" placeholder="i.e. 1.0" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. 1.0'" type="text"/>
+		        			   <p class="error validationerror"
+		        			   ng-show="myform.credits.$invalid && myform.credits.$touched">This field is required</p>
 		        			  </div>
 		        			  <div class="form-group ">
 		        			   <label class="control-label requiredField" for="faculty">
@@ -204,7 +213,9 @@
 		        			     *
 		        			    </span>
 		        			   </label>
-		        			   <input class="formBoxInput" id="faculty" name="faculty" placeholder="i.e. Nye" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Nye'" type="text"/>
+		        			   <input class="formBoxInput" ng-model="form.faculty" id="faculty" name="faculty" placeholder="i.e. Nye" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Nye'" type="text"/>
+		        			   <p class="error validationerror"
+		        			   ng-show="myform.faculty.$invalid && myform.faculty.$touched">This field is required</p>
 		        			  </div>
 		        			  <div class="form-group">
 		        			   <div>
