@@ -197,17 +197,13 @@ angular.module('myApp').controller('addCoursetoFB', ['$scope','$rootScope','$fir
                      inform.add('Course added', {
                         ttl: 3200, type: 'success'
                       });
-                     $scope.form.$pristine = true;
-                     $scope.form.$dirty = false;
+                 console.log($scope.data);
+                  $scope.data = angular.copy($scope.originalUser);
+                  $scope.myform.$setUntouched();
+                  $scope.myform.$setPristine();
 
-                     // console.log($scope.form);
-                     angular.forEach($scope.form, function (input, key) {
-                        if (input.$pristine)
-                            input.$pristine = true;
-                        if (input.$dirty) {
-                            input.$dirty = false;
-                        }
-                    });
+
+                     
               }
             
 

@@ -109,14 +109,14 @@
 
 	        		</div>
 		        		
-		        		<div ng-controller="addCoursetoFB">
-		        			<div align="center">
-		        				<button class="btn btn-primary" ng-hide="addClass" ng-click="addClass = !addClass">Manually Add A Class</button> 
-		        				<button class="btn btn-primary" ng-hide="!addClass" ng-click="addClass = ''">Close</button> 
-								<!-- 	<button class="btn btn-primary " name="addClass">
-			        			     Manually Add A Class ng-click="show = !show"
-			        			    </button> -->
-		        				</div>
+		<div ng-controller="addCoursetoFB as ctrl">
+			<div align="center">
+				<button class="btn btn-primary" ng-hide="addClass" ng-click="addClass = !addClass">Manually Add A Class</button> 
+				<button class="btn btn-primary" ng-hide="!addClass" ng-click="addClass = ''">Close</button> 
+				<!-- 	<button class="btn btn-primary " name="addClass">
+    			     Manually Add A Class ng-click="show = !show"
+    			    </button> -->
+				</div>
 		        <div ng-show="addClass">				
         			<div class="col-md-8 col-sm-8 col-xs-12 formBox">
         			<h3 align="center" style="margin-bottom:19px">Enter the details of an indivdual class not listed to the left.</h3>
@@ -168,7 +168,7 @@
         			     *
         			    </span>
         			   </label>
-        			   <input class="formBoxInput" ng-model="form.coursenumber" id="coursenumber" name="coursenumber"  placeholder="i.e. AP101" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. AP101'" type="text" ng-required="true"/>
+        			   <input class="formBoxInput" ng-model="data.coursenumber" id="coursenumber" name="coursenumber"  placeholder="i.e. AP101" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. AP101'" type="text" ng-required="true"/>
         			   <p class="error validationerror"
         			   ng-show="myform.coursenumber.$invalid && myform.coursenumber.$touched">This field is required</p>
         			   
@@ -180,7 +180,7 @@
         			     *
         			    </span>
         			   </label>
-        			   <input class="formBoxInput" ng-model="form.coursename" id="coursename" name="coursename" placeholder="i.e. Underwater Basket Weaving" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Underwater Basket Weaving'"type="text" ng-required="true"/>
+        			   <input class="formBoxInput" ng-model="data.coursename" id="coursename" name="coursename" placeholder="i.e. Underwater Basket Weaving" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Underwater Basket Weaving'"type="text" ng-required="true"/>
         			   <p class="error validationerror"
         			   ng-show="myform.coursename.$invalid && myform.coursename.$touched">This field is required</p>
         			  </div>
@@ -191,7 +191,7 @@
         			     *
         			    </span>
         			   </label>
-        			   <input class="formBoxInput" ng-model="form.schedule" id="schedule" name="schedule" placeholder="i.e. T/Th 1:15 PM" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. T/Th 1:15 PM'" ng-required="true"/>
+        			   <input class="formBoxInput" ng-model="data.schedule" id="schedule" name="schedule" placeholder="i.e. T/Th 1:15 PM" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. T/Th 1:15 PM'" ng-required="true"/>
         			   <p class="error validationerror"
         			   ng-show="myform.schedule.$invalid && myform.schedule.$touched">This field is required</p>
         			  </div>
@@ -202,7 +202,7 @@
         			     *
         			    </span>
         			   </label>
-        			   <input class="formBoxInput" ng-model="form.credits" id="credits" name="credits" placeholder="i.e. 1.0" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. 1.0'" type="text" ng-required="true"/>
+        			   <input class="formBoxInput" ng-model="data.credits" id="credits" name="credits" placeholder="i.e. 1.0" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. 1.0'" type="text" ng-required="true"/>
         			   <p class="error validationerror"
         			   ng-show="myform.credits.$invalid && myform.credits.$touched">This field is required</p>
         			  </div>
@@ -213,7 +213,7 @@
         			     *
         			    </span>
         			   </label>
-        			   <input class="formBoxInput" ng-model="form.faculty" id="faculty" name="faculty" placeholder="i.e. Nye" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Nye'" type="text" ng-required="true"/>
+        			   <input class="formBoxInput" ng-model="data.faculty" id="faculty" name="faculty" placeholder="i.e. Nye" onfocus="this.placeholder = ''" onblur="this.placeholder = 'i.e. Nye'" type="text" ng-required="true"/>
         			   <p class="error validationerror"
         			   ng-show="myform.faculty.$invalid && myform.faculty.$touched">This field is required</p>
         			  </div>
