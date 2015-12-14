@@ -31,8 +31,8 @@
 		        				</tr>
 	        				</thead>
 		        				<tbody>
-			        				<tr ng-show="currentUser" ng-repeat="course in courses | filter: query">
-				        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td>
+			        				<tr ng-show="currentUser" ng-repeat="course in courses | orderBy: '$id' | filter: query">
+				        					<td> <a ng-href="#/coursedetail/{{course.$id}}">{{course.coursetitle}}</a></td> 
 				        					<td>{{course.coursenumber}}</td>
 				        					<td>{{course.schedule}}</td>
 				        					<td>{{course.term}}</td>

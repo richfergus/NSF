@@ -181,96 +181,144 @@ angular.module('myApp').controller('addCoursetoFB', ['$scope','$rootScope','$fir
                       'school': school,
                       'term': 'Spring'
                       });
-                     inform.add('Course added', {
-                        ttl: 3200, type: 'success'
-                      });
-                 console.log($scope.data);
+                     
                   $scope.data = angular.copy($scope.originalUser);
                   $scope.myform.$setUntouched();
                   $scope.myform.$setPristine();
 
 
-                     
+                  var postID = courseAdd.key();
+                  console.log(postID);
+                  
+                  newPri = 1;
+                    var ref = new Firebase("https://nsf-class-selector.firebaseio.com/coursesuser/" +$rootScope.currentUser.$id);
+                    ref.orderByChild("priority").limitToLast(1).once("child_added", function(snapshot) {
+                    myObj=snapshot.val();
+                      // newPri = leng;
+                      var pri = myObj.priority+1;
+                      var leng = ref.length;
+                        if (pri == leng) {
+                         newPri = pri;
+                       }
+                        if (pri > leng){
+                          newPri = pri;
+                       }
+
+                    });
+                    var addUserCourses = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses')
+                    .child(postID).child($rootScope.currentUser.$id).set({
+                     "firstname": $rootScope.currentUser.firstname,
+                     "lastname": $rootScope.currentUser.lastname,
+                      "priority": newPri
+                    });
+                    var addCoursesUser = new Firebase('https://nsf-class-selector.firebaseio.com/coursesuser/')
+                    .child($rootScope.currentUser.$id).child(postID).set({
+                      "courseID" : postID,
+                      "coursenumber": $scope.myform.coursenumber.$modelValue,
+                      "coursetitle": $scope.myform.coursename.$modelValue,
+                      "schedule": $scope.myform.schedule.$modelValue,
+                      "credits": $scope.myform.credits.$modelValue,
+                      "faculty": $scope.myform.faculty.$modelValue,
+                      "school": $scope.myform.school.$modelValue,
+                      "priority": newPri
+                    });
+                    inform.add('Course added', {
+                       ttl: 3200, type: 'success'
+                     });
               }
-            
-
-
-             // var newPostRef = postsRef.push();
-             //  var postID = courseAdd.key();
-             //  console.log(postID);
-                
-
-
-
-
-
-            // coursesRef.once("value", function(snapshot) {
-            //   var a = snapshot.numChildren();
-            //   // a === 1 ("name")
-            //   console.log(a);
-              
-            
-
-            // coursesRef.orderByChild("priority").limitToLast(1).once("child_added", function(snapshot) {
-            // myObj=snapshot.val();
-            //   // newPri = leng;
-            //   var pri = myObj.priority+1;
-            //   var leng = userCourses.length;
-            //     if (pri == leng) {
-            //      newPri = pri;
-            //    }
-            //     if (pri > leng){
-            //       newPri = pri;
-            //    }
-
-            // });
-      // var x = form.coursename;
-      // console.log($scope.myform.coursename.$modelValue);
         };
-
-              
-
-// console.log(myForm);
-              }
+     }
       
-            ]);
-
-
-      
-      // {
-      //   var school = $('input[name=school]:checked').val();
-      //   var coursenumber = $('#coursenumber').text();
-      //   var coursetitle = $('#coursetitle').text();
-      //   var schedule = $('#schedule').text();
-      //   var credits = $('#credits').text();
-      //   var faculty = $('#faculty').text();
-
-
-      //   // firebaseRef.set({Title: title, Content: post, Date: date});
-      //   // evt.preventDefault();
-      //   console.log(evt);
-      // }
-
-      // var submit = document.getElementsByTagName('button')[0];
-
-      // submit.onclick = funct1;
-
-
-
-
-
+  ]);
 
 angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseObject',
-     
      function($scope, $rootScope, $firebaseObject) {
-           //get course detail
-            }]);
+           
+           var fb = new Firebase("https://nsf-class-selector.firebaseio.com/");
+
+           function joinPaths(id, paths, callback) {
+               var returnCount = 0;
+               var expectedCount = paths.length;
+               var mergedObject = {};
+
+               paths.forEach(function (p) {
+                   fb.child(p + '/' + id).once('value',
+                       // success
+                       function (snap) {
+                           // add it to the merged data
+                           extend(mergedObject, snap.val());
+                           
+                           // when all paths have resolved, we invoke
+                           // the callback (jQuery.when would be handy here)
+                           if (++returnCount === expectedCount) {
+                               callback(null, mergedObject);
+                           }
+                       },
+                       // error
+                       function (error) {
+                           returnCount = expectedCount + 1; // abort counters
+                           callback(error, null);
+                       }
+                   );
+               });
+           }
+
+           function loadUser(userId) {
+               joinPaths(userId, ['usercourses', 'courses'], show);
+           }
+
+           function show(error, obj) {
+               var test = $('pre').text(error || JSON.stringify(obj, null, 2));
+                console.log(test);
+
+           }
+
+           function listUsers() {
+               var $ul = $('ul');
+               fb.child('user').on('child_added', function (snap) {
+                   $('<li></li>').appendTo($ul).append( buildLink(snap) );
+               });
+           }
+
+           function buildLink(snap) {
+               return $('<a href="#"></a>')
+                   .attr('data-id', snap.name())
+                   .text(snap.val().name)
+                   .on('click', function(e) {
+                       e.preventDefault();
+                       loadUser($(this).attr('data-id'));
+                   });
+           }
+
+           function extend(base) {
+               var parts = Array.prototype.slice.call(arguments, 1);
+               parts.forEach(function (p) {
+                   if (p && typeof (p) === 'object') {
+                       for (var k in p) {
+                           if (p.hasOwnProperty(k)) {
+                               base[k] = p[k];
+                           }
+                       }
+                   }
+               });
+               return base;
+           }
+      console.log();
+
+           // ref.once('value', function(userSnap) {
+           //    coursesRef.child('0').once('value', function(mediaSnap) {
+           //        // extend function: https://gist.github.com/katowulf/6598238
+           //        console.log( extend({}, userSnap.val(), mediaSnap.val()) );
+           //    });
+           // });
+
+   }]);
 
 angular.module('myApp').controller('OthersInCourseCtrl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
      function($scope, $rootScope, $firebaseArray, $routeParams) {
       var coursesRef = new Firebase('https://nsf-class-selector.firebaseio.com/usercourses/').child($routeParams.courseID);
       $scope.othersInCourse =  $firebaseArray(coursesRef);
-      
+
 }]);
 angular.module('myApp').controller('userCoursesCtrl', ['$scope','$rootScope', '$firebaseObject', '$routeParams',
      function($scope, $rootScope, $firebaseObject, $routeParams) {
@@ -291,9 +339,6 @@ angular.module('myApp').controller('UsersCourseList', ['$scope','$rootScope','$f
               });
               $scope.othersUserCourses = $firebaseObject(ref);
           }]);
-
-
-
 
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.
