@@ -244,86 +244,26 @@ angular.module('myApp').controller('addCoursetoFB', ['$scope','$rootScope','$fir
       
   ]);
 
-angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseObject',
-     function($scope, $rootScope, $firebaseObject) {
-           
-           var fb = new Firebase("https://nsf-class-selector.firebaseio.com/");
+angular.module('myApp').controller('coursesByUserCrtl', ['$scope','$rootScope', '$firebaseArray', '$routeParams',
+     function($scope, $rootScope, $firebaseArray, $routeParams) {
+       // var fb = new Firebase("https://nsf-class-selector.firebaseio.com/");
 
-           function joinPaths(id, paths, callback) {
-               var returnCount = 0;
-               var expectedCount = paths.length;
-               var mergedObject = {};
 
-               paths.forEach(function (p) {
-                   fb.child(p + '/' + id).once('value',
-                       // success
-                       function (snap) {
-                           // add it to the merged data
-                           extend(mergedObject, snap.val());
-                           
-                           // when all paths have resolved, we invoke
-                           // the callback (jQuery.when would be handy here)
-                           if (++returnCount === expectedCount) {
-                               callback(null, mergedObject);
-                           }
-                       },
-                       // error
-                       function (error) {
-                           returnCount = expectedCount + 1; // abort counters
-                           callback(error, null);
-                       }
-                   );
-               });
-           }
+        var fb = new Firebase("https://nsf-class-selector.firebaseio.com");
+       var ref = new Firebase.util.NormalizedCollection(
+          fb.child("/usercourses"),
+          fb.child("/courses")
+        ).select(
+          "usercourses.name",
+          "usercourses.style",
+          {"key":"courses.$value","alias":"courses"}
+        ).ref();
 
-           function loadUser(userId) {
-               joinPaths(userId, ['usercourses', 'courses'], show);
-           }
+        // $scope.lastRegisteredStudents = $firebaseObject( normRegisteredStudens );
+        $scope.coursesWithFellows = $firebaseArray(ref);
+            console.log($scope.coursesWithFellows);
 
-           function show(error, obj) {
-               var test = $('pre').text(error || JSON.stringify(obj, null, 2));
-                console.log(test);
 
-           }
-
-           function listUsers() {
-               var $ul = $('ul');
-               fb.child('user').on('child_added', function (snap) {
-                   $('<li></li>').appendTo($ul).append( buildLink(snap) );
-               });
-           }
-
-           function buildLink(snap) {
-               return $('<a href="#"></a>')
-                   .attr('data-id', snap.name())
-                   .text(snap.val().name)
-                   .on('click', function(e) {
-                       e.preventDefault();
-                       loadUser($(this).attr('data-id'));
-                   });
-           }
-
-           function extend(base) {
-               var parts = Array.prototype.slice.call(arguments, 1);
-               parts.forEach(function (p) {
-                   if (p && typeof (p) === 'object') {
-                       for (var k in p) {
-                           if (p.hasOwnProperty(k)) {
-                               base[k] = p[k];
-                           }
-                       }
-                   }
-               });
-               return base;
-           }
-      console.log();
-
-           // ref.once('value', function(userSnap) {
-           //    coursesRef.child('0').once('value', function(mediaSnap) {
-           //        // extend function: https://gist.github.com/katowulf/6598238
-           //        console.log( extend({}, userSnap.val(), mediaSnap.val()) );
-           //    });
-           // });
 
    }]);
 
