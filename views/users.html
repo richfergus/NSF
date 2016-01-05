@@ -8,13 +8,14 @@
 	        			<table st-table="courses" class="table table-hover" id="mytable">
 	        				<thead style="background-color: #f9f9f9;">
 	        				<tr>
-	        					<th>Name</th>
+	        					<th></th>
+	        					<th>Fellow Name</th>
 	        				</tr>
 	        				</thead>
 	        				<tbody>
 	        				<!-- <tbody sortable> -->
 		        				<tr id="{{person.id}}" ng-repeat="person in fellows | orderBy:'lastname'">
-		        					<td>{{person.firstname}}</td>
+		        					<td>{{$index+1}}</td>
 		        					<td> <a ng-href="#/courses/{{person.regUser}}">{{person.firstname}} {{person.lastname}}</a></td>
 <!-- 		        					<td align="center" style="vertical-align:middle; text-align: center;">
 		        					</td> -->
