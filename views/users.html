@@ -14,6 +14,7 @@
 	        				<tbody>
 	        				<!-- <tbody sortable> -->
 		        				<tr id="{{person.id}}" ng-repeat="person in fellows | orderBy:'lastname'">
+		        					<td>{{person.firstname}}</td>
 		        					<td> <a ng-href="#/courses/{{person.regUser}}">{{person.firstname}} {{person.lastname}}</a></td>
 <!-- 		        					<td align="center" style="vertical-align:middle; text-align: center;">
 		        					</td> -->
